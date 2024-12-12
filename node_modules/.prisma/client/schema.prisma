@@ -1,0 +1,61 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  phone    String  @unique
+  phoneRow String  @unique
+  name     String?
+
+  createdAt DateTime @default(now())
+
+  balance      Int
+  transactions Transaction[]
+}
+
+model Admin {
+  id           Int    @id @default(autoincrement())
+  login        String @unique
+  passwordHash String
+
+  createdAt DateTime @default(now())
+}
+
+model SmsCode {
+  id        Int      @id @default(autoincrement())
+  userPhone String   @unique
+  otp       Int
+  createdAt DateTime @default(now())
+}
+
+model Transaction {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  createdAt DateTime @default(now())
+  balance   Int
+  type      String
+}
+
+model Photo {
+  id    Int    @id @default(autoincrement())
+  url   String
+  Car   Car?   @relation(fields: [carId], references: [id])
+  carId Int?
+}
+
+model Car {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  img         String
+  createdAt   DateTime @default(now())
+  photos      Photo[]
+}
