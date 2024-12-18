@@ -1,9 +1,6 @@
-@import "var";
-
+@use 'assets/var' as *;
 
 .nuxt-icon {
-
-
   svg {
     margin-bottom: 0;
     vertical-align: middle;
