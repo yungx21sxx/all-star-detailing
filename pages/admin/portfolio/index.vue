@@ -95,10 +95,14 @@ const savePortfolioItem = async () => {
 
 
 const deleteCar = async (id: number) => {
-	await useFetch(`/api/portfolio/${id}`, {
-		method: 'DELETE'
-	})
-	await refreshNuxtData('portfolio')
+	try {
+		await $fetch(`/api/portfolio/${id}`, {
+			method: 'DELETE'
+		})
+		await refreshNuxtData('portfolio')
+	} catch (e) {
+		alert('Ошибка удаления')
+	}
 }
 
 definePageMeta({

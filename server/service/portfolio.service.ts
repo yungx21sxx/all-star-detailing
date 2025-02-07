@@ -5,6 +5,8 @@ import path from "path";
 import fs from "fs";
 import {fileURLToPath} from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.resolve(path.dirname(__filename), "../../");
 
 class PortfolioService {
     async getPortfolio() {
@@ -60,39 +62,39 @@ class PortfolioService {
     }
 
     async removeCar(id: number) {
-        try {
-            const portfolioItem = await prisma.car.findUnique({
-                where: {id},
-                include: {photos: true},
-            })
 
-            if (!portfolioItem) {
-                return null;
-            }
+        const portfolioItem = await prisma.car.findUnique({
+            where: {id},
+            include: {photos: true},
+        })
 
-            let uploadDir = ''
-            if (process.env.NODE_ENV === 'development') {
-                uploadDir = './uploads'
-            } else {
-                uploadDir = path.join(__dirname, './uploads');
-            }
-
-            for (const photo of portfolioItem.photos) {
-                const filePathFull = uploadDir + '/' + photo.urlFull.split('/')[2];
-                const filePathMin = uploadDir + '/' + photo.urlMin.split('/')[2];
-                if (!fs.existsSync(filePathFull) || !fs.existsSync(filePathMin)) {
-                    continue;
-                }
-                fs.rmSync(filePathFull)
-                fs.rmSync(filePathMin)
-            }
-            return prisma.car.delete({
-                where: {id}
-            })
-
-        } catch (e) {
-            console.error(e)
+        if (!portfolioItem) {
+            return createError({
+                message: 'Ошибка удаления',
+                statusCode: 404
+            });
         }
+
+        let uploadDir = ''
+        if (process.env.NODE_ENV === 'development') {
+            uploadDir = './uploads'
+        } else {
+            uploadDir = path.join(__dirname, './uploads');
+        }
+
+        for (const photo of portfolioItem.photos) {
+            const filePathFull = uploadDir + '/' + photo.urlFull.split('/')[2];
+            const filePathMin = uploadDir + '/' + photo.urlMin.split('/')[2];
+            if (!fs.existsSync(filePathFull) || !fs.existsSync(filePathMin)) {
+                continue;
+            }
+            fs.rmSync(filePathFull)
+            fs.rmSync(filePathMin)
+        }
+        return prisma.car.delete({
+            where: {id}
+        })
+
     }
 
      async updateCar(dto: PortfolioItemUpdateDTO){
