@@ -1,15 +1,35 @@
 import {H3Event} from "h3";
 import portfolioService from "~/server/service/portfolio.service";
 import {PortfolioItemUpdateDTO} from "~/types/dto";
+import {prisma} from "~/server/service/prisma.service";
 
 export default defineEventHandler(async (event: H3Event) => {
-	const car = await readBody<PortfolioItemUpdateDTO>(event)
-	const portfolioItem = await portfolioService.updateCar(car)
-	if (!portfolioItem) {
-		return createError({
-			message: "",
-			statusCode: 400
+	const dto = await readBody<PortfolioItemUpdateDTO>(event)
+	const {photos, date, description, name} = dto;
+
+	for (const [index, photo] of photos.entries()) {
+		await prisma.photo.update({
+			where: {
+				id: photo.photoId
+			},
+			data: {
+				position: index
+			}
 		})
 	}
-	return portfolioItem
+
+	return prisma.car.update({
+		where: {
+			id: dto.id
+		},
+		data: {
+			photos: {
+				connect: photos.map(photo => ({id: photo.photoId})),
+			},
+			date: new Date(date).toISOString(),
+			name,
+			description,
+		}
+	})
+
 })

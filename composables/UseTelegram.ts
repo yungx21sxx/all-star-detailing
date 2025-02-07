@@ -3,8 +3,8 @@ export default () => {
 	const chatID = -1002495293643;
 	const getUrl = (text: string): string => `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${text}`
 	// @ts-ignore
-	const fetchForCallData = async ({phone, name}) => {
-		const text = `Клиент оставил заявку: %0A👶Имя: ${name} %0A📱Номер телефона: 8 ${phone}`
+	const fetchForCallData = async ({phone, name, question}) => {
+		const text = `Клиент оставил заявку на звонок: %0A👶Имя: ${name} %0A📱Номер телефона: 8 ${phone}%0A${question ? `Вопрос: ${question}` : ''}`
 		const url = getUrl(text)
 		return useFetch(url)
 	}

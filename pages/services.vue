@@ -1,7 +1,8 @@
 <script setup lang="ts">
-
-	const { services, servicesCustom } = useServices();
-	const { complexes } = useComplexes();
+	
+	import {services, servicesCustom} from "~/data/services.data";
+	import {complexes} from "~/data/complexes.data";
+	import {mdiChevronRight} from "@mdi/js";
 	
 	const allServices = [...servicesCustom, ...services];
 	
@@ -27,7 +28,7 @@
 				:items="breadcrumbs"
 			>
 				<template v-slot:divider>
-					<v-icon color="#D19D34" icon="mdi-chevron-right"></v-icon>
+					<v-icon color="#f1aa34" :icon="mdiChevronRight"></v-icon>
 				</template>
 			</VBreadcrumbs>
 			<h1 class="title services__title">Наши услуги</h1>

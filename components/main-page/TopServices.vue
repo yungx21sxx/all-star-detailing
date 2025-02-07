@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { services, servicesCustom } from '~/data/services.data'
 
-const { services, servicesCustom } = useServices()
 
 const topServices = [...servicesCustom, ...services].splice(0, 6)
 
@@ -19,7 +19,7 @@ const topServices = [...servicesCustom, ...services].splice(0, 6)
 			    />
 		    </div>
 		    <div class="btn-container">
-			    <v-btn href="/services" variant="flat" color="#D19D34" width="250px" class="services__btn">Смотреть все</v-btn>
+			    <v-btn href="/services" variant="flat" color="#f1aa34" width="250px" class="services__btn">Смотреть все</v-btn>
 		    </div>
 	    </div>
 
@@ -30,7 +30,7 @@ const topServices = [...servicesCustom, ...services].splice(0, 6)
 
 <style scoped lang="scss">
     .top-services {
-	    margin-top: 32px;
+	    margin-top: 48px;
 	    &__subtitle {
 		    font-size: 20px;
 		    text-align: center;

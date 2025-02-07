@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 	import type {IPriceTable} from "~/types/client";
+	import {mdiChevronDoubleRight} from "@mdi/js";
 	
 	const {isMobileOrTablet} = useDevice()
 	
@@ -78,12 +79,12 @@
 			
 			</div>
 <!--			<div class="price__scroll-icon">-->
-<!--				<v-icon v-if="!isScrollStarted && isMobileOrTablet" color="#c93" icon="mdi-chevron-right" variant="tonal" size="x-large" class="price__icon"></v-icon>-->
+<!--				<v-icon v-if="!isScrollStarted && isMobileOrTablet" color="#f1aa34" icon="mdi-chevron-right" variant="tonal" size="x-large" class="price__icon"></v-icon>-->
 <!--			</div>-->
 		</div>
 		<div class="price__scroll-info mt-4" v-if="isMobileOrTablet">
 			<span>Листайте вправо</span>
-			<v-icon color="#c93">mdi-chevron-double-right</v-icon>
+			<v-icon color="#f1aa34" :icon="mdiChevronDoubleRight"></v-icon>
 		</div>
 		
 	</div>

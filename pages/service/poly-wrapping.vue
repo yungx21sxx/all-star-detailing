@@ -4,8 +4,9 @@
 	import PriceTable from "~/components/service-page/PriceTable.vue";
 	import Review from "~/components/main-page/Review.vue";
 	import BonusProgram from "~/components/main-page/BonusProgram.vue";
-	
-	const { PRICE_TABLE } = useServices();
+	import {PRICE_TABLE} from "~/data/services.data";
+	import {mdiArrowRight} from "@mdi/js";
+
 	const { isMobileOrTablet } = useDevice();
 	
 	const { openSubmitModal } = useModal();
@@ -50,7 +51,7 @@
 					<header class="banner__content" v-motion-slide-visible-once-left>
 						<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
 							<span>Смотреть цены</span>
-							<v-icon class="btn__icon">mdi-arrow-right</v-icon>
+							<v-icon class="btn__icon" :icon="mdiArrowRight"></v-icon>
 						</div>
 						<h1 class="banner__title">ОКЛЕЙКА АВТО ПОЛИУРЕТАНОВОЙ ПЛЕНКОЙ</h1>
 						<p class="banner__text">
@@ -60,7 +61,7 @@
 <!--								<div class="banner__price">от 55 000 ₽ </div>-->
 <!--								<div class="banner__time">Выполним за 2 дня</div>-->
 <!--							</div>-->
-						<v-btn variant="flat" class="banner__btn" color="#c93" @click="openSubmitModal('Оклейка полиуритановой пленкой')">Записаться на услугу</v-btn>
+						<v-btn variant="flat" class="banner__btn" color="#f1aa34" @click="openSubmitModal('Оклейка полиуритановой пленкой')">Записаться на услугу</v-btn>
 					</header>
 					
 				</section>

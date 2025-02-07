@@ -138,3 +138,7 @@ body {
     margin-bottom: 8px;
   }
 }
+
+.v-timeline-item__body {
+  align-self: flex-start !important;
+}

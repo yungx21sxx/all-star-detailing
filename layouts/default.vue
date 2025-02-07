@@ -1,7 +1,9 @@
 <template>
 	<v-app>
-		<MenuMobile v-if="isMobile || isTablet"/>
-		<MenuDesktop v-else/>
+<!--		<MenuMobile v-if="isMobile || isTablet"/>-->
+<!--		<MenuDesktop v-else/>-->
+		<MenuMain/>
+		<MenuFixed/>
 		<div class="main">
 			<slot/>
 		</div>
@@ -11,7 +13,7 @@
 <!--					<v-btn-->
 <!--						class="static-menu__btn"-->
 <!--						:icon="!props.value ? 'mdi-phone' : 'mdi-close'"-->
-<!--						color="#c93"-->
+<!--						color="#f1aa34"-->
 <!--						v-bind="props"-->
 <!--						value="Позвонить"-->
 <!--					/>-->
@@ -60,7 +62,7 @@
 		}
 		
 		&.active span {
-			color: #D19D34;
+			color: #f1aa34;
 		}
 	}
 	

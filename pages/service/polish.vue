@@ -3,13 +3,14 @@
 	import BonusProgram from "~/components/main-page/BonusProgram.vue";
 	import Review from "~/components/main-page/Review.vue";
 	import PriceTable from "~/components/service-page/PriceTable.vue";
+	import {PRICE_TABLE} from "~/data/services.data";
+	import {mdiArrowRight} from "@mdi/js";
 	
 	useSeoMeta({
 		title: 'Полировка кузова автомобиля в СПб: глубокая полировка, корекция царапин.',
 		description: 'Профессиональная полировка кузова автомобиля. Верните своему автомобилю первозданный вид All Star Detailing. Востановительная и глубокая полировка: цена от 15 000 ₽'
 	})
 	
-	const { PRICE_TABLE } = useServices();
 	const { isMobileOrTablet } = useDevice();
 	const {openSubmitModal} = useModal();
 	
@@ -45,7 +46,7 @@
 					<header class="banner__content" v-motion-slide-visible-once-right>
 						<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
 							<span>Смотреть цены</span>
-							<v-icon class="btn__icon">mdi-arrow-right</v-icon>
+							<v-icon class="btn__icon" :icon="mdiArrowRight"></v-icon>
 						</div>
 						<h1 class="banner__title">Полировка кузова <br>в Санкт-Петербурге</h1>
 						<p class="banner__text">
@@ -56,7 +57,7 @@
 							<div class="banner__price">от 15 000 ₽ </div>
 							<div class="banner__time">Выполним за 2 дня</div>
 						</div>
-						<v-btn variant="flat" color="#c93" @click="openSubmitModal('Полировка кузова')">Записаться на услугу</v-btn>
+						<v-btn variant="flat" color="#f1aa34" @click="openSubmitModal('Полировка кузова')">Записаться на услугу</v-btn>
 					</header>
 				</section>
 				<div class="banner__bottom">

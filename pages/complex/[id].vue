@@ -1,9 +1,10 @@
 <script setup lang="ts">
-	const { complexes } = useComplexes()
+	import {complexes} from "~/data/complexes.data";
+	import {mdiChevronRight} from "@mdi/js";
+	
 	const { openSubmitModal } = useModal()
 	const route = useRoute()
 	const complexId = route.params.id
-	
 	
 	const complex = complexes.find(i => i.id === complexId)
 	const breadcrumbs = [
@@ -33,7 +34,7 @@
 		
 		>
 			<template v-slot:divider>
-				<v-icon color="#D19D34" icon="mdi-chevron-right"></v-icon>
+				<v-icon color="#f1aa34" :icon="mdiChevronRight"></v-icon>
 			</template>
 		</VBreadcrumbs>
 		<div v-html="complex.description" class="server-html complex"></div>
@@ -45,7 +46,7 @@
 			<div class="complex__time">
 				<span>Выполним за: </span>{{ complex.time }}
 			</div>
-			<v-btn color="#D19D34" @click="openSubmitModal(complex.title)">Записаться на комплекс</v-btn>
+			<v-btn color="#f1aa34" @click="openSubmitModal(complex.title)">Записаться на комплекс</v-btn>
 		</div>
 		<div class="complex__price">
 		
@@ -79,7 +80,7 @@
 			}
 			
 			&_current {
-				color: #D19D34;
+				color: #f1aa34;
 			}
 		}
 	}

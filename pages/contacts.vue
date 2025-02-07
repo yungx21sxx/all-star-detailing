@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ContactsBlock from "~/components/ContactsBlock.vue";
+import {mdiChevronRight} from "@mdi/js";
 
 const {openSubmitModal} = useModal();
 const breadcrumbs = [
@@ -45,7 +46,7 @@ const menuLinks = [
 		
 		>
 			<template v-slot:divider>
-				<v-icon color="#D19D34" icon="mdi-chevron-right"></v-icon>
+				<v-icon color="#f1aa34" :icon="mdiChevronRight"></v-icon>
 			</template>
 		</VBreadcrumbs>
 		<ContactsBlock/>
@@ -82,7 +83,7 @@ const menuLinks = [
 		}
 		
 		&.active span {
-			color: #D19D34;
+			color: #f1aa34;
 		}
 	}
 }
@@ -126,7 +127,7 @@ const menuLinks = [
 			display: block;
 			
 			&_orange {
-				color: #D19D34;
+				color: #f1aa34;
 			}
 		}
 		

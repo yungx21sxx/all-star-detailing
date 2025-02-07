@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {mdiLogout, mdiPencil} from "@mdi/js";
+	
 	const { modalLkIsOpen, closeLkModal } = useModal();
 	const authUser = useAuthUser();
 	const { me } = useAuth()
@@ -25,7 +27,7 @@
 				<div class="lk__info">
 					{{ authUser.phone }}
 				</div>
-				<v-icon color="#c93">mdi-pencil</v-icon>
+				<v-icon color="#f1aa34" :icon="mdiPencil"></v-icon>
 			</div>
 		</div>
 		<div class="lk__block lk__block_inline">
@@ -34,7 +36,7 @@
 				{{ authUser.balance }} бонусов
 			</div>
 		</div>
-		<v-btn class="mt-4" @click="logout" prepend-icon="mdi-logout">Выйти из аккаунта</v-btn>
+		<v-btn class="mt-4" @click="logout" :prepend-icon="mdiLogout">Выйти из аккаунта</v-btn>
 	</div>
 </ModalLayout>
 

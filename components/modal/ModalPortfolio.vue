@@ -45,7 +45,7 @@
         &__title {
             font-size: 20px;
 	        margin-top: 16px;
-            color: #D19D34;
+            color: #f1aa34;
         }
 
         &__text {

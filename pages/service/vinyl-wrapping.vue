@@ -5,8 +5,9 @@ import WrappingAdv from "~/components/service-page/WrappingAdv.vue";
 import PriceTable from "~/components/service-page/PriceTable.vue";
 import Review from "~/components/main-page/Review.vue";
 import BonusProgram from "~/components/main-page/BonusProgram.vue";
+import {PRICE_TABLE} from "~/data/services.data";
+import {mdiArrowRight} from "@mdi/js";
 
-const { PRICE_TABLE } = useServices();
 const { isMobileOrTablet } = useDevice();
 const {openSubmitModal} = useModal();
 
@@ -47,13 +48,13 @@ const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serv
 					<header class="banner__content" v-motion-slide-visible-once-left>
 						<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
 							<span>Смотреть цены</span>
-							<v-icon class="btn__icon">mdi-arrow-right</v-icon>
+							<v-icon class="btn__icon" :icon="mdiArrowRight"></v-icon>
 						</div>
 						<h1 class="banner__title">ОКЛЕЙКА АВТО ВИНИЛОВОЙ ПЛЕНКОЙ</h1>
 						<p class="banner__text">
 							Возможность придать индивидуальность вашему авто, а также защитить его от царапин и повреждений.
 						</p>
-						<v-btn  variant="flat" color="#c93" @click="openSubmitModal('Оклейка виниловой пленкой')">Записаться на услугу</v-btn>
+						<v-btn  variant="flat" color="#f1aa34" @click="openSubmitModal('Оклейка виниловой пленкой')">Записаться на услугу</v-btn>
 					</header>
 				</section>
 				<div class="banner__bottom">

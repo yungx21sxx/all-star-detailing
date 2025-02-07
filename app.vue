@@ -1,11 +1,13 @@
 <template>
- 
+    <NuxtLoadingIndicator color="#f1aa34"/>
     <NuxtLayout>
         <NuxtPage />
+	    <ModalSubmit/>
+	    <ModalLogin/>
+	    <ModalLKPage/>
+	    <MenuMobileModal/>
     </NuxtLayout>
-    <ModalSubmit/>
-	<ModalLogin/>
-	<ModalLKPage/>
+
 </template>
 
 <script setup lang="ts">

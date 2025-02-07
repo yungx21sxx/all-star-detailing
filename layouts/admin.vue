@@ -7,15 +7,15 @@
 			v-model="currentPage"
 		>
 			<v-btn value="clients" href="/">
-				<v-icon>mdi-home</v-icon>
+				<v-icon :icon="mdiHome"></v-icon>
 				<span>Назад</span>
 			</v-btn>
 			<v-btn value="clients" href="/admin/clients" :active=" route.fullPath === '/admin/clients' ">
-				<v-icon>mdi-account-edit</v-icon>
+				<v-icon :icon="mdiAccountEdit"></v-icon>
 				<span>Пользователи</span>
 			</v-btn>
 			<v-btn value="portfolio" href="/admin/portfolio" :active=" route.fullPath === '/admin/portfolio' ">
-				<v-icon>mdi-car</v-icon>
+				<v-icon :icon="mdiCar"></v-icon>
 				<span>Портфолио</span>
 			</v-btn>
 			
@@ -27,6 +27,8 @@
 
 <script setup lang="ts">
 
+import {mdiAccountEdit, mdiCar, mdiHome} from "@mdi/js";
+	
 	const { me } = useAuth()
 	
 	const route = useRoute();

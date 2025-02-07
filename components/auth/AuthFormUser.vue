@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import type {UserLoginDTO} from "~/types/dto";
+	import {mdiAccountCheckOutline, mdiCarWash, mdiCashPlus} from "@mdi/js";
 	
 	const { login, setUser } = useAuth();
 	const { closeLoginModal } = useModal();
@@ -133,8 +134,8 @@
 				<PhoneInput v-model="phone" class="form__phone-input" @update-row-value="getPhoneRow"/>
 				<p class="form__error mb-4" v-if="createOTPError !== ''">{{ createOTPError }}</p>
 			
-				<v-btn class="form__confirm-btn" @click="createOTP" color="#c93">Получить СМС</v-btn>
-				<v-btn class="form__btn-next" @click="nextStep" variant="tonal" color="#c93">Уже есть код?</v-btn>
+				<v-btn class="form__confirm-btn" @click="createOTP" color="#f1aa34">Получить СМС</v-btn>
+				<v-btn class="form__btn-next" @click="nextStep" variant="tonal" color="#f1aa34">Уже есть код?</v-btn>
 				<v-btn @click="currentStep = 3" variant="text"  class="form__btn-next">Узнать подробности</v-btn>
 			</v-window-item>
 			
@@ -142,7 +143,7 @@
 				<div class="form__otp">
 					<p class="form__description form__phone-info">
 						Код отправлен на номер: +7 {{ phone !== '' ? phone : phoneFromCache }}. <br> Действителен в течении 5 минут.<br>
-						<v-btn variant="text" color="#c93" class="form__confirm-btn" @click="resetPhone">Изменить номер</v-btn>
+						<v-btn variant="text" color="#f1aa34" class="form__confirm-btn" @click="resetPhone">Изменить номер</v-btn>
 					</p>
 					<v-otp-input class="form__otp-input" v-model="otp"/>
 					<div class="form__otp-error">
@@ -152,9 +153,9 @@
 						
 					</div>
 					<p class="form__count-down" v-if="countdown > 1">Новый код можно запрсить через: {{ countdown }}</p>
-					<v-btn variant="text" color="#c93" class="form__confirm-btn" v-else @click="resetOtp">Запросить новый код</v-btn>
+					<v-btn variant="text" color="#f1aa34" class="form__confirm-btn" v-else @click="resetOtp">Запросить новый код</v-btn>
 				
-					<v-btn @click="loginConfirm" class="form__confirm-btn mt-4" color="#c93">Подтвердить код</v-btn>
+					<v-btn @click="loginConfirm" class="form__confirm-btn mt-4" color="#f1aa34">Подтвердить код</v-btn>
 				
 				</div>
 				
@@ -169,15 +170,16 @@
 						class="bonus__timeline"
 						side="end"
 						align="start"
-						:direction="isMobile ? 'vertical' : 'horizontal'"
+						style="margin-left: -16px;"
+						direction="vertical"
 					>
 						<v-timeline-item
 							class="timeline-item"
 							size="large"
 							fill-dot
-							dot-color="#D19D34"
+							dot-color="#f1aa34"
 							:height="isMobile ? '' : '150px'"
-							icon="mdi-account-check-outline"
+							:icon="mdiAccountCheckOutline"
 						>
 							
 							<h3 class="bonus__subtitle_orange">Зарегестрируйтесь у нас на сайте</h3>
@@ -186,9 +188,9 @@
 						<v-timeline-item
 							fill-dot
 							size="large"
-							dot-color="#D19D34"
+							dot-color="#f1aa34"
 							:height="isMobile ? '' : '150px'"
-							icon="mdi-car-wash"
+							:icon="mdiCarWash"
 						>
 							<h3 class="bonus__subtitle_orange">Запишитесь к нам на услуги</h3>
 							<p>После того как мы выполним свою работу, вернем 5% от суммы оказаных услуг в виде боннусов.</p>
@@ -196,15 +198,15 @@
 						<v-timeline-item
 							fill-dot
 							size="large"
-							dot-color="#D19D34"
+							dot-color="#f1aa34"
 							:height="isMobile ? '' : '150px'"
-							icon="mdi-cash-plus"
+							:icon="mdiCashPlus"
 						>
 							<h3 class="bonus__subtitle_orange">Оплачивайте бонусами</h3>
 							<p>Когда вернетесь к нам снова, сможете оплатить ими любые наши услуги.</p>
 						</v-timeline-item>
 					</v-timeline>
-					<v-btn @click="currentStep = 1" class="bonus__btn" variant="flat" color="#D19D34">Зарегестрироваться</v-btn>
+					<v-btn @click="currentStep = 1" class="bonus__btn" variant="flat" color="#f1aa34">Зарегестрироваться</v-btn>
 				</div>
 			</v-window-item>
 		</v-window>
@@ -255,7 +257,7 @@
 		&__subtitle {
 			font-size: 20px;
 			&_orange {
-				color: #D19D34;
+				color: #f1aa34;
 			}
 			&_white {
 				margin-bottom: 24px;

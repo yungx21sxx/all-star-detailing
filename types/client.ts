@@ -21,15 +21,18 @@ interface ISEOInfo {
   description: string
 }
 export interface IService {
-  id: string,
-  title: string,
-  name: string,
-  description: JSX.Element,
-  img: string,
-  position: number,
-  price: Price,
-  photos: string[],
-  time: string,
+  id: string;
+  title: string;
+  description: string;
+  time: string;
+  type?: string;
+  position: number;
+  img: string;
+  price: {
+    text: string;
+    value: number;
+  };
+  photos: string[];
   seo?: ISEOInfo
 }
 
@@ -38,10 +41,9 @@ export interface IComplex {
   title: string,
   included: string[],
   description: string,
-  img: string,
   price: PriceSale,
-  photos: string[],
-  time: string
+  time: string,
+  seo?: ISEOInfo
 }
 
 interface Photo {
@@ -69,6 +71,7 @@ interface PriceSale {
   previous: string,
   current: string
 }
+
 
 
 

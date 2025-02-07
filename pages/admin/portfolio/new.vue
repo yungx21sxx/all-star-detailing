@@ -15,7 +15,7 @@
 		<FileUploader v-model="car.photos"/>
 		<v-divider class="mt-4"/>
 		<p class="mt-4">Добавьте если все заполнили и загрузили</p>
-		<v-btn :loading="loading" class="mt-10" type="submit" color="#c93">Добавить в портфолио</v-btn>
+		<v-btn :loading="loading" class="mt-10" type="submit" color="#f1aa34">Добавить в портфолио</v-btn>
 	</v-form>
 </template>
 

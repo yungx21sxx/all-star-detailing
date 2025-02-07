@@ -1,14 +1,14 @@
 <script setup lang="ts">
 	import useTelegram from "~/composables/UseTelegram";
+	import {services, servicesCustom} from "~/data/services.data";
+	import {complexes} from "~/data/complexes.data";
+	import {sleep} from "@antfu/utils";
 	
 	const form = ref(null);
 	
 	const {closeSubmitModal, modalSubmitIsOpen, useCurrentService} = useModal();
 	
 	const currentService = useCurrentService()
-	
-	const {services, servicesCustom} = useServices();
-	const {complexes} = useComplexes();
 	
 	const {fetchForCallData, fetchForRegistrationData} = useTelegram()
 	
@@ -46,37 +46,54 @@
 	}
 	const formDataRequestForCallDefault = {
 		phone: '',
-		name: ''
+		name: '',
+		question: null
 	}
+	
+	const requestComplete = ref(false);
 	
 	let formDataSubmit = ref({...formDataSubmitDefault});
 	let formDataRequestForCall = ref({...formDataRequestForCallDefault})
 	
 	
 	const type = ref<number>(1);
-	const btnText = ref('Отправить заявку')
 	
-	function completeRequest() {
-		btnText.value = 'Заявка отправлена'
-		setTimeout(() => {
-			formDataRequestForCall.value = {...formDataRequestForCallDefault}
-			formDataSubmit.value = {...formDataSubmitDefault}
-			btnText.value = 'Отправить заявку'
-			closeSubmitModal()
-		}, 400)
+	const loading = ref(false);
+	
+	
+	const onClose = () => {
+		requestComplete.value = false;
+		formDataSubmit.value = {...formDataSubmitDefault};
+		formDataRequestForCall.value = {...formDataRequestForCallDefault};
+		closeSubmitModal();
 	}
 	
 	async function requestForSubmit() {
 		const { valid } = await form.value.validate();
 		if (!valid || !currentService.value) return;
 		const {date, phone, name} = formDataSubmit.value;
-		await fetchForRegistrationData(date, phone, name, currentService.value)
-		completeRequest()
+		try {
+			loading.value = true
+			await fetchForRegistrationData(date, phone, name, currentService.value);
+			requestComplete.value = true;
+		} catch (e) {
+			console.log('Ошибка отправки заявки', e)
+		} finally {
+			loading.value = false
+		}
+	
 	}
 	
 	async function requestForCall() {
-		await fetchForCallData(formDataRequestForCall.value)
-		completeRequest()
+		try {
+			loading.value = true;
+			await fetchForCallData(formDataRequestForCall.value);
+			requestComplete.value = true;
+		} catch (e) {
+			console.log('Ошибка отправки заявки', e)
+		} finally {
+			loading.value = false
+		}
 	}
 	
 </script>
@@ -92,7 +109,7 @@
 	<v-tabs
 		v-model="type"
 		align-tabs="center"
-		color="#D19D34"
+		color="#f1aa34"
 		center-active
 	>
 		<v-tab :value="1">Записаться</v-tab>
@@ -101,8 +118,8 @@
 	<v-window v-model="type">
 		<v-window-item :value="1">
 			<v-form class="modal__form" @submit.prevent="requestForSubmit" ref="form">
-				<p class="modal__text">
-					Оставьте свои данные и напишите, что вас интересует. Вам перезвонит первый освободившийся специалист.
+				<p class="modal__text mt-4">
+					Оставьте свои данные, выберите услугу и дату. Вам перезвонит первый освободившийся специалист.
 				</p>
 				
 				<PhoneInput
@@ -117,7 +134,7 @@
 					variant="outlined"
 					density="compact"
 					v-model="formDataSubmit.name"
-					color="#c93"
+					color="#f1aa34"
 					:rules="[rules.required]"
 					class="mb-3"
 				></v-text-field>
@@ -128,7 +145,7 @@
 					item-title="title"
 					variant="outlined"
 					density="compact"
-					color="#c93"
+					color="#f1aa34"
 					v-model="currentService"
 					class="mb-3"
 					:rules="[rules.required]"
@@ -154,17 +171,34 @@
 				<v-btn
 					block
 					class="modal__btn"
-					color="#D19D34"
-					size="large"
+					color="#f1aa34"
 					type="submit"
+					v-if="!requestComplete"
+					:loading="loading"
 				>
-					{{ btnText }}
+					Отправить заявку
 				</v-btn>
+				<div class="modal__complete" v-else>
+					<v-alert
+						type="success"
+						title="Заявка отправлена"
+						text="В ближайшее время с Вами свяжется наш специалист"
+					></v-alert>
+					<v-btn
+						block
+						class="modal__btn mt-4"
+						color="#f1aa34"
+						variant="tonal"
+						@click="onClose"
+					>
+						Закрыть
+					</v-btn>
+				</div>
 			</v-form>
 		</v-window-item>
 		<v-window-item :value="2">
 			<form class="modal__form" @submit.prevent="requestForCall">
-				<p class="modal__text">
+				<p class="modal__text mt-4">
 					Оставьте свои данные и напишите, что вас интересует. Вам перезвонит первый
 					освободившийся специалист.
 				</p>
@@ -180,15 +214,38 @@
 					v-model="formDataRequestForCall.phone"
 					required
 				/>
+				<v-textarea
+					label="Вопрос (необязательно)"
+					variant="outlined"
+					density="compact"
+					v-model="formDataRequestForCall.question"
+				/>
 				<v-btn
 					block
 					class="modal__btn"
-					color="#D19D34"
-					size="large"
+					color="#f1aa34"
 					type="submit"
+					v-if="!requestComplete"
+					:loading="loading"
 				>
-					{{ btnText }}
+					Отправить заявку
 				</v-btn>
+				<div class="modal__complete" v-else>
+					<v-alert
+						type="success"
+						title="Заявка отправлена"
+						text="В ближайшее время с Вами свяжется наш специалист"
+					></v-alert>
+					<v-btn
+						block
+						class="modal__btn mt-4"
+						color="#f1aa34"
+						variant="tonal"
+						@click="onClose"
+					>
+						Закрыть
+					</v-btn>
+				</div>
 			</form>
 		</v-window-item>
 	</v-window>

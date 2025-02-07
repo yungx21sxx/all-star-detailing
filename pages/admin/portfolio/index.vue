@@ -3,7 +3,7 @@
 	<div class="wrapper clients">
 		<header class="clients__header">
 			<h2 class="clients__title">Портфолио работ</h2>
-			<v-btn color="#c93" class="clients__btn" href="/admin/portfolio/new">Добавить машину</v-btn>
+			<v-btn color="#f1aa34" class="clients__btn" href="/admin/portfolio/new">Добавить машину</v-btn>
 		</header>
 		<div class="clients__grid client">
 			<v-card
@@ -18,7 +18,7 @@
 				/>
 				<v-card-title class="client__title">{{name}}</v-card-title>
 				<v-card-actions>
-					<v-btn @click="openEditModal({id, description, name})" color="#c93">Редактировать</v-btn>
+					<v-btn :href="`/admin/portfolio/edit/${id}`" color="#f1aa34">Редактировать</v-btn>
 					<v-btn @click="deleteCar(id)" color="red">Удалить</v-btn>
 				</v-card-actions>
 			</v-card>
@@ -49,7 +49,7 @@
 		</v-card>
 		<v-btn
 			@click="savePortfolioItem"
-			color="#c93"
+			color="#f1aa34"
 			class="modal__btn"
 		>Сохранить</v-btn>
 
@@ -95,10 +95,14 @@ const savePortfolioItem = async () => {
 
 
 const deleteCar = async (id: number) => {
-	await useFetch(`/api/portfolio/${id}`, {
-		method: 'DELETE'
-	})
-	await refreshNuxtData('portfolio')
+	try {
+		await $fetch(`/api/portfolio/${id}`, {
+			method: 'DELETE'
+		})
+		await refreshNuxtData('portfolio')
+	} catch (e) {
+		alert('Ошибка удаления')
+	}
 }
 
 definePageMeta({

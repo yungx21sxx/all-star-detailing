@@ -50,7 +50,7 @@
 
 <style lang="scss" scoped>
     .adv {
-        margin-top: 32px;
+        margin-top: 48px;
         &__title {
 	        text-align: center;
             margin-bottom: 24px;

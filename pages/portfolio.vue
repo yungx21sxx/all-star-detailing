@@ -6,7 +6,7 @@
 		
 		>
 			<template v-slot:divider>
-				<v-icon color="#D19D34" icon="mdi-chevron-right"></v-icon>
+				<v-icon color="#f1aa34" :icon="mdiChevronRight"></v-icon>
 			</template>
 		</VBreadcrumbs>
 		<header class="clients__header">
@@ -15,7 +15,7 @@
 				Мы имеем огромный опыт в сфере детейлинга и только любящих нас клиентов. <br>
 				Чтобы узнать подробности о проделанной работе - кликнете по фото.
 			</h2>
-			<v-btn color="#c93" class="clients__btn mb-8" href="/admin/portfolio/new" v-if="isAdmin">Добавить машину</v-btn>
+			<v-btn color="#f1aa34" class="clients__btn mb-8" href="/admin/portfolio/new" v-if="isAdmin">Добавить машину</v-btn>
 		</header>
 		<div class="clients__grid grid">
 			<v-card
@@ -49,6 +49,7 @@
 
 <script setup lang="ts">
 import type { ICar } from "~/types/client"
+import {mdiChevronRight} from "@mdi/js";
 
 const isAdmin = useAdmin();
 
@@ -86,7 +87,7 @@ const openDialog = (car: ICar) => {
 	
 	&__car-name {
 		font-size: 18px;
-		color: #D19D34;
+		color: #f1aa34;
 		margin-bottom: 8px;
 		margin-right: 16px;
 		margin-left: 16px;

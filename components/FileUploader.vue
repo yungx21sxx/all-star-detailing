@@ -134,7 +134,7 @@ const deletePhoto = async (id: number) => {
 				:disabled="filesLoading"
 				@click="uploadPhotos()"
 				class="mb-4"
-				color="#c93"
+				color="#f1aa34"
 			>
 				Загрузить
 			</v-btn>
@@ -149,13 +149,13 @@ const deletePhoto = async (id: number) => {
 							cover
 							v-for="photo of photos"
 							:src="photo.urlMin"
-							:key="photo.id"
+							:key="photo.photoId"
 						>
 							<div class="image-control">
-								<v-btn class="delete-btn" color="red" icon="mdi-close" density="compact"  @click="deletePhoto(photo.photoId)"></v-btn>
+								<v-btn class="delete-btn" color="red" :icon="mdiClose" density="compact"  @click="deletePhoto(photo.photoId)"></v-btn>
 								<div class="rotate-btns">
-									<v-btn class="delete-btn" icon="mdi-rotate-left" density="compact" color="#fff" @click="rotate({target: 'left', photoId: photo.photoId})"></v-btn>
-									<v-btn class="delete-btn" icon="mdi-rotate-right" density="compact" color="#fff" @click="rotate({target: 'right', photoId: photo.photoId})"></v-btn>
+									<v-btn class="delete-btn" :icon="mdiRotateLeft" density="compact" color="#fff" @click="rotate({target: 'left', photoId: photo.photoId})"></v-btn>
+									<v-btn class="delete-btn" :icon="mdiRotateRight" density="compact" color="#fff" @click="rotate({target: 'right', photoId: photo.photoId})"></v-btn>
 								</div>
 							</div>
 						</v-img>

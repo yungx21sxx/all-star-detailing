@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import type { IComplex } from "~/types/client"
+    import {mdiArrowRight} from "@mdi/js";
 
     
     defineProps<{
@@ -11,29 +12,28 @@
 </script>
 
 <template>
-    <v-card class="complex" v-ripple :href="`/complex/${complex.id}`">
-        <h3 class="complex__title">{{ complex.title }}</h3>
-        <ul class="complex__services">
-            <li
-                class="complex__service"
-                v-for="service of complex.included"
-            >{{ service }}</li>
-        </ul>
-        <div class="complex__footer">
-            <div class="complex__price">
-                <div class="complex__price_prev">{{ complex.price.previous}}</div>
-                <div class="complex__price_current">{{ complex.price.current}}</div>
-            </div>
-            <v-btn color="#D19D34" class="complex__btn" variant="text">
-                <template #append>
-                    <v-icon size="20px" class="product__icon">mdi-arrow-right</v-icon>
-                </template>
-                <span class="btn__text">Подробнее</span>
-            </v-btn>
-        </div>
-
-    </v-card>
-
+	<v-card class="complex" v-ripple :href="`/complex/${complex.id}`">
+		<h3 class="complex__title">{{ complex.title }}</h3>
+		<ul class="complex__services">
+			<li
+				class="complex__service"
+				v-for="service of complex.included"
+			>{{ service }}</li>
+		</ul>
+		<div class="complex__footer">
+			<div class="complex__price">
+				<div class="complex__price_prev">{{ complex.price.previous}}</div>
+				<div class="complex__price_current">{{ complex.price.current}}</div>
+			</div>
+			<v-btn color="#f1aa34" class="complex__btn" variant="text">
+				<template #append>
+					<v-icon :icon="mdiArrowRight" size="20px" class="product__icon"></v-icon>
+				</template>
+				<span class="btn__text">Подробнее</span>
+			</v-btn>
+		</div>
+	
+	</v-card>
 </template>
 
 <style scoped lang="scss">
@@ -47,7 +47,7 @@
         &__title {
             font-size: 20px;
             font-weight: bold;
-            color: #D19D34;
+            color: #f1aa34;
             margin-bottom: 8px;
         }
 
@@ -73,7 +73,7 @@
             }
 
             &_current {
-                color: #D19D34;
+                color: #f1aa34;
             }
         }
 

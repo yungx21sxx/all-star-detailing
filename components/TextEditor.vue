@@ -1,10 +1,10 @@
 <template>
 	<div class="editor">
 		
-		<v-btn icon="mdi-format-bold" @click="bold"></v-btn>
-		<v-btn icon="mdi-format-list-bulleted" @click="bulletList"></v-btn>
+		<v-btn :icon="mdiFormatBold" @click="bold"></v-btn>
+		<v-btn :icon="mdiFormatListBulleted" @click="bulletList"></v-btn>
 		
-		<editor-content :editor="editor" />
+		<editor-content :editor="editor"/>
 	</div>
 </template>
 
@@ -16,6 +16,7 @@ import {Paragraph} from "@tiptap/extension-paragraph";
 import Heading from '@tiptap/extension-heading'
 import ListItem from '@tiptap/extension-list-item'
 import Underline from '@tiptap/extension-underline'
+import {mdiFormatBold, mdiFormatListBulleted} from "@mdi/js";
 
 const props = defineProps({
 	modelValue: {
@@ -169,6 +170,10 @@ h2 {
 .tableWrapper {
 	padding: 1rem 0;
 	overflow-x: auto;
+}
+
+.ProseMirror {
+	min-height: 140px !important;
 }
 
 

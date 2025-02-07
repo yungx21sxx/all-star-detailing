@@ -65,7 +65,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 }
 
 .swiper-pagination-bullet-active {
-    background: #D19D34;
+    background: #f1aa34;
 }
 
 .swiper-slide {

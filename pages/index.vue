@@ -28,9 +28,9 @@ const authUser = useAuthUser();
     <VintersectAnimation>
 	    <Complexes />
     </VintersectAnimation>
-    <ContactsBlock class="wrapper mt-8"/>
+    <ContactsBlock class="wrapper mt-12"/>
     <VLazy transition="fade">
-	    <Review class="mt-8"/>
+	    <Review class="mt-12"/>
     </VLazy>
 </template>
 

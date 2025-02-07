@@ -53,7 +53,7 @@
 	&__subtitle {
 		font-size: 20px;
 		&_orange {
-			color: #D19D34;
+			color: #f1aa34;
 		}
 		&_white {
 			margin-bottom: 16px;

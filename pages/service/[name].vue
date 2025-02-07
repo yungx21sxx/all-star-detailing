@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type {IPriceTable} from "~/types/client";
-
+import {services, PRICE_TABLE} from '~/data/services.data';
 const route = useRoute();
-const {services, PRICE_TABLE} = useServices()
+
 const {openSubmitModal} = useModal()
 import PriceTable from "~/components/service-page/PriceTable.vue";
+import {mdiChevronRight} from "@mdi/js";
 
 const service = services.find(service => service.id === route.params.name);
 
@@ -57,7 +58,7 @@ const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serv
 		
 		>
 			<template v-slot:divider>
-				<v-icon color="#D19D34" icon="mdi-chevron-right"></v-icon>
+				<v-icon color="#f1aa34" :icon="mdiChevronRight"></v-icon>
 			</template>
 		</VBreadcrumbs>
 		<CSlider :photos="service.photos" class="service__slider"/>
@@ -73,7 +74,7 @@ const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serv
 			<div class="service__time">
 				<span>Выполним за: </span>{{ service.time }}
 			</div>
-			<v-btn color="#D19D34" @click="openSubmitModal(service.title)">Записаться на услугу</v-btn>
+			<v-btn color="#f1aa34" @click="openSubmitModal(service.title)">Записаться на услугу</v-btn>
 		</div>
 		
 		<PriceTable v-if="priceTable" :title="priceTableTitle" :price-table="priceTable"/>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import type { IService } from "~/types/client"
+    import {mdiArrowRight} from "@mdi/js";
 
     const { service } = defineProps<{
         service: IService
@@ -12,8 +13,8 @@
 <template>
 	<v-card
 		v-ripple
-		:href="`/service/${id}`"
 		elevation="4"
+		:href="`/service/${id}`"
 	>
 		<v-img
 			:src="img"
@@ -26,9 +27,9 @@
 				<div class="product__title text-wrap">{{ title }}</div>
 				<div class="product__bottom">
 					<div class="product__price">{{ price.text }}</div>
-					<v-btn color="#D19D34" class="product__btn" variant="text">
+					<v-btn color="#f1aa34" class="product__btn" variant="text">
 						<template #append>
-							<v-icon size="20px" class="product__icon">mdi-arrow-right</v-icon>
+							<v-icon :icon="mdiArrowRight" size="20px" class="product__icon"></v-icon>
 						</template>
 						<span class="btn__text">Подробнее</span>
 					</v-btn>
@@ -37,9 +38,6 @@
 		
 		</v-img>
 	</v-card>
- 
-
-
 </template>
 
 <style scoped lang="scss">
@@ -57,7 +55,7 @@
         }
         &__title {
             font-size: 18px;
-            color: #D19D34;
+            color: #f1aa34;
             font-weight: 600;
             margin-right: 16px;
         }

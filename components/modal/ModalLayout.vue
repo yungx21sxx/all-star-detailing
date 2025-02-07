@@ -1,8 +1,9 @@
 <script setup lang="ts">
 
+    import {mdiClose} from "@mdi/js";
+    
     const modelValue = defineModel<boolean>()
     const { isMobile, isTablet } = useDevice()
-    const fullScreen: boolean = isMobile || isTablet
 
 
     const isOpen = computed<boolean>({
@@ -31,9 +32,9 @@
 
 <template>
     <v-dialog
-        :fullscreen="fullScreen"
-        min-width="600px"
-        :class="['modal', fullScreen ? 'modal--mobile' : 'modal--desktop']"
+        :fullscreen="isMobile || isTablet"
+        :min-width="isMobile || isTablet ? '100%' : '600px'"
+        :class="['modal', isMobile || isTablet ? 'modal--mobile' : 'modal--desktop']"
         v-model="isOpen"
     >
         <section class="modal__body">
@@ -45,7 +46,7 @@
                     @click="close"
                     variant="text"
                 >
-                    <v-icon icon="mdi-close" size="30px"/>
+                    <v-icon :icon="mdiClose" size="30px"/>
                 </v-btn>
             </div>
             <div 

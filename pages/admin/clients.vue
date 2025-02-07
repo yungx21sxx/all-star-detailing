@@ -108,7 +108,7 @@ import {useAsyncData} from "#app";
 						<phone-input class="mt-4" required v-model="userCreateForm.phone" @update-row-value="setCreateFormPhoneRow"/>
 						<v-text-field label="Начислить бонусов" variant="outlined" density="compact" type="number" v-model="userCreateForm.balance"/>
 						<p class="text-red mb-4" v-if="errorOfUserCreating !== ''">{{errorOfUserCreating}}</p>
-						<v-btn type="submit" color="#c93">Создать пользователя</v-btn>
+						<v-btn type="submit" color="#f1aa34">Создать пользователя</v-btn>
 					</form>
 				</v-expansion-panel-text>
 			</v-expansion-panel>
@@ -130,8 +130,8 @@ import {useAsyncData} from "#app";
 						<p class="admin__text">Введите сумму снятия или пополнения баланса</p>
 						<v-text-field label="Cумма" variant="outlined" density="compact" type="number" v-model="currentBalanceInput"/>
 						<div class="admin__control">
-							<v-btn color="#c93" @click="changeBalance('ADD', user.id, user.balance)">Пополнить</v-btn>
-							<v-btn color="#c93" @click="changeBalance('TAKE', user.id, user.balance)">Снять</v-btn>
+							<v-btn color="#f1aa34" @click="changeBalance('ADD', user.id, user.balance)">Пополнить</v-btn>
+							<v-btn color="#f1aa34" @click="changeBalance('TAKE', user.id, user.balance)">Снять</v-btn>
 						</div>
 					</div>
 				</v-expansion-panel-text>

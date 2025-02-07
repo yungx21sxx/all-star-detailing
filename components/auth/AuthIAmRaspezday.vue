@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import {mdiAlertCircleOutline} from "@mdi/js";
 </script>
 
 <template>
@@ -13,7 +14,7 @@
 		<v-icon
 			class="mb-5"
 			color="error"
-			icon="mdi-alert-circle-outline"
+			:icon="mdiAlertCircleOutline"
 			size="112"
 		></v-icon>
 		<h2 class="text-h5 mb-6">По техническим причинам авторизация не доступна</h2>

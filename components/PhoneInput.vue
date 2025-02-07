@@ -1,7 +1,7 @@
 <template>
 	<v-text-field
 		v-model="phoneInput"
-		color="#D19D34"
+		color="#f1aa34"
 		density="compact"
 		label="Номер телефона"
 		variant="outlined"
