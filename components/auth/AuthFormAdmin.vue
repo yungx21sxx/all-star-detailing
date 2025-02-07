@@ -19,7 +19,10 @@ async function onLoginClick() {
 		
 		await login(form.data, 'ADMIN')
 		
-		emit('success')
+		await navigateTo({
+			path: '/admin/clients',
+		})
+		// emit('success')
 	}
 	catch (error: any) {
 		console.error(error)
@@ -34,21 +37,19 @@ async function onLoginClick() {
 </script>
 
 <template>
-<p v-if="form.error" >
-	{{ form.error }}
-</p>
 <form @submit.prevent="onLoginClick" class="form">
-	<v-text-field v-model="form.data.login" type="text" label="Login" required variant="outlined"/>
-	<v-text-field v-model="form.data.password" type="password" label="Password" required variant="outlined"/>
+	<v-text-field v-model="form.data.login" type="text" label="Логин" required variant="outlined"/>
+	<v-text-field v-model="form.data.password" type="password" label="Пароль" required variant="outlined"/>
 	<v-btn
 		type="submit"
-		:disabled="form.pending"
+		:loading="form.pending"
 		width="100%"
 		class="mt-4"
 		color="primary"
 	>
-		Login
+		Войти
 	</v-btn>
+	<v-alert class="mt-6" type="error" v-if="form.error" :text="form.error" />
 </form>
 </template>
 

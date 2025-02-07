@@ -8,9 +8,9 @@ const __dirname = path.resolve(path.dirname(__filename), "../");
 export default defineEventHandler(event => {
 	let uploadDir = ''
 	if (process.env.NODE_ENV === 'development') {
-		uploadDir = './public/portfolio'
+		uploadDir = './uploads'
 	} else {
-		uploadDir = path.join(__dirname, '/public/portfolio');
+		uploadDir = path.join(__dirname, '/uploads');
 	}
 	return sendStream(event, fs.createReadStream(path.join(uploadDir, event.context.params.photo)))
 })

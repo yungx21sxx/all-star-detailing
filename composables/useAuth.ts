@@ -26,25 +26,20 @@ export const useAuth = () => {
         dto: UserLoginDTO | AdminLoginDTO,
         role: 'ADMIN' | 'USER'
     ): Promise<UserAuthResponse | null> => {
-
         const user = await $fetch(
             role === 'ADMIN' ? '/api/admin/login' : '/api/user/login',
             {
                 method: "POST",
                 body: dto,
             });
-        console.log(user)
-            // setUser(user.data);
-            return authUser.value;
-
-
+        setUser(user);
+        return authUser.value;
     };
 
     const logout = async () => {
         const data = await $fetch("/api/auth/logout", {
-            method: "POST",
+            method: "get",
         });
-
         setUser(data);
     };
 

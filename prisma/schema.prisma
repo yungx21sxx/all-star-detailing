@@ -45,17 +45,20 @@ model Transaction {
 }
 
 model Photo {
-  id    Int    @id @default(autoincrement())
-  url   String
-  Car   Car?   @relation(fields: [carId], references: [id])
-  carId Int?
+  id       Int    @id @default(autoincrement())
+  urlMin   String
+  urlFull  String
+  rotation Int    @default(0)
+  position Int    @default(0)
+  car      Car?   @relation(fields: [carId], references: [id], onDelete: Cascade)
+  carId    Int?
 }
 
 model Car {
   id          Int      @id @default(autoincrement())
   name        String
   description String
-  img         String
+  date        String
   createdAt   DateTime @default(now())
   photos      Photo[]
 }

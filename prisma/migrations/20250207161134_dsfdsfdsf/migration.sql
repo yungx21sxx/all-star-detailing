@@ -1,0 +1,16 @@
+-- CreateTable
+CREATE TABLE "Photo" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "urlMin" TEXT NOT NULL,
+    "urlFull" TEXT NOT NULL,
+    "carId" INTEGER,
+    CONSTRAINT "Photo_carId_fkey" FOREIGN KEY ("carId") REFERENCES "Car" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "Car" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

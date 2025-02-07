@@ -15,6 +15,7 @@
 				Мы имеем огромный опыт в сфере детейлинга и только любящих нас клиентов. <br>
 				Чтобы узнать подробности о проделанной работе - кликнете по фото.
 			</h2>
+			<v-btn color="#c93" class="clients__btn mb-8" href="/admin/portfolio/new" v-if="isAdmin">Добавить машину</v-btn>
 		</header>
 		<div class="clients__grid grid">
 			<v-card
@@ -26,7 +27,7 @@
 					class="align-end"
 					height="220"
 					gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.6)"
-					:src="car.img"
+					:src="car.photos[0].urlMin"
 					cover
 				>
 					<h3 class="clients__car-name">{{ car.name }}</h3>
@@ -48,6 +49,8 @@
 
 <script setup lang="ts">
 import type { ICar } from "~/types/client"
+
+const isAdmin = useAdmin();
 
 const dialog = ref<boolean>(false)
 const currentClient = ref<ICar>()

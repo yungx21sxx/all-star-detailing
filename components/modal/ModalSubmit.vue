@@ -1,6 +1,8 @@
 <script setup lang="ts">
 	import useTelegram from "~/composables/UseTelegram";
 	
+	const form = ref(null);
+	
 	const {closeSubmitModal, modalSubmitIsOpen, useCurrentService} = useModal();
 	
 	const currentService = useCurrentService()
@@ -28,23 +30,17 @@
 		}))
 	]
 	
-	function getDate() {
-		const today = new Date();
-		
-		const year = today.getFullYear();
-		const month = (today.getMonth() + 1).toString().padStart(2, '0');
-		const day = today.getDate().toString().padStart(2, '0');
-		
-		return `${year}-${month}-${day}`;
-	}
-	
 	const masks = ref({
 		modelValue: 'YYYY-MM-DD',
 	});
 	
+	const rules = {
+		required: (value) => !!value || "Обязательное поле",
+	};
+	
 	const today = new Date();
 	const formDataSubmitDefault = {
-		date: getDate(),
+		date: new Date(),
 		phone: '',
 		name: ''
 	}
@@ -60,7 +56,7 @@
 	const type = ref<number>(1);
 	const btnText = ref('Отправить заявку')
 	
-	function compliteRequest() {
+	function completeRequest() {
 		btnText.value = 'Заявка отправлена'
 		setTimeout(() => {
 			formDataRequestForCall.value = {...formDataRequestForCallDefault}
@@ -71,13 +67,16 @@
 	}
 	
 	async function requestForSubmit() {
-		await fetchForRegistrationData({...formDataSubmit.value, chosenService: currentService.value})
-		compliteRequest()
+		const { valid } = await form.value.validate();
+		if (!valid || !currentService.value) return;
+		const {date, phone, name} = formDataSubmit.value;
+		await fetchForRegistrationData(date, phone, name, currentService.value)
+		completeRequest()
 	}
 	
 	async function requestForCall() {
 		await fetchForCallData(formDataRequestForCall.value)
-		compliteRequest()
+		completeRequest()
 	}
 	
 </script>
@@ -101,38 +100,44 @@
 	</v-tabs>
 	<v-window v-model="type">
 		<v-window-item :value="1">
-			<form class="modal__form" @submit.prevent="requestForSubmit">
+			<v-form class="modal__form" @submit.prevent="requestForSubmit" ref="form">
 				<p class="modal__text">
-					Оставьте свои данные и напишите, что вас интересует. Вам перезвонит первый
-					освободившийся специалист.
+					Оставьте свои данные и напишите, что вас интересует. Вам перезвонит первый освободившийся специалист.
 				</p>
+				
 				<PhoneInput
 					variant="outlined"
-					required
 					v-model="formDataSubmit.phone"
+					:rules="[rules.required]"
+					class="mb-3"
 				/>
+				
 				<v-text-field
 					label="Как Вас зовут?*"
 					variant="outlined"
 					density="compact"
-					required
 					v-model="formDataSubmit.name"
 					color="#c93"
+					:rules="[rules.required]"
+					class="mb-3"
 				></v-text-field>
+				
 				<v-select
-					label="Выберите услугу или комлекс"
+					label="Выберите услугу или комплекс"
 					:items="allServices"
 					item-title="title"
 					variant="outlined"
 					density="compact"
-					required
 					color="#c93"
 					v-model="currentService"
+					class="mb-3"
+					:rules="[rules.required]"
 				>
 					<template v-slot:item="{ props, item }">
 						<v-list-item v-bind="props" :subtitle="item.raw.subtitle"></v-list-item>
 					</template>
 				</v-select>
+				
 				<div class="modal__date">
 					<p>На какое число хотели бы записаться?</p>
 					<DatePicker
@@ -142,9 +147,10 @@
 						transparent
 						borderless
 						:is-dark="true"
+						:rules="[rules.required]"
 					/>
 				</div>
-			
+				
 				<v-btn
 					block
 					class="modal__btn"
@@ -154,7 +160,7 @@
 				>
 					{{ btnText }}
 				</v-btn>
-			</form>
+			</v-form>
 		</v-window-item>
 		<v-window-item :value="2">
 			<form class="modal__form" @submit.prevent="requestForCall">

@@ -6,10 +6,6 @@
 		<v-bottom-navigation
 			v-model="currentPage"
 		>
-			<v-btn value="logout" @click="logout">
-				<v-icon>mdi-logout</v-icon>
-				<span>Logout</span>
-			</v-btn>
 			<v-btn value="clients" href="/">
 				<v-icon>mdi-home</v-icon>
 				<span>Назад</span>

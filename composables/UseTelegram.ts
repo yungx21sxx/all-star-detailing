@@ -10,8 +10,14 @@ export default () => {
 	}
 
 	// @ts-ignore
-	const fetchForRegistrationData = async ({date, phone, name, chosenService}) => {
-		const text = `Клиент записался на услугу:%0A🚗 ${chosenService} %0A👶Имя: ${name} %0A📱Номер телефона: 8 ${phone} %0A📅Хочет записаться на: ${date}`
+	const fetchForRegistrationData = async (date: Date, phone: string, name: string, chosenService: string) => {
+
+		const formatedDate = date.toLocaleDateString('ru-RU', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		})
+		const text = `Клиент записался на услугу:%0A🚗 ${chosenService} %0A👶Имя: ${name} %0A📱Номер телефона: 8 ${phone} %0A📅Хочет записаться на: ${formatedDate}`
 		const url = getUrl(text)
 		return useFetch(url)
 	}

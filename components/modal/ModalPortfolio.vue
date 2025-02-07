@@ -13,14 +13,21 @@
         v-model="modelValue"
         class="modal"
     >
-	    <template #title>
-		    <h3 class="modal__title">{{ car.name }}</h3>
-	    </template>
         <div class="modal__body">
             <CSlider
                 class="modal__slider"
-                :photos="car.photos.map(photo => photo.url)"
+                :photos="car.photos
+                    .sort((a, b) => a.position - b.position)
+                    .map(photo => photo.urlFull)
+				"
             />
+	        <h3 class="modal__title">{{ car.name }}</h3>
+	        <p>{{(car.date) ? new Date(car.date).toLocaleDateString("ru-RU", {
+		        day: "2-digit",
+		        month: "long",
+		        year: "numeric"
+	        }) : new Date(car.date)}}</p>
+	        <v-divider class="mt-4"/>
             <p class="modal__text server-html" v-html="car.description"></p>
         </div>
     </ModalLayout>
@@ -36,8 +43,8 @@
         }
 
         &__title {
-	        margin-left: 24px;
             font-size: 20px;
+	        margin-top: 16px;
             color: #D19D34;
         }
 

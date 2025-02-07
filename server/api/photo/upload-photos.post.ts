@@ -1,20 +1,10 @@
-
-import path from "path";
-import {fileURLToPath} from "url";
-
 import {H3Event, MultiPartData} from "h3";
 import photoService from "~/server/service/photo.service";
-
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.resolve(path.dirname(__filename), "../");
-
-
-
 
 export default defineEventHandler(async (event: H3Event) => {
 
 	const files: MultiPartData[] | undefined  = await readMultipartFormData(event);
+	console.log(files)
 	let uploadedImages = [];
 
 	if (!files) {
@@ -26,6 +16,7 @@ export default defineEventHandler(async (event: H3Event) => {
 
 
 	for (let file of files) {
+		if (!file.type) continue;
 		const [type, ext] = file.type.split("/")
 		if (type !== "image") {
 			return createError({
@@ -34,8 +25,9 @@ export default defineEventHandler(async (event: H3Event) => {
 			});
 		}
 		try {
-			const url = await photoService.writePhoto(file, 1000)
-			uploadedImages.push(url)
+			const photo = await photoService.writePhoto(file);
+			uploadedImages.push(photo)
+
 		} catch (e) {
 			console.log(e)
 			return createError({
@@ -44,6 +36,5 @@ export default defineEventHandler(async (event: H3Event) => {
 			})
 		}
 	}
-
 	return uploadedImages;
 });

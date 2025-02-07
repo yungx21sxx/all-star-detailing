@@ -3,6 +3,10 @@ import * as uuid from "uuid";
 import fs from "fs";
 import sharp from "sharp";
 import {fileURLToPath} from "url";
+import {MultiPartData} from "h3";
+import {PhotoUploadResponse} from "~/types/response";
+import heicConvert from "heic-convert";
+import {prisma} from "~/server/service/prisma.service";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -10,52 +14,81 @@ const __dirname = path.resolve(path.dirname(__filename), "../");
 
 class PhotoService {
 	createFileUrl() {
-		const staticUrl = '/uploaded-img/'
-		const fileName = uuid.v4() + '.webp'
+		const staticUrl = '/uploads/'
+		const photoHash = uuid.v4()
+		const fileNameFull = photoHash + '.webp'
+		const fileNameMin = photoHash + '-min.webp'
 		let uploadDir = ''
 
 		if (process.env.NODE_ENV === 'development') {
-			uploadDir = './public/portfolio'
+			uploadDir = './uploads'
 		} else {
-			uploadDir = path.join(__dirname, '/public/portfolio');
+			uploadDir = path.join(__dirname, '/uploads');
 		}
 		return {
-			url: staticUrl + fileName,
-			fileName,
-			uploadDir,
-			filePath: uploadDir + '/' + fileName
+			urlMin: staticUrl + fileNameMin,
+			urlFull: staticUrl + fileNameFull,
+			filePathFull: uploadDir + '/' + fileNameFull,
+			filePathMin: uploadDir + '/' + fileNameMin,
+			uploadDir
 		}
 	}
-	async writePhoto(file: any, maxWidth: number) {
-		const {url, uploadDir, filePath} = this.createFileUrl()
-		console.log(url)
+	async writePhoto(file: MultiPartData): Promise<PhotoUploadResponse | null> {
+		const {urlMin, urlFull, filePathFull, filePathMin, uploadDir} = this.createFileUrl()
 
 		if (!fs.existsSync(uploadDir)) {
-			fs.mkdirSync(uploadDir, '0777', true);
+			fs.mkdirSync(uploadDir, '0777');
 		}
-		const meta: sharp.Metadata = await sharp(file.data).metadata()
-		try {
-			// @ts-ignore
-			if (meta.width > maxWidth) {
-				const buffer = await sharp(file.data)
-					.webp({quality: 85})
-					.resize({
-						width: maxWidth
-					})
-					.toBuffer()
 
-				fs.writeFileSync(filePath, buffer)
+		try {
+			let fileBuffer: Buffer;
+			if (file.filename.split('.')[1].toLowerCase() === 'heic') {
+				fileBuffer = await heicConvert({
+					buffer: file.data,
+					format: "JPEG"
+				})
 			} else {
-				const buffer = await sharp(file.data)
-					.webp({quality: 90})
-					.toBuffer()
-				fs.writeFileSync(filePath, buffer)
+				fileBuffer = file.data;
 			}
-		} catch (e) {
+			const image = sharp(fileBuffer);
+			const { width, height } = await image.metadata();
+
+			if (!width || !height) return null;
+
+			const isPortrait = height > width;
+			let resizeOptions: sharp.ResizeOptions | null;
+			let resizeOptionsMin: sharp.ResizeOptions | null;
+
+			if (isPortrait) {
+				resizeOptions = height > 1080 ? { height: 1080, fit: 'inside' } : null;
+			} else {
+				resizeOptions = width > 1920 ? { width: 1920, fit: 'inside' } : null;
+			}
+
+			if (resizeOptions) {
+				await image.resize(resizeOptions).webp({ quality: 85 }).toFile(filePathFull);
+			} else {
+				await image.webp({ quality: 85 }).toFile(filePathFull);
+			}
+			await image.resize({ width: 500, height: 500, fit: 'cover' }).webp({ quality: 75 }).toFile(filePathMin);
+
+			const photo = await prisma.photo.create({
+				data: {
+					urlFull,
+					urlMin
+				}
+			})
+
+			return {
+				photoId: photo.id,
+				urlMin,
+			}
+
+		} catch (e: any) {
 			console.log(e)
 			throw new Error(e)
 		}
-		return url
+
 	}
 }
 

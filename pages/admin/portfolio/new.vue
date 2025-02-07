@@ -1,99 +1,47 @@
 <template>
-	<div class="wrapper car">
+	<v-form class="wrapper car" @submit.prevent="createCar">
 		<h1 class="title car__title">Отчитаться о работе</h1>
-		<v-text-field label="Заголовок" v-model="car.name" class="mt-10"/>
+		<v-text-field :rules="[rules.required]" label="Модель машины" v-model="car.name" class="mt-10"/>
+		<p class="mt-4 mb-4">Дата выполнения работ</p>
+		<DatePicker
+			v-model="car.date"
+			transparent
+			borderless
+			:is-dark="true"
+		/>
 		<v-no-ssr>
 			<TextEditor v-model="car.description"/>
 		</v-no-ssr>
-		<div class="mt-10">
-			<p class="mb-4">Первая загруженая будет на карточке</p>
-			<v-file-input
-				 v-model="files"
-				 color="deep-purple-accent-4"
-				 counter
-				 label="Фотки для карусели"
-				 multiple
-				 placeholder="Select your files"
-				 variant="outlined"
-				 :show-size="1000"
-			>
-				<template v-slot:selection="{ fileNames }">
-					<template v-for="(fileName, index) in fileNames" :key="fileName">
-						<v-chip
-							 v-if="index < 2"
-							 color="deep-purple-accent-4"
-							 label
-							 size="small"
-							 class="me-2"
-						>
-							{{ fileName }}
-						</v-chip>
-
-						<span
-							 v-else-if="index === 2"
-							 class="text-overline text-grey-darken-3 mx-2"
-						>
-                        +{{ files.length - 2 }} File(s)
-                     </span>
-					</template>
-				</template>
-			</v-file-input>
-			<v-btn
-				 :loading="filesLoading"
-				 :disabled="filesLoading"
-				 color="#c93"
-				 @click="uploadPhotos"
-			>
-				Загрузить
-			</v-btn>
-		</div>
-		<VNoSsr>
-			<div v-if="car.photos.length > 0">
-				<h3>Загруженные фотки</h3>
-				<v-row>
-					<v-col
-						v-for="photo in car.photos"
-					>
-						<v-img
-							class="pa-2"
-							width="200"
-							height="200"
-							cover
-							:src="photo"
-						>
-							<v-btn @click="deletePhoto(photo)">X</v-btn>
-						</v-img>
-					</v-col>
-				</v-row>
-			</div>
-		</VNoSsr>
+		<FileUploader v-model="car.photos"/>
 		<v-divider class="mt-4"/>
 		<p class="mt-4">Добавьте если все заполнили и загрузили</p>
-		<v-btn class="mt-10" @click="createCar" color="#c93">Добавить в портфолио</v-btn>
-	</div>
+		<v-btn :loading="loading" class="mt-10" type="submit" color="#c93">Добавить в портфолио</v-btn>
+	</v-form>
 </template>
 
 <script setup lang="ts">
 import type {PortfolioAppendDTO} from "~/types/dto";
+import FileUploader from "~/components/FileUploader.vue";
 
 const router = useRouter()
 
 const carDefaultArgs: PortfolioAppendDTO = {
 	name: "",
 	description: "",
+	date: new Date(),
 	photos: [],
-	img: ""
 };
 
+const rules = {
+	required: (value: string) => !!value || 'Обязательное поле',
+}
+
 const car = ref<PortfolioAppendDTO>(carDefaultArgs)
-const files = ref([])
-const filesLoading = ref(false)
 
 onMounted(() => {
 	const carCache = localStorage.getItem('car-cache');
 	if (carCache) {
 		car.value = JSON.parse(carCache)
-		
 	}
 })
 
@@ -111,56 +59,23 @@ function revalidateCache() {
 	localStorage.removeItem('car-cache')
 }
 
-const uploadPhotos = async () => {
-	const formData = new FormData()
-	if (files.value.length === 0) {
-		alert('Необходимо загрузить фотографии');
-		return;
-	}
-	for (let i = 0; i < files.value.length; i++) {
-		const file = files.value[i]
-		formData.append(`photo${i}`, file)
-	}
-	try {
-		filesLoading.value = true
-		const {data: photos, error} = await useFetch("/api/photo/add", {
-			method: "POST",
-			body: formData,
-		})
-		console.log(error.value)
-		console.log(photos.value)
-		filesLoading.value = false
-		car.value.img = photos.value[0];
-		car.value.photos.push(...photos.value);
-		createOrUpdateCache(car.value)
-	} catch (e) {
-		console.log(e)
-	}
-}
+const loading = ref(false)
 
 const createCar = async () => {
-	const {data} = await useFetch('/api/portfolio/create', {
-		method: "POST",
-		body: car.value
-	})
-	if (!data.value) {
-		throw createError({ statusCode: 404, statusMessage: 'Error when creating' })
-	} else {
-		revalidateCache()
-		router.push('/admin/portfolio')
-	}
-}
-
-const deletePhoto = async (fileUrl: string) => {
-	const fileName = fileUrl.split('/')[2]
 	try {
-		await useFetch(`/api/photo/${fileName}`, {
-			method: "DELETE",
+		loading.value = true;
+		await $fetch('/api/portfolio/create', {
+			method: "POST",
+			body: car.value
 		})
-		car.value.photos = car.value.photos.filter(photo => photo !== fileUrl)
+		revalidateCache()
+		await navigateTo('/admin/portfolio')
 	} catch (e) {
-		console.log(e)
+		alert('Ошибка создания')
+	} finally {
+		loading.value = false
 	}
+
 }
 
 definePageMeta({

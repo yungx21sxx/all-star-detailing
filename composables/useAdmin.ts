@@ -1,4 +1,6 @@
-export const useAdmin = () => {
+import type {ComputedRef} from "vue";
+
+export const useAdmin = (): ComputedRef<boolean> => {
     const authUser = useAuthUser();
 
     return computed(() => {

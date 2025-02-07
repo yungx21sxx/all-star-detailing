@@ -24,15 +24,17 @@ export interface SetBalanceDTO {
 	newBalance: number,
 }
 
-export interface PortfolioItemUpdateDTO {
-	id: number,
-	description: string,
-	name: string
+export interface PortfolioPhotoConnectDTO {
+	urlMin: string;
+	photoId: number;
+	position: number;
 }
 
 export interface PortfolioAppendDTO {
 	name: string,
 	description: string,
-	photos: string[],
-	img: string
+	date: Date,
+	photos: PortfolioPhotoConnectDTO[],
 }
+
+export interface PortfolioItemUpdateDTO extends PortfolioAppendDTO { id: number };

@@ -3,17 +3,17 @@
 	<div class="wrapper clients">
 		<header class="clients__header">
 			<h2 class="clients__title">Портфолио работ</h2>
-			<v-btn color="#c93" class="clients__btn" href="/admin/portfolio/new">Доавить машину</v-btn>
+			<v-btn color="#c93" class="clients__btn" href="/admin/portfolio/new">Добавить машину</v-btn>
 		</header>
 		<div class="clients__grid client">
 			<v-card
-				 v-for="{id, img, name, description} in clients"
+				 v-for="{id, photos, name, description} in clients"
 				 :key="id"
 			>
 				<v-img
 					 class="align-end"
 					 height="240"
-					 :src="img"
+					 :src="photos[0].urlMin"
 					 cover
 				/>
 				<v-card-title class="client__title">{{name}}</v-card-title>
@@ -86,7 +86,7 @@ const savePortfolioItem = async () => {
 		body: currentPorfolioItem.value
 	})
 	if (!response) {
-		alert('Error')
+		alert('Ошибка')
 	}
 	currentPorfolioItem.value = currentPorfolioItemDefault
 	modalEditOpened.value = false

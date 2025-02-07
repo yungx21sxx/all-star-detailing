@@ -32,6 +32,7 @@
 <template>
     <v-dialog
         :fullscreen="fullScreen"
+        min-width="600px"
         :class="['modal', fullScreen ? 'modal--mobile' : 'modal--desktop']"
         v-model="isOpen"
     >

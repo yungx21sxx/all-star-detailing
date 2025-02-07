@@ -1,14 +1,8 @@
 <template>
-	<AuthFormAdmin @success="onLoginSuccess" />
+	<AuthFormAdmin />
 </template>
 
 <script setup>
-const isAdmin = useAdmin()
-
-async function onLoginSuccess() {
-	const redirect = isAdmin.value ? '/admin/clients' : '/'
-	await navigateTo(redirect)
-}
 
 </script>
 

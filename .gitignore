@@ -6,6 +6,8 @@
 .cache
 dist
 
+uploads
+
 # Node dependencies
 node_modules
 
@@ -19,6 +21,6 @@ logs
 .idea
 
 # Local env files
-.env
-.env.*
-!.env.example
+#.env
+#.env.*
+#!.env.example

@@ -50,13 +50,13 @@ export default defineNuxtConfig({
 		'@vueuse/motion/nuxt',
 		'yandex-metrika-module-nuxt3'
 	],
-	yandexMetrika: {
-		id: '96041052',
-		clickmap:true,
-		trackLinks:true,
-		accurateTrackBounce:true,
-		webvisor:true
-	},
+	// yandexMetrika: {
+	// 	id: '96041052',
+	// 	clickmap:true,
+	// 	trackLinks:true,
+	// 	accurateTrackBounce:true,
+	// 	webvisor:true
+	// },
 	site: {
 		url: 'https://all-star-detailing.ru/',
 	},
@@ -72,10 +72,8 @@ export default defineNuxtConfig({
 	device: {
 		refreshOnResize: true
 	},
-	experimental: {
-		emitRouteChunkError: 'automatic',
-		treeshakeClientOnly: true,
-		inlineSSRStyles: false
+	features: {
+		inlineStyles: false
 	},
 	sourcemap: {
 		server: true,

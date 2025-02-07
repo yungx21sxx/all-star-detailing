@@ -45,15 +45,17 @@ export interface IComplex {
 }
 
 interface Photo {
-  id?: number,
-  url: string
+  photoId: number
+  urlMin: string
+  position: number,
+  urlFull: number
 }
 
 export interface ICar {
   id: number,
   name: string,
   description: string,
-  createdAt: Date,
+  date: string,
   img: string,
   photos: Photo[],
 }
