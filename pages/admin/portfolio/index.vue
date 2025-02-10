@@ -61,6 +61,11 @@
 <script setup lang="ts">
 import type {PortfolioItemUpdateDTO} from "~/types/dto";
 
+definePageMeta({
+	layout: 'admin',
+	middleware: ['admin-only'],
+})
+
 const {data: clients, pending} = useLazyAsyncData('portfolio',
 	 () => $fetch('/api/portfolio/all')
 )
@@ -106,10 +111,7 @@ const deleteCar = async (id: number) => {
 	}
 }
 
-definePageMeta({
-	layout: 'admin',
-	middleware: ['admin-only'],
-})
+
 
 </script>
 

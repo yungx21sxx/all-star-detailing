@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {SetBalanceDTO, UserCreateDTO} from "~/types/dto";
+	import type {SetBalanceDTO, UserCreateDTO} from "~/types/dto";
 	import type {UserResponse} from "~/types/response";
 import {useAsyncData} from "#app";
 	

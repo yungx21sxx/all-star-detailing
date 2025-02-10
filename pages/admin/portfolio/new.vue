@@ -23,6 +23,10 @@
 import type {PortfolioAppendDTO} from "~/types/dto";
 import FileUploader from "~/components/FileUploader.vue";
 
+definePageMeta({
+	layout: 'admin',
+})
+
 const router = useRouter()
 
 const carDefaultArgs: PortfolioAppendDTO = {
@@ -81,10 +85,7 @@ const createCar = async () => {
 
 }
 
-definePageMeta({
-	layout: 'admin',
-	middleware: ['admin-only'],
-})
+
 
 </script>
 

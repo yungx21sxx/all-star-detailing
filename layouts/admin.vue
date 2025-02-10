@@ -36,11 +36,6 @@ import {mdiAccountEdit, mdiCar, mdiHome} from "@mdi/js";
 	const currentPage = ref<string>(
 		linkParts[linkParts.length - 1]
 	)
-	async function logout() {
-		await useFetch('/api/auth/logout');
-		await me();
-		navigateTo('/')
-	}
 </script>
 
 <style scoped>

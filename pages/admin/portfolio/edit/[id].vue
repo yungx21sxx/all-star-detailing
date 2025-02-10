@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {PortfolioAppendDTO, PortfolioItemUpdateDTO} from "~/types/dto";
+	import type {PortfolioAppendDTO, PortfolioItemUpdateDTO} from "~/types/dto";
 	import FileUploader from "~/components/FileUploader.vue";
 	
 	definePageMeta({
