@@ -62,7 +62,7 @@ function revalidateCache() {
 const loading = ref(false)
 
 const createCar = async () => {
-	if (car.value.phots.length === 0) {
+	if (car.value.photos.length === 0) {
 		alert('Загрузите фотографии')
 	}
 	try {

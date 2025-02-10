@@ -64,39 +64,30 @@ class PortfolioService {
     }
 
     async removeCar(id: number) {
-
         const portfolioItem = await prisma.car.findUnique({
-            where: {id},
-            include: {photos: true},
-        })
+            where: { id },
+            include: { photos: true },
+        });
 
         if (!portfolioItem) {
-            return createError({
-                message: 'Ошибка удаления',
-                statusCode: 404
-            });
+            return createError({ message: 'Ошибка удаления', statusCode: 404 });
         }
 
-        let uploadDir = ''
-        if (process.env.NODE_ENV === 'development') {
-            uploadDir = './uploads'
-        } else {
-            uploadDir = path.join(__dirname, './uploads');
-        }
+        let uploadDir = process.env.NODE_ENV === 'development' ? './uploads' : path.join(__dirname, './uploads');
 
-        for (const photo of portfolioItem.photos) {
+        for (const photo of portfolioItem.photos || []) {
+            if (!photo.urlFull || !photo.urlMin) continue;
+
             const filePathFull = uploadDir + '/' + photo.urlFull.split('/')[2];
             const filePathMin = uploadDir + '/' + photo.urlMin.split('/')[2];
-            if (!fs.existsSync(filePathFull) || !fs.existsSync(filePathMin)) {
-                continue;
-            }
-            fs.rmSync(filePathFull)
-            fs.rmSync(filePathMin)
-        }
-        return prisma.car.delete({
-            where: {id}
-        })
 
+            if (fs.existsSync(filePathFull)) fs.rmSync(filePathFull);
+            if (fs.existsSync(filePathMin)) fs.rmSync(filePathMin);
+        }
+        await prisma.photo.deleteMany({
+            where: {carId : portfolioItem.id}
+        })
+        return prisma.car.delete({ where: { id } });
     }
 
      async updateCar(dto: PortfolioItemUpdateDTO){
