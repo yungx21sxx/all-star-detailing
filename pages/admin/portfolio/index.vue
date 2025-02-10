@@ -11,6 +11,7 @@
 				 :key="id"
 			>
 				<v-img
+					v-if="photos.length > 0"
 					 class="align-end"
 					 height="240"
 					 :src="photos[0].urlMin"

@@ -25,6 +25,7 @@
 				@click="openDialog(car)"
 			>
 				<v-img
+					v-if="car.photos.length > 0"
 					class="align-end"
 					height="220"
 					gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.6)"
