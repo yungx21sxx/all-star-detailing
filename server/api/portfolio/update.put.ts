@@ -26,7 +26,7 @@ export default defineEventHandler(async (event: H3Event) => {
 			photos: {
 				connect: photos.map(photo => ({id: photo.photoId})),
 			},
-			date: new Date(date).toISOString(),
+			date,
 			name,
 			description,
 		}
