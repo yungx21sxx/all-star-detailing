@@ -5,9 +5,9 @@ const { isMobileOrTablet } = useDevice();
 </script>
 
 <template>
-	<div :class="['review']">
+	<div :class="['review wrapper']">
 		<div>
-			<h2 class="title">Отзывы наших клиентов</h2>
+			<h2 class="review__title">Отзывы наших клиентов</h2>
 			<div class="review__subtitle subtitle">Наши отзывы на Yandex Картах, будем рады если оставите новый)</div>
 		</div>
 		<v-lazy>
@@ -24,6 +24,7 @@ const { isMobileOrTablet } = useDevice();
 		text-align: center;
 		&__title {
 			font-size: 30px;
+			margin-bottom: 4px;
 			color: $accent;
 			
 			&_center {

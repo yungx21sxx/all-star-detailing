@@ -39,14 +39,14 @@
     .about {
         display: grid;
         grid-template-columns: 1fr 460px;
-        margin-top: 48px;
+        margin-top: 32px;
 	    gap: 50px;
 
         @media screen and (max-width: 760px) {
             display: block;
 
             &__slider {
-                margin-top: 32px;
+                margin-top: 40px;
 	           
             }
         }
@@ -61,7 +61,7 @@
         }
 
         &__title {
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
 	    
 	    &__description {

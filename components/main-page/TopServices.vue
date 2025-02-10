@@ -30,15 +30,16 @@ const topServices = [...servicesCustom, ...services].splice(0, 6)
 
 <style scoped lang="scss">
     .top-services {
-	    margin-top: 48px;
+	    margin-top: 40px;
 	    &__subtitle {
-		    font-size: 20px;
+		    font-size: 18px;
 		    text-align: center;
-		    margin-bottom: 32px;
+		    margin-bottom: 30px;
 	    }
     }
     .title {
 	    text-align: center;
+	 
     }
     .services__btn {
         margin-left: auto;

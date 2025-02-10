@@ -28,6 +28,7 @@
 </script>
 
 <template>
+	<MenuMain/>
 	<div class="wrapper">
 		<VBreadcrumbs
 			:items="breadcrumbs"

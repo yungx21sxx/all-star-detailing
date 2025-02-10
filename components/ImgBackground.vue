@@ -26,7 +26,7 @@
     &__overlay {
         height: 100%;
         width: 100%;
-	    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2))
+	    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0))
     }
 }
 

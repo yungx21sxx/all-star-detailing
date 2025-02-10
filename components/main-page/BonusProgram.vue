@@ -13,7 +13,7 @@
 		<div class="wrapper">
 				<h2 class="bonus__title title">Бонусная программа</h2>
 				<p class="bonus__subtitle bonus__subtitle_white">Начислим <strong>1000 бонусов</strong> при регистрации и вернем 5% от суммы заказа</p>
-				<h3 class="bonus__subtitle bonus__subtitle_orange mb">Как это работает?</h3>
+				<h3 class="bonus__subtitle  mb">Как это работает?</h3>
 				
 				<v-timeline
 					class="timeline_desktop"
@@ -90,7 +90,7 @@
 				</v-timeline-item>
 			
 			</v-timeline>
-			<v-btn @click="openLoginModal('LOGIN')" class="bonus__btn mt-8" variant="flat" color="#f1aa34">Зарегестрироваться</v-btn>
+			<v-btn @click="openLoginModal('LOGIN')" class="bonus__btn mt-8" variant="flat" color="#f1aa34">Зарегистрироваться</v-btn>
 			
 			</div>
 	</div>
@@ -121,17 +121,18 @@
 	
 
     .bonus {
-        margin-top: 48px;
+        margin-top: 40px;
 	    background: #1e1e1e;
-	    padding: 32px 0;
+	    padding: 30px 0;
 	    
         &__subtitle {
-            font-size: 20px;
+       
             &_orange {
                 color: #f1aa34;
+				margin-bottom: 16px;
             }
             &_white {
-                margin-bottom: 16px;
+                margin-bottom: 32px;
 	            margin-top: 8px;
             }
         }

@@ -22,7 +22,7 @@
 </script>
 
 <template>
-
+		<MenuMain/>
 		<div class="wrapper services">
 			<VBreadcrumbs
 				:items="breadcrumbs"

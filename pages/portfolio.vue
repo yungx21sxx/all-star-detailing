@@ -1,5 +1,6 @@
 <template>
 <main>
+	<MenuMain/>
 	<div class="wrapper clients">
 		<VBreadcrumbs
 			:items="breadcrumbs"

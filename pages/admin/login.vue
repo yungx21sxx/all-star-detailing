@@ -1,4 +1,5 @@
 <template>
+	<MenuMain/>
 	<AuthFormAdmin />
 </template>
 

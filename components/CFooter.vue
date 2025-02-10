@@ -104,10 +104,10 @@
 		width: 3rem; // w-16 = 4rem
 		flex-shrink: 0;
 		
-		@media (max-width: 768px) { // max-md
-			height: 2rem; // max-md:h-12 = 3rem
-			width: 2rem; // max-md:w-12 = 3rem
-		}
+		//@media (max-width: 768px) { // max-md
+		//	height: 3rem; // max-md:h-12 = 3rem
+		//	width: 3rem; // max-md:w-12 = 3rem
+		//}
 	}
 	
 	&__text {
@@ -220,18 +220,19 @@
 		      "middle"
 		      "left"
 		      "right"; /* Меняем порядок элементов */
-			gap: 16px;
+			gap: 0;
 		}
 		
 		&__col {
-			&_left, &_right, &_middle {
+			&_left, &_right {
 				flex-direction: column;
-				gap: 12px;
+				gap: 0;
 				align-items: flex-start;
 			}
 			&_middle {
 				align-items: center;
-				margin-bottom: 24px;
+				gap: 16px;
+				margin-bottom: 42px;
 			}
 		}
 		
@@ -240,9 +241,15 @@
 		}
 		
 		&__text {
-			margin-top: 32px;
+			margin-top: 16px;
 			text-align: center;
 		}
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.contact {
+		margin-bottom: 32px;
 	}
 }
 </style>

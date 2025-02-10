@@ -98,6 +98,7 @@ const openAuthModals = () => {
 .nav {
 	width: 100%;
 	z-index: 10;
+	padding: 4px 0;
 	
 	&__burger {
 		display: none;

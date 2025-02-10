@@ -4,7 +4,6 @@
 			<MenuMain variant="dark"/>
 		</div>
 	</transition>
-
 </template>
 
 <script setup>
@@ -13,13 +12,18 @@ import MenuMain from './MenuMain.vue';
 const isMenuVisible = ref(false);
 let lastScrollY = 0;
 
-const route = useRoute()
-
 const handleScroll = () => {
 	const currentScrollY = window.scrollY;
+	const scrollDifference = Math.abs(currentScrollY - lastScrollY);
 	
-	// Показываем меню, если скроллим вниз и скрываем только при старте страницы
-	if (currentScrollY > lastScrollY && currentScrollY > 300) {
+	// Если резкое изменение позиции скролла (например, модалка), не скрываем меню
+	if (scrollDifference > 200) {
+		lastScrollY = currentScrollY;
+		return;
+	}
+	
+	// Логика появления и исчезновения меню
+	if (currentScrollY > lastScrollY && currentScrollY > 200) {
 		isMenuVisible.value = true;
 	} else if (currentScrollY < 100) {
 		isMenuVisible.value = false;
@@ -35,11 +39,9 @@ onMounted(() => {
 onUnmounted(() => {
 	window.removeEventListener('scroll', handleScroll);
 });
-
 </script>
 
 <style scoped lang="scss">
-
 .header-wrapper {
 	position: fixed;
 	top: 0;
@@ -67,5 +69,4 @@ onUnmounted(() => {
 	transform: translateY(0);
 	opacity: 1;
 }
-
-</style>
+</style>/style>

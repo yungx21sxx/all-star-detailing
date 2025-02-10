@@ -16,6 +16,7 @@ const breadcrumbs = [
 </script>
 
 <template>
+	<MenuMain/>
 	<div class="wrapper mt-6">
 		<v-breadcrumbs
 			:items="breadcrumbs"

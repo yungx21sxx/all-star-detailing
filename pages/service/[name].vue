@@ -51,7 +51,8 @@ const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serv
 </script>
 
 <template>
-<div class="service">
+	<MenuMain/>
+	<div class="service">
 	<div class="wrapper">
 		<VBreadcrumbs
 			:items="breadcrumbs"

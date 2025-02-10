@@ -50,10 +50,11 @@
 
 <style lang="scss" scoped>
     .adv {
-        margin-top: 48px;
+        margin-top: 40px;
         &__title {
 	        text-align: center;
             margin-bottom: 24px;
+	        color: $accent;
         }
 
         &__icon {

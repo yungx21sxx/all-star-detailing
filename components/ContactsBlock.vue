@@ -132,8 +132,6 @@ const menuLinks = [
 		border-bottom: 1px solid #B8B8B8;
 		margin-bottom: 24px;
 	}
-	
-	
 }
 
 </style>

@@ -18,10 +18,11 @@
 
 <style scoped lang="scss">
     .complexes {
-        margin-top: 48px;
+        margin-top: 32px;
 		
 	    &__title, &__description {
 		    text-align: center;
+		    margin-bottom: 4px;
 	    }
         &__description {
             margin-bottom: 32px;
