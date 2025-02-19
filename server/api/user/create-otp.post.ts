@@ -10,7 +10,7 @@ export default defineEventHandler(async (event: H3Event): Promise<CreateOtpRespo
     try {
         const { phoneRow } = await readBody<createOtpDTO>(event);
         const smsCode: SmsCode | null = await smsService.createOtp(phoneRow);
-        console.log('smsCode', smsCode)
+
         return {
             phoneRow,
         }

@@ -41,37 +41,32 @@
 
 <template>
 
-	<div :class="['service', {
-			'service--mobile' : isMobileOrTablet
-	}]">
-		<img-background src="/poly-wrapping/banner.JPG" height="100svh" class="service__banner banner">
-			<div class="banner__body">
-				<section class="wrapper">
-				
-					<header class="banner__content" v-motion-slide-visible-once-left>
-						<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
-							<span>Смотреть цены</span>
-							<v-icon class="btn__icon" :icon="mdiArrowRight"></v-icon>
-						</div>
-						<h1 class="banner__title">ОКЛЕЙКА АВТО ПОЛИУРЕТАНОВОЙ ПЛЕНКОЙ</h1>
-						<p class="banner__text">
-							Мы наносим полиуретановые пленки высочайшего качества, что делает их не только надежным способом защиты, но и украшением для кузова любого автомобиля.
-						</p>
-<!--							<div class="banner__info">-->
-<!--								<div class="banner__price">от 55 000 ₽ </div>-->
-<!--								<div class="banner__time">Выполним за 2 дня</div>-->
-<!--							</div>-->
-						<v-btn variant="flat" class="banner__btn" color="#f1aa34" @click="openSubmitModal('Оклейка полиуритановой пленкой')">Записаться на услугу</v-btn>
-					</header>
-					
-				</section>
-				<div class="banner__bottom">
-					<v-btn variant="text" class="banner__arrow"  @click="scrollBottom">
-						<nuxt-icon name="arrow" />
-					</v-btn>
+	<div class="service">
+		<HeaderBackground gradient="linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5))">
+			<template #content>
+				<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
+					<span>Смотреть цены</span>
+					<v-icon class="btn__icon" :icon="mdiArrowRight"></v-icon>
 				</div>
-			</div>
-		</img-background>
+				<h1 class="banner__title">Оклейка авто <br> защитной пленкой</h1>
+				<p class="banner__text">
+					Мы наносим полиуретановые пленки высочайшего качества, что делает их не только надежным способом защиты, но и украшением для кузова любого автомобиля.
+				</p>
+				<div class="banner__info">
+					<div class="banner__price">от 55 000 ₽ </div>
+					<div class="banner__time">Выполним за 2 дня</div>
+				</div>
+				<v-btn variant="flat" color="#f1aa34" @click="openSubmitModal('Полировка кузова')">Записаться на услугу</v-btn>
+			</template>
+			<template #background>
+				<img
+					alt="all star detailing"
+					class="hero__background bg"
+					src="/poly-wrapping/banner.jpeg"
+					loading="lazy"
+				/>
+			</template>
+		</HeaderBackground>
 		<div class="wrapper service__content">
 			<VintersectAnimation>
 				<div class="service__columns">
@@ -107,9 +102,8 @@
 			</VintersectAnimation>
 			
 		</div>
-<!--		<BonusProgram class="service__bonus" id="bonus"/>-->
+		<BonusProgram class="service__bonus" id="bonus"/>
 		<ContactsBlock class="wrapper mt-8"/>
-		<Review class="service__review"/>
 		
 		
 		

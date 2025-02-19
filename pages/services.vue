@@ -4,7 +4,7 @@
 	import {complexes} from "~/data/complexes.data";
 	import {mdiChevronRight} from "@mdi/js";
 	
-	const allServices = [...servicesCustom, ...services];
+	const allServices = [...servicesCustom, ...services].sort((serviceA, serviceB) => serviceA.position - serviceB.position);
 	
 	const breadcrumbs = [
 		{

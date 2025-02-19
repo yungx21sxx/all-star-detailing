@@ -1,8 +1,7 @@
 export default defineEventHandler(async (event) => {
-    const user = event.context.user;
+    const user = await getUserFromSession(event);
     if (!user) {
         return null;
     }
-
     return user;
 });

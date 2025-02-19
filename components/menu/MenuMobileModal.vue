@@ -14,6 +14,7 @@
 		mdiHome, mdiMapMarker
 	} from "@mdi/js";
 	import MainContactsInfoBlock from "~/components/MainContactsInfoBlock.vue";
+	import {useAuthUser} from "~/composables/useAuthUser";
 	
 	const authUser = useAuthUser();
 	

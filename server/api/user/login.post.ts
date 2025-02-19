@@ -12,12 +12,12 @@ export default defineEventHandler(async (event) => {
     console.log(body)
     const { phone, otp, phoneRow} = body;
     const user = await userService.getUserByPhoneRow(phoneRow);
-    console.log('getUserByPhoneRow', user)
+
     let createdUser: User;
     let isNewUser: boolean = false;
 
     const validatedOtp = await smsService.validateOtp(phoneRow, otp);
-    console.log(validatedOtp)
+
     if (!validatedOtp) {
         console.log('Не верно введен код или его срок действия истек.')
         throw createError({

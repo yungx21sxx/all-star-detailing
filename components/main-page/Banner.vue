@@ -45,17 +45,6 @@
 		    top: 0;
 	    }
 	    
-	    &__overlay {
-		    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
-		    z-index: 1;
-		    position: absolute;
-		    width: 100%;
-		    height: 100%;
-	    }
-	    
-	    @media (max-width: 768px) {
-		    height: 100svh;
-	    }
 	    
 	    &__title {
 		    font-weight: 600;

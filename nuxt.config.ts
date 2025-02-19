@@ -14,7 +14,11 @@ export default defineNuxtConfig({
 		cookieRememberMeExpires: parseInt(process.env.COOKIE_REMEMBER_ME_EXPIRES || ONE_WEEK.toString(), 10), // 7 days
 	},
 	nitro: {
-		serveStatic: false // Отключает раздачу статики
+		minify: true,
+		serveStatic: false,
+		compressPublicAssets: {
+			brotli: true, gzip: true
+		},
 	},
 	hooks: {
 		async "prerender:routes"(ctx) {
@@ -27,6 +31,20 @@ export default defineNuxtConfig({
 		},
 	},
 	vite: {
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks(id) {
+						if (id.includes('node_modules')) {
+							if (id.includes('vuetify')) return 'vuetify'
+							if (id.includes('v-calendar') || id.includes('@popperjs/core')) return 'calendar'
+							if (id.includes('vue-draggable-next')) return 'vue-draggable-next'
+							if (id.includes('swiper')) return 'swiper'
+						}
+					}
+				}
+			}
+		},
 		css: {
 			preprocessorOptions: {
 				scss: {
@@ -43,26 +61,28 @@ export default defineNuxtConfig({
 		}
 	},
 	routeRules: {
-		'/api': {cors: true},
 		'/': {prerender: true},
 		'/contacts': {prerender: true},
 		'/services': {prerender: true},
 		'/complex/**': {prerender: true},
 		'/service/**': {prerender: true},
-		'/admin/**': {index: false},
+		'/admin/**': {sitemap: false},
 		'/privacy-policy': {prerender: true }
 	},
-	devtools: {enabled: true},
-	typescript: {
-		shim: false,
-		strict: true,
+	modules: [
+		'nuxt-icons',
+		'@nuxtjs/device',
+		'vuetify-nuxt-module',
+		'@nuxt/devtools',
+		'@vueuse/motion/nuxt',
+		'yandex-metrika-module-nuxt3',
+		'@nuxt/image',
+		'@nuxtjs/seo',
+	],
+	sitemap: {
+		xsl: false,
+
 	},
-	nitro: {
-		compressPublicAssets: {
-			brotli: true, gzip: true
-		},
-	},
-	modules: ['nuxt-icons', '@nuxtjs/device', 'vuetify-nuxt-module', '@nuxt/devtools', 'nuxt-simple-sitemap', 'nuxt-simple-robots', '@vueuse/motion/nuxt', 'yandex-metrika-module-nuxt3', '@nuxt/image'],
 	// yandexMetrika: {
 	// 	id: '96041052',
 	// 	clickmap:true,
@@ -84,37 +104,29 @@ export default defineNuxtConfig({
 			labComponents: true,
 			directives: true,
 		},
-		moduleOptions: {},
-	},
-	device: {
-		refreshOnResize: true
+		moduleOptions: {
+			styles: {configFile: '/assets/settings.scss'}
+		},
 	},
 	features: {
 		inlineStyles: false
 	},
-	sourcemap: {
-		server: true,
-		client: true
+	vue: {
+		propsDestructure: true
 	},
-	vite: {
-		css: {
-			preprocessorOptions: {
-				scss: {
-					additionalData: '@use "@/assets/_var.scss" as *;'
-				}
-			}
-		},
-		vue: {
-			script: {
-				defineModel: true,
-			},
-		},
+	schemaOrg: {
+		defaults: false
+	},
+	sourcemap: {
+		server: process.env.NODE_ENV !== "production",
+		client: process.env.NODE_ENV !== "production",
 	},
 	app: {
 		head: {
 			htmlAttrs: {
 				lang: 'ru'
 			},
+			titleTemplate: '%s',
 			link: [
 				{rel: 'apple-touch-icon', sizes: "180x180", href: '/apple-touch-icon.png'},
 				{rel: 'icon', sizes: "32x32", type: 'image/png', href: '/favicon-32x32.png'},

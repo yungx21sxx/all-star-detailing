@@ -5,7 +5,6 @@ export const useAdmin = (): ComputedRef<boolean> => {
 
     return computed(() => {
         if (!authUser.value) return false;
-
         return authUser.value.role === "ADMIN";
     });
 };

@@ -7,6 +7,34 @@
   }
 }
 
+.align-end {
+  align-items: flex-end;
+}
+
+.mt-2 {
+  margin-top: 8px !important;
+}
+
+.mt-4 {
+  margin-top: 16px !important;
+}
+
+.mt-8 {
+  margin-top: 32px !important;
+}
+
+.mb-2 {
+  margin-bottom: 8px !important;
+}
+
+.mb-4 {
+  margin-bottom: 16px !important;
+}
+
+.mb-8 {
+  margin-bottom: 32px !important;
+}
+
 .adv__icon {
   color: $accent !important;
 }

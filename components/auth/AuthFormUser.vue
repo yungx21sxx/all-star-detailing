@@ -52,7 +52,7 @@
 			method: 'post',
 			body: { phoneRow: `7${phoneRow.value}` },
 		})
-		console.log(data.value, error.value)
+	
 		if (error.value) {
 			createOTPError.value = error.value.statusMessage;
 			return;

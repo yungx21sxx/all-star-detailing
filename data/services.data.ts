@@ -40,7 +40,7 @@ export const services: IService[] = [
 		`,
         time: "1 день",
         type: "body",
-        position: 1,
+        position: 4,
         img: "/services/protect.webp",
         price: {
             text: "от 1 000 ₽",
@@ -71,54 +71,19 @@ export const services: IService[] = [
 		`,
         time: "3-4 часа",
         type: "body",
-        position: 5,
+        position: 6,
         img: "/services/wash.webp",
         price: {
             text: "5 000 - 8 000 ₽",
             value: 5000,
         },
         photos: [
+            "/wash/6.jpeg",
+            "/wash/3.webp",
             "/wash/1.webp",
             "/wash/2.webp",
-            "/wash/3.webp",
-            "/wash/4.webp",
         ],
     },
-    // {
-    //     id: "polish",
-    //     title: "Полировка кузова",
-    //     description: `
-    // 		<section>
-    // 			<p>
-    // 				<strong>У нас доступны два типа полировок:</strong>
-    // 			</p>
-    // 			<br/>
-    // 			<p>
-    // 				<strong>Легкая полировка:</strong> Эта услуга идеально подходит для устранения мелких и средних царапин, восстанавливая блеск и яркость цвета вашего автомобиля. Мы аккуратно обрабатываем поверхность, сохраняя оригинальное покрытие в идеальном состоянии.
-    // 			</p>
-    // 			<p>
-    // 				<strong>Глубокая полировка:</strong> Полный комплекс восстановительных работ, включая удаление всех царапин с кузова, демонтаж дверных ручек для детальной обработки, полировку порогов и зоны погрузки, а также подкраску сколов. Эта процедура возвращает автомобилю его роскошный вид, придавая глубокий и насыщенный цвет кузову.
-    // 			</p>
-    //
-    // 			<p>Наша команда специалистов применяет передовые методы и качественные материалы для достижения лучшего результата.</p>
-    // 		</section>
-    // 	`,
-    //     time: "2 дня",
-    //     type: "body",
-    //     position: 8,
-    //     img: "/uploads/cd115c47-77ca-49e6-969f-f1d1082c9944.webp",
-    //     price: {
-    //         text: "8 000 - 18 000 ₽",
-    //         value: 8000,
-    //     },
-    //     photos: [
-    //         "/uploads/292b42cd-0ba4-40e8-9434-a46384b8608c.webp",
-    //         "/uploads/1afc87af-bcce-4ecb-846e-c26ef7157563.webp",
-    //         "/uploads/398ee0fd-98f2-4f2e-9192-263634094c23.webp",
-    //         "/uploads/2da1623f-0c0a-4686-92ea-957b3ed86415.webp",
-    //         "/uploads/ae7de000-343e-4a0f-a416-c5e8eb2a9115.webp",
-    //     ],
-    // },
     {
         id: "windows-polish",
         title: "Полировка стёкол",
@@ -137,7 +102,7 @@ export const services: IService[] = [
 		`,
         time: "1-2 часа",
         type: "body",
-        position: 7,
+        position: 10,
         img: "/uploads/4b01a316-c43e-43d7-953a-018d17a52158.webp",
         price: {
             text: "от 1 500 ₽",
@@ -168,7 +133,7 @@ export const services: IService[] = [
 		`,
         time: "2 часа",
         type: "body",
-        position: 12,
+        position: 9,
         img: "/uploads/ef9d2c5c-a39b-4b00-926e-eb04d7ebb72a.webp",
         price: {
             text: "3 000 - 10 000 ₽",
@@ -200,7 +165,7 @@ export const services: IService[] = [
 		`,
         time: "6 часов",
         type: "salon",
-        position: 9,
+        position: 3,
         img: "/dry-salon/1.webp",
         price: {
             text: "от 8 000 ₽",
@@ -237,7 +202,7 @@ export const services: IService[] = [
 		`,
         time: "1 час",
         type: "body",
-        position: 2,
+        position: 6,
         img: "/services/light-armor.jpeg",
         price: {
             text: "5 000 ₽",
@@ -267,53 +232,14 @@ export const services: IService[] = [
 		`,
         time: "1 день",
         type: "salon",
-        position: 10,
-        img: "/uploads/7813072f-e67c-4afd-ac9f-ad14eac0ed08.webp",
+        position: 7,
+        img: "/services/noise-isolation.jpg",
         price: {
             text: "от 3 000 ₽",
             value: 3000,
         },
-        photos: ["/services/noise-isalation.jpg"],
+        photos: ["/services/noise-isolation.jpg", "/services/noise-isalation.jpg"],
     },
-    // {
-    //     id: "carwrapping",
-    //     title: "Оклейка плёнкой",
-    //     description: `
-    // 		<section>
-    // 			<p>
-    // 				Уберегите ваш автомобиль от повреждений с помощью высококачественной защитной пленки. В All Star Detailing мы понимаем, насколько важно защитить кузов автомобиля от царапин и сколов, которые могут вызвать ржавчину и снизить его стоимость.
-    // 			</p>
-    // 			<p>
-    // 				Мы используем только лучшие пленки от известных производителей, гарантируя прозрачное, глянцевое покрытие, которое идеально прилегает к кузову вашего автомобиля. Наша пленка устойчива к температурным перепадам и механическим повреждениям, обеспечивая защиту в любых условиях.
-    // 			</p>
-    // 			<p>
-    // 				Процесс нанесения пленки включает тщательную подготовку, точный раскрой и аккуратное нанесение, занимая около 10 часов. Мы соблюдаем строгие стандарты качества для достижения идеального результата.
-    // 			</p>
-    // 			<p>
-    // 				Следуйте нашим рекомендациям по уходу за пленкой, чтобы обеспечить её долговечность и сохранить защитные свойства на длительный срок.
-    // 			</p>
-    // 			<p>
-    // 				<strong>Выберите All Star Detailing для надежной защиты вашего автомобиля.</strong>
-    // 			</p>
-    // 		</section>
-    // 	`,
-    //     time: "от 1 часа",
-    //     type: "body",
-    //     position: 4,
-    //     img: "/uploads/573c26fc-5d9b-45cb-954a-76e3db21cfc2.webp",
-    //     price: {
-    //         text: "от 1 000 ₽",
-    //         value: 1000,
-    //     },
-    //     photos: [
-    //         "/uploads/8968a2a8-33ce-4f51-b7f0-63a5e12a7117.webp",
-    //         "/uploads/c5495ae7-d5dc-47ce-990d-cd6cf487ab67.webp",
-    //         "/uploads/1c874ce8-e1ef-4635-b954-a039daf65d5e.webp",
-    //         "/uploads/1a04d6bc-3a28-4361-b6ab-b8166858eb7b.webp",
-    //         "/uploads/7fad2e76-4257-4e51-842f-9f03284e9e9f.webp",
-    //         "/uploads/ed0a0439-f908-425b-854e-42188bf105fa.webp",
-    //     ],
-    // },
     {
         id: "delivery",
         title: "Доставка автомобиля ",
@@ -329,7 +255,7 @@ export const services: IService[] = [
 		`,
         time: "3 часа",
         type: "complexes",
-        position: 999,
+        position: 11,
         img: "/services/delivery.jpeg",
         price: {
             text: "от 5 000 ₽",
@@ -352,7 +278,7 @@ export const services: IService[] = [
 				<p>Выбор тонированных стёкол - это не просто улучшение внешнего вида вашего автомобиля, это инвестиция в комфорт, безопасность и сохранность вашего транспортного средства. Откройте для себя эти преимущества уже сегодня.</p>
 			</section>
 		`,
-        position: 11,
+        position: 8,
         img: "/uploads/52464635-c5bd-451c-8dca-056b7720c7d1.webp",
         price: {
             text: "от 1 000 ₽",
@@ -365,6 +291,16 @@ export const services: IService[] = [
 
 export const servicesCustom = [
     {
+        id: 'poly-wrapping',
+        title: 'Оклейка защитной пленкой',
+        img: '/services/poly-wrapping.jpg',
+        price: {
+            text: "от 55 000 ₽",
+            value: 55000,
+        },
+        position: 1
+    },
+    {
         id: 'polish',
         title: 'Полировка кузова',
         img: '/polish/process/photo_2023-12-10 22.33.36.jpeg',
@@ -372,24 +308,17 @@ export const servicesCustom = [
             text: "от 15 000 ₽",
             value: 15000,
         },
-    },
-    {
-        id: 'poly-wrapping',
-        title: 'Оклейка полиуритановой пленкой',
-        img: '/services/poly-wrapping.jpg',
-        price: {
-            text: "от 55 000 ₽",
-            value: 55000,
-        },
+        position: 2
     },
     {
         id: 'vinyl-wrapping',
-        title: 'Оклейка виниловой пленкой',
+        title: 'Оклейка цветной пленкой',
         img: '/services/vinyl-wrapping.jpeg',
         price: {
             text: "от 55 000 ₽",
             value: 55000,
         },
+        position: 5
     }
 ]
 

@@ -5,7 +5,7 @@ import type {UserAuthResponse, UserResponse} from "~/types/response";
 export const useAuth = () => {
     const authUser = useAuthUser();
 
-    const setUser = (user: UserAuthResponse) => {
+    const setUser = (user: UserAuthResponse | null) => {
         authUser.value = user;
     };
 
@@ -40,7 +40,7 @@ export const useAuth = () => {
         const data = await $fetch("/api/auth/logout", {
             method: "get",
         });
-        setUser(data);
+        setUser(null);
     };
 
     const me = async () => {
@@ -51,7 +51,7 @@ export const useAuth = () => {
                 });
                 setUser(data);
             } catch (error) {
-                setCookie(null);
+                setUser(null);
             }
         }
 

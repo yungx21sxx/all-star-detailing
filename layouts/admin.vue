@@ -27,10 +27,7 @@
 
 <script setup lang="ts">
 
-import {mdiAccountEdit, mdiCar, mdiHome} from "@mdi/js";
-	
-	const { me } = useAuth()
-	
+	import {mdiAccountEdit, mdiCar, mdiHome} from "@mdi/js";
 	const route = useRoute();
 	const linkParts = route.fullPath.split('/')
 	const currentPage = ref<string>(

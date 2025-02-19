@@ -17,7 +17,7 @@ import { Mask } from "maska";
 const mask = new Mask({ mask: "(###) ###-##-##" });
 const inputNode = ref(null);
 
-const modelValue = defineModel<string>('');
+const modelValue = defineModel<string>();
 const emit = defineEmits<{
 	(e: 'update-row-value', value: string): string
 }>();
@@ -45,7 +45,6 @@ const phoneInput = computed<string>({
 		return modelValue.value
 	},
 	set(value) {
-		console.log(value)
 		modelValue.value = value
 		emit('update-row-value', extractNumbersFromString(value))
 	}

@@ -18,11 +18,19 @@
 
 <script setup lang="ts">
 
+defineProps({
+	gradient: {
+		type: String,
+		required: false,
+		default: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1))'
+	}
+})
+
 </script>
 
 <style lang="scss" scoped>
 .hero {
-	height: 80svh;
+	height: 100svh;
 	position: relative;
 	width: 100%;
 	@media (max-width: 768px) {
@@ -36,7 +44,7 @@
 	}
 	
 	&__overlay {
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+		background: v-bind(gradient);
 		position: absolute;
 		width: 100%;
 		height: 100%;

@@ -82,7 +82,7 @@
 <!--				<v-icon v-if="!isScrollStarted && isMobileOrTablet" color="#f1aa34" icon="mdi-chevron-right" variant="tonal" size="x-large" class="price__icon"></v-icon>-->
 <!--			</div>-->
 		</div>
-		<div class="price__scroll-info mt-4" v-if="isMobileOrTablet">
+		<div class="price__scroll-info mt-4">
 			<span>Листайте вправо</span>
 			<v-icon color="#f1aa34" :icon="mdiChevronDoubleRight"></v-icon>
 		</div>
@@ -96,15 +96,9 @@
 		color: #fff;
 		text-decoration: none;
 	}
-
-	.price--mobile {
-		.price__title {
-			font-size: 24px;
-		}
-		
-		.price__subtitle {
-			font-size: 16px;
-		}
+	
+	.price__scroll-info {
+		display: none;
 	}
 	
 	.price {
@@ -135,13 +129,14 @@
 		&__title {
 			text-align: center;
 			font-size: 32px;
+			margin-top: 32px;
+			margin-bottom: 8px;
 			color: $accent;
 		}
 		
 		&__subtitle {
 			text-align: center;
 			font-size: 20px;
-			font-weight: 700;
 		}
 	}
 	
@@ -153,6 +148,20 @@
 		
 		.table__service {
 			color: $accent;
+		}
+	}
+	
+	@media screen and (max-width: 760px){
+		.price__title {
+			font-size: 24px;
+		}
+		
+		.price__subtitle {
+			font-size: 16px;
+		}
+		.price__scroll-info {
+			display: block;
+			text-align: center;
 		}
 	}
 

@@ -4,7 +4,7 @@ import photoService from "~/server/service/photo.service";
 export default defineEventHandler(async (event: H3Event) => {
 
 	const files: MultiPartData[] | undefined  = await readMultipartFormData(event);
-	console.log(files)
+
 	let uploadedImages = [];
 
 	if (!files) {

@@ -33,11 +33,7 @@
 
 <style scoped lang="scss">
 
-.adv--mobile {
-	.adv__title {
-		font-size: 24px;
-	}
-}
+
 
 .adv {
 	margin-top: 32px;
@@ -45,7 +41,6 @@
 	&__title {
 		text-align: center;
 		margin-bottom: 24px;
-		font-size: 32px;
 		color: #fff;
 		
 		span {
@@ -103,5 +98,11 @@
 		
 	}
 	
+}
+
+@media screen and (max-width: 760px ){
+	.adv__title {
+		font-size: 24px;
+	}
 }
 </style>

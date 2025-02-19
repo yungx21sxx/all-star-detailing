@@ -30,9 +30,10 @@ export default defineEventHandler(async (event: H3Event): Promise<UserAuthRespon
 	setCookie(event, config.cookieName, signedSession, {
 		httpOnly: true,
 		path: "/",
-		sameSite: "strict",
+		domain: ".all-star-detailing.ru", // Доступно и для all-star-detailing.ru, и для www.all-star-detailing.ru
+		sameSite: "lax",
 		secure: process.env.NODE_ENV === "production",
-		expires: new Date(Date.now() + config.cookieRememberMeExpires)
+		expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 дней
 	});
 
 	return {

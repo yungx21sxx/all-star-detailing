@@ -13,25 +13,25 @@ const authUser = useAuthUser();
 </script>
 
 <template>
-    <Banner/>
-   
-    <AboutUs />
-    
-    <VintersectAnimation>
-	    <Advantages />
-    </VintersectAnimation>
-   
-    <VintersectAnimation>
-	    <TopServices />
-    </VintersectAnimation>
-    <BonusProgram id="bonus"/>
-    <VintersectAnimation>
-	    <Complexes />
-    </VintersectAnimation>
-    <ContactsBlock class="wrapper mt-8"/>
-    <VLazy transition="fade">
-	    <Review class="mt-8"/>
-    </VLazy>
+	<Banner/>
+	
+	<AboutUs />
+	
+	<VintersectAnimation>
+		<Advantages />
+	</VintersectAnimation>
+	
+	<VintersectAnimation>
+		<TopServices />
+	</VintersectAnimation>
+	<BonusProgram id="bonus"/>
+	<VintersectAnimation>
+		<Complexes />
+	</VintersectAnimation>
+	<ContactsBlock class="wrapper mt-8"/>
+	<VLazy transition="fade">
+		<Review class="mt-8"/>
+	</VLazy>
 </template>
 
 <style lang="scss">
