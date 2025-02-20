@@ -41,9 +41,11 @@
 					photos: formData.value.photos
 				}
 			});
-			await navigateTo('/admin/portfolio');
+			await navigateTo('/admin/portfolio', {
+				external: true
+			});
 		} catch (e) {
-			console.log(e)
+			alert('Ошибка создания')
 		} finally {
 			loading.value = false;
 		}

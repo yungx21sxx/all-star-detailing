@@ -25,6 +25,7 @@ import FileUploader from "~/components/FileUploader.vue";
 
 definePageMeta({
 	layout: 'admin',
+	middleware: 'admin-only'
 })
 
 const router = useRouter()
@@ -40,7 +41,7 @@ const rules = {
 	required: (value: string) => !!value || 'Обязательное поле',
 }
 
-const car = ref<PortfolioAppendDTO>(carDefaultArgs)
+const car = useState<PortfolioAppendDTO>('form-data', () => carDefaultArgs)
 
 onMounted(() => {
 	const carCache = localStorage.getItem('car-cache');
@@ -74,9 +75,11 @@ const createCar = async () => {
 		await $fetch('/api/portfolio/create', {
 			method: "POST",
 			body: car.value
+		});
+		revalidateCache();
+		await navigateTo('/admin/portfolio', {
+			external: true
 		})
-		revalidateCache()
-		await navigateTo('/admin/portfolio')
 	} catch (e) {
 		alert('Ошибка создания')
 	} finally {
@@ -84,9 +87,6 @@ const createCar = async () => {
 	}
 
 }
-
-
-
 </script>
 
 <style scoped lang="scss">

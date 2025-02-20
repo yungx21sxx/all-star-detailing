@@ -14,8 +14,8 @@ export default defineNuxtConfig({
 		cookieRememberMeExpires: parseInt(process.env.COOKIE_REMEMBER_ME_EXPIRES || ONE_WEEK.toString(), 10), // 7 days
 	},
 	nitro: {
-		minify: true,
-		serveStatic: false,
+		// minify: true,
+		serveStatic: 'node',
 		compressPublicAssets: {
 			brotli: true, gzip: true
 		},
@@ -23,10 +23,10 @@ export default defineNuxtConfig({
 	hooks: {
 		async "prerender:routes"(ctx) {
 			for (const service of services) {
-				ctx.routes.add(`/service/${service.id}/`);
+				ctx.routes.add(`/service/${service.id}`);
 			}
 			for (const complex of complexes) {
-				ctx.routes.add(`/complex/${complex.id}/`);
+				ctx.routes.add(`/complex/${complex.id}`);
 			}
 		},
 	},

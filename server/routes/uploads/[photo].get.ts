@@ -4,7 +4,8 @@ import {fileURLToPath} from "url";
 import path from "path";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.resolve(path.dirname(__filename), "../");
+const __dirname = path.resolve(path.dirname(__filename), "../../");
+
 export default defineEventHandler(event => {
 	let uploadDir = ''
 	if (process.env.NODE_ENV === 'development') {

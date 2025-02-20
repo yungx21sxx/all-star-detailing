@@ -10,7 +10,7 @@ import {prisma} from "~/server/service/prisma.service";
 
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.resolve(path.dirname(__filename), "../");
+const __dirname = path.resolve(path.dirname(__filename), "../../");
 
 class PhotoService {
 	createFileUrl() {

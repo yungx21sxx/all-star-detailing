@@ -54,7 +54,7 @@ class PortfolioService {
         const photos = await this.updatePhotosPosition(photosWithNewPosition);
         return prisma.car.create({
             data: {
-                date,
+                date: new Date(date).toISOString(),
                 ...portfolioItem,
                 photos: {
                     connect: photos.map(photo => ({id : photo.photoId}))
