@@ -12,11 +12,12 @@
 	const { openSubmitModal } = useModal();
 	
 	const gallery = [
-		'/poly-wrapping/slider/1.jpeg',
-		'/poly-wrapping/slider/2.JPG',
-		'/poly-wrapping/slider/3.jpeg',
-		'/poly-wrapping/slider/4.jpeg',
+		'/poly-wrapping/slider/1.webp',
+		'/poly-wrapping/slider/6.webp',
 		'/poly-wrapping/slider/5.jpeg',
+		'/poly-wrapping/slider/10.jpeg',
+		'/poly-wrapping/slider/13.webp',
+		'/poly-wrapping/slider/19.webp',
 	];
 	
 	useSeoMeta({
@@ -42,7 +43,7 @@
 <template>
 
 	<div class="service">
-		<HeaderBackground gradient="linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5))">
+		<HeaderBackground gradient="linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3))">
 			<template #content>
 				<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
 					<span>Смотреть цены</span>
@@ -62,7 +63,7 @@
 				<img
 					alt="all star detailing"
 					class="hero__background bg"
-					src="/poly-wrapping/banner.jpeg"
+					src="/poly-wrapping/banner.webp"
 					loading="lazy"
 				/>
 			</template>
@@ -82,7 +83,7 @@
 							Эта многослойная конструкция гарантирует усиленную защиту, при этом материал устойчив к разрывам, не желтеет со временем и сохраняет свой первоначальный цвет, что делает его идеальным выбором для долгосрочной защиты кузова автомобиля.
 						</p>
 					</section>
-					<v-img class="service__img" src="/poly-wrapping/adv.jpg" cover alt="ОКЛЕЙКА АВТО ПОЛИУРЕТАНОВОЙ ПЛЕНКОЙ"/>
+					<v-img class="service__img" src="/poly-wrapping/adv.webp" cover alt="ОКЛЕЙКА АВТО ПОЛИУРЕТАНОВОЙ ПЛЕНКОЙ"/>
 				</div>
 			</VintersectAnimation>
 			
@@ -92,8 +93,8 @@
 			
 			<VintersectAnimation>
 				<div class="service__gallery">
-					<h2 class="service__title service__title_center">Галлерея выполненных работ</h2>
-					<CSlider :photos="gallery" class="service__slider"/>
+					<h2 class="service__title service__title_center mb-4">Фотографии процесса работы</h2>
+					<UISliderMultiply :photos="gallery" class="service__slider"/>
 				</div>
 			</VintersectAnimation>
 			

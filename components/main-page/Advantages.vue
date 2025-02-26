@@ -4,42 +4,42 @@
 </script>
 
 <template>
-    <div class="adv">
+    <div class="advantage">
         <div class="wrapper">
-            <h2 class="adv__title title">Почему Вам стоит обратиться к нам?</h2>
+            <h2 class="advantage__title title">Наши преймущества</h2>
 
-            <div class="adv__list">
-                <div class="adv__item">
-                    <nuxt-icon class="adv__icon" name="shield"/>
-                    <p class="adv__text">Лучшие материалы и составы</p>
+            <div class="advantage__list">
+                <div class="advantage__item">
+                    <nuxt-icon class="advantage__icon" name="shield"/>
+                    <p class="advantage__text">Лучшие материалы и составы</p>
                 </div>
-                <div class="adv__item">
-                    <nuxt-icon class="adv__icon" name="gears"/>
-                    <p class="adv__text">Большой спектр <br>услуг</p>
+                <div class="advantage__item">
+                    <nuxt-icon class="advantage__icon" name="gears"/>
+                    <p class="advantage__text">Большой спектр <br>услуг</p>
                 </div>
-                <div class="adv__item">
-                    <nuxt-icon class="adv__icon" name="qual"/>
-                    <p class="adv__text">Гарантия на все<br> виды работ</p>
+                <div class="advantage__item">
+                    <nuxt-icon class="advantage__icon" name="qual"/>
+                    <p class="advantage__text">Гарантия на все<br> виды работ</p>
                 </div>
-                <div class="adv__item">
-                    <nuxt-icon class="adv__icon" name="peaples"/>
-                    <p class="adv__text">Сотрудники с большим опытом</p>
+                <div class="advantage__item">
+                    <nuxt-icon class="advantage__icon" name="peaples"/>
+                    <p class="advantage__text">Сотрудники с большим опытом</p>
                 </div>
-                <div class="adv__item">
-                    <nuxt-icon class="adv__icon" name="time"/>
-                    <p class="adv__text">Четкое соблюдение  сроков</p>
+                <div class="advantage__item">
+                    <nuxt-icon class="advantage__icon" name="time"/>
+                    <p class="advantage__text">Четкое соблюдение  сроков</p>
                 </div>
-                <div class="adv__item">
-                    <nuxt-icon class="adv__icon" name="like"/>
-                    <p class="adv__text">Идеальное качество работы</p>
+                <div class="advantage__item">
+                    <nuxt-icon class="advantage__icon" name="like"/>
+                    <p class="advantage__text">Идеальное качество работы</p>
                 </div>
-                <div class="adv__item">
-                    <nuxt-icon class="adv__icon" name="photo"/>
-                    <p class="adv__text">Фото отчет в процессе работы</p>
+                <div class="advantage__item">
+                    <nuxt-icon class="advantage__icon" name="photo"/>
+                    <p class="advantage__text">Фото отчет в процессе работы</p>
                 </div>
-                <div class="adv__item">
-                    <nuxt-icon class="adv__icon" name="sale"/>
-                    <p class="adv__text">Скидки для постоянных клиентов</p>
+                <div class="advantage__item">
+                    <nuxt-icon class="advantage__icon" name="sale"/>
+                    <p class="advantage__text">Скидки для постоянных клиентов</p>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
 </template>
 
 <style lang="scss" scoped>
-    .adv {
+    .advantage {
         margin-top: 40px;
         &__title {
 	        text-align: center;
@@ -60,7 +60,7 @@
         &__icon {
             display: flex;
             justify-content: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             svg {
                 display: block;
             }
@@ -77,7 +77,7 @@
         &__text {
             text-align: center;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 500;
             justify-self: center;
         }
 

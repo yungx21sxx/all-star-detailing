@@ -90,9 +90,9 @@ const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serv
 			</VintersectAnimation>
 			
 			<VintersectAnimation>
-				<div class="service__gallery">
-					<h2 class="service__title service__title_center">Галлерея выполненных работ</h2>
-					<CSlider :photos="gallery" class="service__slider"/>
+				<div class="service__gallery ">
+					<h2 class="service__title service__title_center mb-8">Галлерея выполненных работ</h2>
+					<UISliderMultiply :photos="gallery" class="service__slider"/>
 				</div>
 			</VintersectAnimation>
 			

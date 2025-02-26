@@ -14,22 +14,22 @@
         :modules="modules"
         :pagination="true"
         :navigation="true"
-        class="swiper"
+        class="slider"
     >
         <swiper-slide
             v-for="photo of photos"
         >
-            <v-img class="swiper__img" :src="photo" cover/>
+            <v-img class="slider__img" :src="photo" cover/>
         </swiper-slide>
     </swiper>
 </template>
 <script setup lang="ts">
     import 'swiper/css'
-import 'swiper/css/effect-creative'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import { EffectCreative, Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/vue'
+	import 'swiper/css/effect-creative'
+	import 'swiper/css/navigation'
+	import 'swiper/css/pagination'
+	import { EffectCreative, Navigation, Pagination } from 'swiper/modules'
+	import { Swiper, SwiperSlide } from 'swiper/vue'
 
     const modules = [EffectCreative, Pagination, Navigation]
 
@@ -42,7 +42,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 
 
 <style lang="scss">
-.swiper {
+.slider {
 
     width: 100%;
     height: 100%;
@@ -56,15 +56,15 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
     }
 }
 
-.swiper-button-next, .swiper-button-prev,  {
-    color: #FFFFFF;
+.slider .swiper-button-next, .slider .swiper-button-prev,  {
+    color: #FFFFFF !important;
 }
 
-.swiper-pagination-bullet {
-    background: #FFFFFF;
+.slider .swiper-pagination-bullet {
+    background: #FFFFFF !important;
 }
 
-.swiper-pagination-bullet-active {
+.slider .swiper-pagination-bullet-active {
     background: #f1aa34;
 }
 

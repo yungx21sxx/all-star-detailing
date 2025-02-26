@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Banner from "~/components/main-page/Banner.vue";
+import Banner from "~/components/main-page/Banner1.vue";
 import AboutUs from "~/components/main-page/AboutUs.vue";
 import Advantages from "~/components/main-page/Advantages.vue";
 import TopServices from "~/components/main-page/TopServices.vue";
@@ -16,15 +16,16 @@ const authUser = useAuthUser();
 	<Banner/>
 	
 	<AboutUs />
-	
-	<VintersectAnimation>
-		<Advantages />
-	</VintersectAnimation>
-	
 	<VintersectAnimation>
 		<TopServices />
 	</VintersectAnimation>
 	<BonusProgram id="bonus"/>
+	<VintersectAnimation>
+		<Advantages />
+	</VintersectAnimation>
+	
+
+
 	<VintersectAnimation>
 		<Complexes />
 	</VintersectAnimation>

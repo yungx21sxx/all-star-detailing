@@ -5,27 +5,27 @@
 </script>
 
 <template>
-	<div :class="['adv', {
-		'adv--mobile': isMobileOrTablet
+	<div :class="['advantage', {
+		'advantage--mobile': isMobileOrTablet
 	}]">
-		<h2 class="adv__title">Преимущества оклейки автомобиля в <br> <span>All Star Detailing</span></h2>
+		<h2 class="advantage__title service__title">Преимущества оклейки автомобиля в <br> <span>All Star Detailing</span></h2>
 		
-		<div class="adv__list">
-			<div class="adv__item">
-				<nuxt-icon class="adv__icon" name="shield"/>
-				<p class="adv__text">Лучшие материалы и составы</p>
+		<div class="advantage__list">
+			<div class="advantage__item">
+				<nuxt-icon class="advantage__icon" name="shield"/>
+				<p class="advantage__text">Лучшие материалы и составы</p>
 			</div>
-			<div class="adv__item">
-				<nuxt-icon class="adv__icon" name="qual"/>
-				<p class="adv__text">Даем 2 года <br> гарантии</p>
+			<div class="advantage__item">
+				<nuxt-icon class="advantage__icon" name="qual"/>
+				<p class="advantage__text">Даем 2 года <br> гарантии</p>
 			</div>
-			<div class="adv__item">
-				<nuxt-icon class="adv__icon" name="peaples"/>
-				<p class="adv__text">Сотрудники с большим опытом</p>
+			<div class="advantage__item">
+				<nuxt-icon class="advantage__icon" name="peaples"/>
+				<p class="advantage__text">Сотрудники с большим опытом</p>
 			</div>
-			<div class="adv__item">
-				<nuxt-icon class="adv__icon" name="like"/>
-				<p class="adv__text">Идеальное качество работы</p>
+			<div class="advantage__item">
+				<nuxt-icon class="advantage__icon" name="like"/>
+				<p class="advantage__text">Идеальное качество работы</p>
 			</div>
 		</div>
 	</div>
@@ -35,12 +35,13 @@
 
 
 
-.adv {
+.advantage {
 	margin-top: 32px;
 	
 	&__title {
 		text-align: center;
 		margin-bottom: 24px;
+		font-size: 32px;
 		color: #fff;
 		
 		span {
@@ -101,7 +102,7 @@
 }
 
 @media screen and (max-width: 760px ){
-	.adv__title {
+	.advantage__title {
 		font-size: 24px;
 	}
 }

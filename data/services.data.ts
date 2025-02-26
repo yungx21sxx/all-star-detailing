@@ -103,7 +103,7 @@ export const services: IService[] = [
         time: "1-2 часа",
         type: "body",
         position: 10,
-        img: "/uploads/4b01a316-c43e-43d7-953a-018d17a52158.webp",
+        img: "/windows-polish/1.jpg",
         price: {
             text: "от 1 500 ₽",
             value: 1500,
@@ -134,7 +134,7 @@ export const services: IService[] = [
         time: "2 часа",
         type: "body",
         position: 9,
-        img: "/uploads/ef9d2c5c-a39b-4b00-926e-eb04d7ebb72a.webp",
+        img: "/engine-wash/3.JPG",
         price: {
             text: "3 000 - 10 000 ₽",
             value: 3000,
@@ -279,7 +279,7 @@ export const services: IService[] = [
 			</section>
 		`,
         position: 8,
-        img: "/uploads/52464635-c5bd-451c-8dca-056b7720c7d1.webp",
+        img: "/52464635-c5bd-451c-8dca-056b7720c7d1.webp",
         price: {
             text: "от 1 000 ₽",
             value: 1000,
@@ -293,7 +293,7 @@ export const servicesCustom = [
     {
         id: 'poly-wrapping',
         title: 'Оклейка защитной пленкой',
-        img: '/services/poly-wrapping.jpg',
+        img: '/poly-wrapping/adv.webp',
         price: {
             text: "от 55 000 ₽",
             value: 55000,
@@ -303,7 +303,7 @@ export const servicesCustom = [
     {
         id: 'polish',
         title: 'Полировка кузова',
-        img: '/polish/process/photo_2023-12-10 22.33.36.jpeg',
+        img: '/polish/slider/3.png',
         price: {
             text: "от 15 000 ₽",
             value: 15000,

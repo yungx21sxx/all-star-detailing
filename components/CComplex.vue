@@ -46,7 +46,7 @@
 
         &__title {
             font-size: 20px;
-            font-weight: bold;
+            font-weight: 500;
             color: #f1aa34;
             margin-bottom: 8px;
         }

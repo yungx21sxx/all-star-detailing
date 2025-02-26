@@ -1,5 +1,28 @@
 @use 'assets/var' as *;
 
+.wrapper {
+  padding: 0 16px;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+html,
+body {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+* {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 .nuxt-icon {
   svg {
     margin-bottom: 0;
@@ -19,6 +42,10 @@
   margin-top: 16px !important;
 }
 
+.mt-6 {
+  margin-top: 24px !important;
+}
+
 .mt-8 {
   margin-top: 32px !important;
 }
@@ -31,11 +58,23 @@
   margin-bottom: 16px !important;
 }
 
+.mr-2 {
+  margin-right: 8px !important;
+}
+
+.mb-6 {
+  margin-bottom: 24px !important;
+}
+
 .mb-8 {
   margin-bottom: 32px !important;
 }
 
-.adv__icon {
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.advantage__icon {
   color: $accent !important;
 }
 
@@ -48,9 +87,9 @@
   }
 }
 
-.adv__icon svg {
+.advantage__icon svg {
   @media screen and (max-width: 760px) {
-    height: 40px !important;
+    height: 35px !important;
   }
 
   height: 50px !important;
@@ -73,9 +112,9 @@
   width: auto !important;
 }
 .title {
-  color: $accent;
+  color: rgba($accent, .95);
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 
@@ -124,20 +163,7 @@
   margin: 0 auto;
 }
 
-.wrapper {
-  padding: 0 16px;
-}
 
-
-html {
-  scroll-behavior: smooth;
-}
-
-*,
-html,
-body {
-  -webkit-font-smoothing: antialiased !important;
-}
 
 .tiptap {
   margin-top: 24px;

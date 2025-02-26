@@ -11,6 +11,7 @@
 
 	&__img {
 		height: 400px;
+		border-radius: 7px;
 	}
 
 	&__bonus {
@@ -42,7 +43,8 @@
 
 	&__title {
 		font-size: 32px;
-
+		font-weight: 600;
+		color: rgba($accent, .9);
 		&_center {
 			text-align: center;
 		}
@@ -109,21 +111,21 @@ strong {
 
 	&__title {
 		//color: $accent;
-		font-size: 55px;
-		font-weight: 700;
+		font-size: 50px;
+		font-weight: 600;
 		line-height: 1.2;
-		margin-bottom: 8px;
+		margin-bottom: 16px;
 		max-width: 730px;
 	}
 
 	&__price {
 		font-size: 30px;
-		font-weight: 700;
+		font-weight: 500;
 		color: $accent;
 	}
 
 	&__time {
-		font-weight: 700;
+		font-weight: 500;
 		margin-bottom: 16px;
 	}
 
@@ -132,7 +134,7 @@ strong {
 		font-size: 20px;
 		font-weight: 400;
 		margin-bottom: 16px;
-		max-width: 600px;
+		max-width: 500px;
 	}
 
 	&__subtitle {

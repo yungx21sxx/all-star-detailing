@@ -1,20 +1,29 @@
 <script setup lang="ts">
-const initial = ref({
-	y: 50,
-	opacity: 0,
-})
-
-const enter = ref({
-	y: 0,
-	opacity: 1,
-})
-
+const slideBottomAnimation = {
+	visibleOnce: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			type: 'spring',
+			stiffness: 250,
+			damping: 25,
+			mass: 0.5,
+			duration: 300,
+			delay: 80
+		},
+	},
+	initial: {
+		y: 20,
+		opacity: 0,
+	}
+	
+}
 </script>
 <template>
 	<div
 		v-motion
-		:initial="initial"
-		:visibleOnce="enter"
+		:initial="slideBottomAnimation.initial"
+		:visibleOnce="slideBottomAnimation.visibleOnce"
 	>
 		<slot/>
 	</div>

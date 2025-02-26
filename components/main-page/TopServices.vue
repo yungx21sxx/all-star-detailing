@@ -2,7 +2,7 @@
 import { services, servicesCustom } from '~/data/services.data'
 
 
-const topServices = [...servicesCustom, ...services].splice(0, 6)
+const topServices = [...servicesCustom, ...services].sort((a, b) => a.position - b.position).splice(0, 6)
 
 </script>
 

@@ -15,8 +15,8 @@ export default defineNuxtConfig({
 	},
 
 	nitro: {
-		minify: true,
-		serveStatic: false,
+		// minify: true,
+		// serveStatic: false,
 		compressPublicAssets: {
 			brotli: true, gzip: true
 		},
@@ -68,21 +68,17 @@ export default defineNuxtConfig({
 		'/complex/**': {prerender: true},
 		'/service/**': {prerender: true},
 		'/admin/**': {sitemap: false},
-		'/privacy-policy': {prerender: true }
+		'/privacy-policy': {prerender: true}
 	},
-	modules: [
-		'nuxt-icons',
-		'@nuxtjs/device',
-		'vuetify-nuxt-module',
-		'@nuxt/devtools',
-		'@vueuse/motion/nuxt',
-		'yandex-metrika-module-nuxt3',
-		'@nuxt/image',
-		'@nuxtjs/seo',
-	],
+	modules: ['nuxt-icons', '@nuxtjs/device', 'vuetify-nuxt-module', '@nuxt/devtools', '@vueuse/motion/nuxt', 'yandex-metrika-module-nuxt3', '@nuxt/image', '@nuxtjs/seo', '@nuxtjs/google-fonts'],
 	sitemap: {
 		xsl: false,
 
+	},
+	googleFonts: {
+        families: {
+			"Montserrat": [300, 400, 500, 600, 700, 800, 900],
+		},
 	},
 	// yandexMetrika: {
 	// 	id: '96041052',

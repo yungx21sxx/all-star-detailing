@@ -15,10 +15,10 @@
 	const {openSubmitModal} = useModal();
 	
 	const gallery = [
-		'/polish/slider/4.jpeg',
 		'/polish/slider/1.jpeg',
 		'/polish/slider/2.jpeg',
-		'/polish/slider/3.jpeg',
+		'/polish/slider/3.png',
+		'/polish/slider/4.png',
 	];
 	const scrollBottom = () => {
 		window.scroll(0, window.innerHeight - 50)
@@ -32,7 +32,11 @@
 	}
 	
 	const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serviceID === 'polish');
-
+	
+	const processPhotos = [
+		"/polish/process/photo_2023-12-10 22.33.36.jpeg",
+		"/polish/process/photo_2023-12-10 22.46.04.jpeg"
+	]
 
 </script>
 
@@ -65,7 +69,7 @@
 	</HeaderBackground>
 		
 	<div class="wrapper service__content">
-		<div class="service__about">
+		<div class="service__about" style="max-width: 800px">
 			<h2 class="service__title">Мы предоставляем два типа полировок:</h2>
 			<p class="service__text">
 				<strong>Востановительная полировка:</strong>  Эта услуга идеально подходит для устранения мелких и средних царапин, восстанавливая блеск и яркость цвета вашего автомобиля. Мы аккуратно обрабатываем поверхность, сохраняя оригинальное покрытие в идеальном состоянии.
@@ -73,31 +77,35 @@
 			<p class="service__text"><strong>Глубокая полировка:</strong>  Полный комплекс восстановительных работ, включая удаление всех царапин с кузова, демонтаж дверных ручек для детальной обработки, полировку порогов и зоны погрузки, а также подкраску сколов. Эта процедура возвращает автомобилю его роскошный вид, придавая глубокий и насыщенный цвет кузову.</p>
 		</div>
 		
-		<VintersectAnimation class="service__process">
-			<h2 class="service__title">Фотографии процесса работы</h2>
-			
-			<div class="service__grid grid">
-				<v-img
-					src="/polish/process/photo_2023-12-10 22.33.36.jpeg"
-					height="250px"
-					cover
-				/>
-				<v-img
-					src="/polish/process/photo_2023-12-10 22.46.04.jpeg"
-					height="250px"
-					cover
-				/>
-				<v-img
-					src="/polish/process/photo_2023-12-10 22.46.10.jpeg"
-					height="250px"
-					cover
-				/>
-			</div>
-		</VintersectAnimation>
+<!--		<VintersectAnimation class="service__process">-->
+<!--			<h2 class="service__title">Фотографии процесса работы</h2>-->
+<!--			-->
+<!--			<div class="service__grid grid">-->
+<!--				<v-img-->
+<!--					src="/polish/process/photo_2023-12-10 22.33.36.jpeg"-->
+<!--					height="250px"-->
+<!--					cover-->
+<!--				/>-->
+<!--				<v-img-->
+<!--					src="/polish/process/photo_2023-12-10 22.46.04.jpeg"-->
+<!--					height="250px"-->
+<!--					cover-->
+<!--				/>-->
+<!--				<v-img-->
+<!--					src="/polish/process/photo_2023-12-10 22.46.10.jpeg"-->
+<!--					height="250px"-->
+<!--					cover-->
+<!--				/>-->
+<!--			</div>-->
+<!--		</VintersectAnimation>-->
 		
 		<VintersectAnimation class="service__gallery">
-			<h2 class="service__title service__title_center">Галлерея выполненных работ</h2>
-			<CSlider :photos="gallery" class="service__slider"/>
+			<h2 class="service__title service__title_center mb-8">Галлерея выполненных работ</h2>
+			<UISliderMultiply :photos="gallery" class="service__slider">
+				<template #action>
+					<v-btn variant="flat" color="#f1aa34" href="/portfolio">Смотреть портфолио</v-btn>
+				</template>
+			</UISliderMultiply>
 		</VintersectAnimation>
 		
 		<VintersectAnimation>

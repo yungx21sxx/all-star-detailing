@@ -88,13 +88,13 @@
 		transition="slide-x-transition"
 	>
 		<v-card class="menu__body">
-			<div class="menu__header">
+			<div class="menu__header mb-4">
 				<div class="menu__btn btn" v-ripple @click="openSubmitModal(null)">
 					<span>Записаться</span>
 					<v-icon :icon="mdiArrowRight" class="btn__icon"></v-icon>
 				</div>
 				<v-btn
-					class="modal__close-btn ma-2"
+					class="modal__close-btn mt-2 mb-2"
 					icon
 					@click="closeMobileMenuModal"
 					variant="text"
@@ -104,7 +104,7 @@
 			</div>
 			<div>
 				<div
-					class="menu__auth auth mb-4"
+					class="menu__auth auth mb-2"
 				>
 					
 					<v-card class="auth__item"
@@ -180,6 +180,7 @@
 	margin: 16px;
 	&__title {
 		font-size: 20px;
+		font-weight: 500;
 	}
 }
 
