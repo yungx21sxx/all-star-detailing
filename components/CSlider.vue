@@ -57,18 +57,18 @@
 }
 
 .slider .swiper-button-next, .slider .swiper-button-prev,  {
-    color: #FFFFFF !important;
+    color: $accent !important;
 }
 
 .slider .swiper-pagination-bullet {
-    background: #FFFFFF !important;
+    background: $accent !important;
 }
 
 .slider .swiper-pagination-bullet-active {
-    background: #f1aa34;
+    background: #f1aa34 !important;
 }
 
-.swiper-slide {
+.slider .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -50,7 +50,7 @@ import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight
     
     .hero {
 	    width: 100%;
-	    height: 100dvh;
+	    height: 100svh;
 	    background: #000;
 	    
 	    &__body {

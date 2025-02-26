@@ -111,6 +111,7 @@
 			&__img {
 				height: 300px !important;
 				max-width: 80vw;
+				object-fit: cover !important;
 			}
 		}
 		
