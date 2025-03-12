@@ -5,11 +5,11 @@ export default () => {
     const route = useRoute();
     const links = [
         {
-            href: '/services/',
+            href: '/services',
             text: 'Услуги',
         },
         {
-            href: '/portfolio/',
+            href: '/portfolio',
             text: 'Портфолио',
         },
         {

@@ -7,7 +7,6 @@ import BonusProgram from "~/components/main-page/BonusProgram.vue";
 import Complexes from "~/components/main-page/Complexes.vue";
 import Review from "~/components/main-page/Review.vue";
 import {mdiArrowRight} from "@mdi/js";
-import {useHead} from "#app/composables/head";
 import {services, servicesCustom} from "~/data/services.data";
 import CallSubmitForm from "~/components/CallSubmitForm.vue";
 
