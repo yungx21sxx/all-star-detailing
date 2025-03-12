@@ -4,9 +4,15 @@
 	
 	const { openSubmitModal } = useModal()
 	const route = useRoute()
-	const complexId = route.params.id
+	const complexId = route.params.id;
+	const complex = complexes.find(i => i.id === complexId);
 	
-	const complex = complexes.find(i => i.id === complexId)
+	useSeoMeta({
+		title: `Комплекс услуг: ${complex.title} | All Star Detailing`,
+		description: `Цена ${complex.price.current}. В цену входит: ${complex.included.join(' • ')}`
+	})
+	
+	
 	const breadcrumbs = [
 		{
 			title: 'Главная',
