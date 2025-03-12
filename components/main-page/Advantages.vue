@@ -4,109 +4,130 @@
 </script>
 
 <template>
-    <div class="advantage margin-block-end block">
-        <div class="wrapper">
-            <h2 class="title">ПОЧЕМУ ВЫБИРАЮТ ИМЕННО НАС</h2>
-			<div class="under-line"></div>
-            <div class="advantage__list">
-                <div class="advantage__item">
-                    <nuxt-icon class="advantage__icon" name="shield"/>
-                    <p class="advantage__text">Лучшие материалы и составы</p>
-                </div>
-                <div class="advantage__item">
-                    <nuxt-icon class="advantage__icon" name="gears"/>
-                    <p class="advantage__text">Большой спектр <br>услуг</p>
-                </div>
-                <div class="advantage__item">
-                    <nuxt-icon class="advantage__icon" name="qual"/>
-                    <p class="advantage__text">Гарантия на все<br> виды работ</p>
-                </div>
-                <div class="advantage__item">
-                    <nuxt-icon class="advantage__icon" name="peaples"/>
-                    <p class="advantage__text">Сотрудники с большим опытом</p>
-                </div>
-                <div class="advantage__item">
-                    <nuxt-icon class="advantage__icon" name="time"/>
-                    <p class="advantage__text">Четкое соблюдение  сроков</p>
-                </div>
-                <div class="advantage__item">
-                    <nuxt-icon class="advantage__icon" name="like"/>
-                    <p class="advantage__text">Идеальное качество работы</p>
-                </div>
-                <div class="advantage__item">
-                    <nuxt-icon class="advantage__icon" name="photo"/>
-                    <p class="advantage__text">Фото отчет в процессе работы</p>
-                </div>
-                <div class="advantage__item">
-                    <nuxt-icon class="advantage__icon" name="sale"/>
-                    <p class="advantage__text">Скидки для постоянных клиентов</p>
-                </div>
-            </div>
+	<div class="wrapper advantages block-end-margin block">
+		<h2 class="title">ПОЧЕМУ ВЫБИРАЮТ ИМЕННО НАС</h2>
+		<div class="under-line"></div>
+		<div class="advantages__grid">
+			<VImg
+				alt="Защитная пленка на авто в СПб | All-Star Detailing"
+				cover
+				class="advantages__card"
+				src="/poly-wrapping/adv/1.webp"
+				gradient="to bottom, rgba(0,0,0, 0.15), rgba(0,0,0, 0.8)"
+			>
+				<div class="advantage__bottom">
+					<img src="/poly-wrapping/icons/work.svg" class="advantage__icon"/>
+					<p class="advantage__text">Опыт мастеров — 7+ лет, более 100 довольных клиентов</p>
+				</div>
+			</VImg>
+			<VImg
+				alt="Защитная пленка на авто в СПб | All-Star Detailing"
+				cover
+				class="advantages__card"
+				src="/poly-wrapping/adv/2.webp"
+				gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+			>
+				<div class="advantage__bottom">
+					<img src="/poly-wrapping/icons/garanty.svg" class="advantage__icon"/>
+					<p class="advantage__text">Гарантия на материалы и работу — 3 года</p>
+				</div>
+			</VImg>
+			<VImg
+				alt="Защитная пленка на авто в СПб | All-Star Detailing"
+				cover
+				class="advantages__card"
+				src="/poly-wrapping/adv/3.webp"
+				gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+			>
+				<div class="advantage__bottom">
+					<img src="/poly-wrapping/icons/wrap.svg" class="advantage__icon"/>
+					<p class="advantage__text">Лучшие материалы и составы</p>
+				</div>
+			</VImg>
+			<VImg
+				alt="Защитная пленка на авто в СПб | All-Star Detailing"
+				cover
+				class="advantages__card"
+				src="/poly-wrapping/adv/4.webp"
+				gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+			>
+				<div class="advantage__bottom">
+					<img src="/poly-wrapping/icons/check.svg" class="advantage__icon"/>
+					<p class="advantage__text">Бесплатная диагностика и уход после оклейки</p>
+				</div>
+			</VImg>
+		</div>
+	</div>
 
-        </div>
-
-    </div>
 </template>
 
 <style lang="scss" scoped>
-    .advantage {
-        &__title {
-	        text-align: center;
-	        color: $accent;
-        }
-
-        &__icon {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 16px;
-            svg {
-                display: block;
-            }
-        }
-
-        &__item {
-            padding: 20px 10px !important;
-            display: flex;
-            flex-direction: column;
-            border-radius: 4px;
-            background: $bg-card;
-        }
-
-        &__text {
-            text-align: center;
-            font-size: 18px;
-            font-weight: 500;
-            justify-self: center;
-        }
-
-        &__list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            grid-auto-rows: auto;
-            gap: 16px;
-        }
-
-        @media screen and (max-width: 760px) {
-            &__list {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-auto-rows: auto;
-                gap: 7px;
-            }
-
-            &__item {
-                width: 100%;
-                margin-bottom: 0 !important;
-                padding: 15px 5px !important;
-            }
-
-            &__text {
-                font-size: 16px !important;
-            }
-
-        }
-
-    }
+.advantages {
+	&__card {
+		background-size: cover;
+		border-radius: 7px;
+		width: 100%;
+		height: 300px;
+		padding: 20px;
+		align-items: flex-end;
+	}
+	
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+		gap: 20px;
+	}
+	
+	.advantage {
+		&__icon {
+			height: 45px;
+			width: 45px;
+			flex-shrink: 0;
+		}
+		
+		&__bottom {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			
+			p {
+				font-size: 18px;
+				font-weight: 400;
+			}
+		}
+	}
+	
+	@media screen and (max-width: 600px) {
+		&__grid {
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+		&__card {
+			width: 100%;
+			height: 190px;
+			padding: 16px;
+			align-items: center;
+		}
+		.advantage {
+			&__icon {
+				height: 50px;
+				width: 50px;
+			}
+			
+			&__bottom {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				text-align: center;
+				p {
+					max-width: 85%;
+					font-size: 16px;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+}
 	
    
 

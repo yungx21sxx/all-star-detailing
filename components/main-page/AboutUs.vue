@@ -1,5 +1,5 @@
 <template>
-    <div class="about wrapper block margin-block-end" style="margin-top: 44px;">
+    <div class="about wrapper block">
 	    <div class="desc">
 		    <h2 class="title">Профессинальный детейлинг по доступным ценам</h2>
 		    <div class="under-line"></div>
@@ -24,12 +24,10 @@
 		    
 		    </div>
 		    <v-lazy :min-height="157">
-			    <v-scroll-y-transition>
-				    <iframe class="review__yandex" @load="frameLoaded = true" v-show="frameLoaded" style="width:100%;border: 0 solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/181191680424?comments"></iframe>
-			    </v-scroll-y-transition>
+				    <iframe class="review__yandex" style="width:100%;border: 0 solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/181191680424?comments"></iframe>
 		    </v-lazy>
 	    </div>
-	    <div v-intersect.once="handleIntersection">
+	    <div v-intersect.once="handleIntersection" class="video-container">
 		    <v-fade-transition>
 			    <video
 				    id="videoPlayer"
@@ -94,7 +92,7 @@
 .about {
 	display: grid;
 	grid-template-columns: 1.2fr 1fr;
-	gap: 60px;
+	gap: 44px;
 	align-items: center;
 	
 	.advantages, .advantage {
@@ -134,14 +132,22 @@
 	
 	@media screen and (max-width: 700px){
 		grid-template-columns: 1fr;
+		gap: 40px;
 		
 		.video {
 			justify-self: center;
-			height: 400px;
-			max-width: 400px;
+			height: 60vh;
+			
+			width: 100%;
+			border-radius: 0;
 		}
+		.video-container {
+			margin: 0 -20px;
+		}
+		
 		.video-placeholder {
-			height: 400px;
+			height: 60vh;
+			width: 100%;
 		}
 	}
 }

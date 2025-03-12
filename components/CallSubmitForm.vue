@@ -36,7 +36,7 @@ async function requestForCall() {
 
 <template>
 	<div class="wrapper">
-		<div class="submit-form">
+		<div class="submit-form margin-block-end">
 			<v-form @submit.prevent="requestForCall" class="form" ref="form">
 				<h2 class="title">Заявка на звонок</h2>
 				<div class="under-line"></div>
@@ -106,7 +106,9 @@ async function requestForCall() {
 		
 		@media screen and (max-width: 900px){
 			grid-template-columns: 1fr;
-			
+			.form {
+				padding: 16px;
+			}
 			.img {
 				border-radius: 0 0 7px 7px;
 				height: 300px;

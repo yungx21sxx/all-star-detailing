@@ -20,7 +20,6 @@
 	>
 		<v-img
 			:src="img"
-			height="220px"
 			class="align-end product__bg"
 			:alt="title"
 			gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,1)"
@@ -47,7 +46,12 @@
     .product {
 
         &__bg {
-            border-radius: 4px;
+            border-radius: 7px;
+	        height: 250px;
+	        
+	        @media screen and (max-width: 600px){
+		        height: 220px;
+	        }
         }
 
         &__body {

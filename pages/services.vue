@@ -54,7 +54,7 @@
 			</VBreadcrumbs>
 			<h1 class="title services__title">Наши услуги</h1>
 			<div class="under-line"></div>
-			<p class="services__subtitle mb-8">Полный спектр услуг для Вашего автомобиля</p>
+			<p class="subtitle mb-8 mt-4">Полный спектр услуг для Вашего автомобиля</p>
 			<div class="grid block-end-margin">
 				<CService
 					v-for="service of allServices"
@@ -64,7 +64,7 @@
 			</div>
 			<h1 class="title">Комлексы услуг</h1>
 			<div class="under-line"></div>
-			<h2 class="services__subtitle">Экономия до 30% при заказе комплекса услуг</h2>
+			<h2 class="subtitle mb-8 mt-4">Экономия до 30% при заказе комплекса услуг</h2>
 			
 			<div class="grid">
 				<CComplex

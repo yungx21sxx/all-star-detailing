@@ -72,11 +72,15 @@
 		defineProps<{
 			photos: string[]
 			fixedRatio?: boolean,
-			aspectRatio?: string
+			aspectRatio?: string,
+			desktopHeight?: string,
+			mobileHeight?: string
 		}>(),
 		{
 			fixedRatio: false,
-			aspectRatio: '1/1'
+			aspectRatio: '1/1',
+			desktopHeight: '450px',
+			mobileHeight: '340px'
 		}
 	)
 
@@ -94,7 +98,7 @@
 		padding: 16px;
 	}
 	.swiper-multiply {
-		height: 450px;
+		height: v-bind(desktopHeight);
 		border-radius: 7px;
 		.swiper-scrollbar-drag {
 			background: rgba($accent, .7) !important;
@@ -118,8 +122,8 @@
 			display: flex !important;
 			justify-content: center !important;
 			align-items: center !important;
-			&:not(nth-last-child) {
-				margin-right: 20px;
+			&:not(:last-child) {
+				margin-right: 16px;
 			}
 		}
 		
@@ -130,14 +134,12 @@
 			
 			&--fixed {
 				object-fit: cover;
-				//aspect-ratio: 1/1;
 			}
 			
 			
 		}
 		
 		&__footer {
-			
 			@media screen and (max-width: 400px){
 				flex-direction: column;
 				align-items: flex-start;
@@ -146,16 +148,21 @@
 			display: flex;
 			align-items: center;
 			gap: 16px;
-			margin-top: 16px;
+			padding-left: 16px;
+			margin-top: 24px;
 		}
 		
 		@media screen and (max-width: 500px) {
-			height: 340px;
-			max-width: calc(100vw - 32px);
+			height: v-bind(mobileHeight);
+			max-width: 100vw;
 			&__img {
-				//height: 300px !important;
-				max-width: calc(100vw - 32px);
+				max-width: 100vw;
 				object-fit: cover !important;
+			}
+			&__slide {
+				&:not(:last-child) {
+					margin-right: 12px;
+				}
 			}
 		}
 		

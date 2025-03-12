@@ -48,6 +48,7 @@ const { isMobileOrTablet } = useDevice();
 	}
 	@media screen and (max-width: 700px) {
 		.review {
+			grid-template-columns: 1fr;
 			.review__yandex {
 				width: 100%;
 				height: 500px;

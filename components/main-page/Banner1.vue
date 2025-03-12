@@ -24,7 +24,7 @@ import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight
 				to: 'rgba(0,0,0,.3)'
 			}
 		}"
-		class="hero"
+		class="hero margin-block-end"
 	>
 		<v-chip :append-icon="mdiArrowRight" class="hero__btn" variant="outlined" color="#f1aa34" @click="openSubmitModal(null)">Записаться онлайн</v-chip>
 		<h1 class="hero__title">ALL STAR DETAILING</h1>

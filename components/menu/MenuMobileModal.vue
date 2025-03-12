@@ -164,7 +164,7 @@
 					<v-icon :icon="icon" color="#f1aa34" class="menu__icon" size="24px" />
 					<span class="menu__text">{{text}}</span>
 				</v-card>
-				<div class="contacts">
+				<div class="contacts mt-6">
 					<h3 class="contacts__title mb-6">Наши контакты</h3>
 					<MainContactsInfoBlock/>
 				</div>
@@ -246,9 +246,9 @@
 		margin-bottom: 8px;
 	}
 	&__body {
-		background: rgba(18, 18, 18, 0.8);
+		background: rgba(28, 28, 28, 0.8);
 		opacity: 0;
-		backdrop-filter: blur(0px);
+		backdrop-filter: blur(15px);
 		animation: fade-in-blur 0.5s ease-in-out forwards;
 	}
 	

@@ -20,9 +20,9 @@ const frameLoaded = ref(false);
 	
 	useSeoMeta({
 		title: 'Защитная пленка на авто в СПб | Антигравийное бронирование кузова «под ключ» | All-Star Detailing',
-		description: '🛡️Самые доступные цены на защитную пленку в Санкт-Петербурге! Защита кузова от сколов и царапин без переплат. Гарантия 3 года, только сертифицированные пленки Spectrol, Lumar. Бесплатный расчет + скидка 5% новым клиентам!',
+		description: '🛡️Самые доступные цены на защитную пленку в Санкт-Петербурге! Защита кузова от сколов и царапин без переплат. Гарантия 3 года, только сертифицированные пленки. Бесплатный расчет + скидка 5% новым клиентам!',
 		ogTitle: 'Защитная пленка на авто в СПб | Антигравийное бронирование кузова «под ключ» | All-Star Detailing',
-		ogDescription: '🛡️Самые доступные цены на защитную пленку в Санкт-Петербурге! Защита кузова от сколов и царапин без переплат. Гарантия 3 года, только сертифицированные пленки Spectrol, Lumar. Бесплатный расчет + скидка 5% новым клиентам!',
+		ogDescription: '🛡️Самые доступные цены на защитную пленку в Санкт-Петербурге! Защита кузова от сколов и царапин без переплат. Гарантия 3 года, только сертифицированные пленки. Бесплатный расчет + скидка 5% новым клиентам!',
 		ogImage: 'https://all-star-detailing.ru/poly-wrapping/banner.webp',
 		ogSiteName: 'All Star Detailing',
 		ogType: 'website',
@@ -141,7 +141,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 		<VintersectAnimation class="wrapper price block-end-margin block" id="price">
 			<h1 class="title">Цены на оклейку пленкой</h1>
 			<div class="under-line mb-6"></div>
-			<p class="subtitle mb-4">Начислим <strong>1000 бонусов</strong> при регистрации и вернем <strong>5%</strong>
+			<p class="subtitle mb-6">Начислим <strong>1000 бонусов</strong> при регистрации и вернем <strong>5%</strong>
 				от суммы заказа</p>
 			<v-btn @click="openLoginModal('INFO')" class="mb-8" variant="outlined" color="#f1aa34"
 			       :append-icon="mdiArrowRight">Подробнее
@@ -219,7 +219,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					<h3 class="card__title" itemprop="name">Оклейка фар</h3>
 					<div class="card__price">
       <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-        от <span itemprop="price">4 000</span> ₽
+        от <span itemprop="price">5 000</span> ₽
         <meta itemprop="priceCurrency" content="RUB">
       </span>
 					</div>
@@ -304,13 +304,12 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 				
 				</div>
 				<v-lazy :min-height="157">
-					<iframe class="review__yandex" @load="frameLoaded = true" v-show="frameLoaded"
+					<iframe class="review__yandex"
 					        style="width:100%;border: 0 solid #e6e6e6;border-radius:8px;box-sizing:border-box"
 					        src="https://yandex.ru/maps-reviews-widget/181191680424?comments"></iframe>
-					<v-skeleton-loader type="image" class="review__yandex" v-show="!frameLoaded"/>
 				</v-lazy>
 			</div>
-			<div v-intersect.once="handleIntersection">
+			<div v-intersect.once="handleIntersection" class="video-container">
 				<v-fade-transition>
 					<video
 						id="videoPlayer"
@@ -341,7 +340,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					cover
 					class="advantages__card"
 					src="/poly-wrapping/adv/1.webp"
-					gradient="to bottom, rgba(0,0,0, 0.15), rgba(0,0,0, 0.8)"
+					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.8)"
 				>
 					<div class="advantage__bottom">
 						<img src="/poly-wrapping/icons/work.svg" class="advantage__icon"/>
@@ -353,7 +352,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					cover
 					class="advantages__card"
 					src="/poly-wrapping/adv/2.webp"
-					gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.8)"
 				>
 					<div class="advantage__bottom">
 						<img src="/poly-wrapping/icons/garanty.svg" class="advantage__icon"/>
@@ -365,11 +364,11 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					cover
 					class="advantages__card"
 					src="/poly-wrapping/adv/3.webp"
-					gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.8)"
 				>
 					<div class="advantage__bottom">
 						<img src="/poly-wrapping/icons/wrap.svg" class="advantage__icon"/>
-						<p class="advantage__text">Только сертифицированные пленки Spectrol, Lumar</p>
+						<p class="advantage__text">Только сертифицированные пленки</p>
 					</div>
 				</VImg>
 				<VImg
@@ -377,7 +376,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					cover
 					class="advantages__card"
 					src="/poly-wrapping/adv/4.webp"
-					gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.8)"
 				>
 					<div class="advantage__bottom">
 						<img src="/poly-wrapping/icons/check.svg" class="advantage__icon"/>
@@ -386,14 +385,18 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 				</VImg>
 			</div>
 		</VintersectAnimation>
-		<VintersectAnimation class="wrapper gallery block-end-margin block">
-			<h1 class="title">Фото процесса работы</h1>
-			<div class="under-line"></div>
-			<UISliderMultiply :photos="gallery" fixed-ratio aspect-ratio="0.8/1">
-				<template #action>
-					<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть портфолио</v-btn>
-				</template>
-			</UISliderMultiply>
+		<VintersectAnimation class="gallery block-end-margin block">
+			<div class="wrapper">
+				<h1 class="title">Фото процесса работы</h1>
+				<div class="under-line"></div>
+			</div>
+			<div class="wrapper gallery__slider">
+				<UISliderMultiply :photos="gallery" fixed-ratio aspect-ratio="0.8/1" mobile-height="380px" desktop-height="500px">
+					<template #action>
+						<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть портфолио</v-btn>
+					</template>
+				</UISliderMultiply>
+			</div>
 		</VintersectAnimation>
 		
 		
@@ -411,7 +414,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 $display-sm: 600px;
 
 .video-placeholder {
-	height: 600px;
+	height: 650px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -421,19 +424,6 @@ $display-sm: 600px;
 	}
 }
 
-.block-end-margin {
-	margin-bottom: 40px;
-}
-
-.under-line {
-	height: 4px;
-	width: 168px;
-	background: $accent;
-}
-
-.block .under-line {
-	margin-bottom: 32px;
-}
 
 .banner {
 	&__title {
@@ -503,7 +493,7 @@ $display-sm: 600px;
 		background-size: cover;
 		border-radius: 7px;
 		width: 100%;
-		height: 250px;
+		height: 300px;
 		padding: 20px;
 		align-items: flex-end;
 	}
@@ -533,7 +523,7 @@ $display-sm: 600px;
 		}
 	}
 	
-	@media screen and (max-width: $display-sm) {
+	@media screen and (max-width: 600px) {
 		&__grid {
 			grid-template-columns: 1fr;
 			gap: 16px;
@@ -542,19 +532,21 @@ $display-sm: 600px;
 			width: 100%;
 			height: 190px;
 			padding: 16px;
-			align-items: flex-end;
+			align-items: center;
 		}
 		.advantage {
 			&__icon {
-				height: 40px;
-				width: 40px;
+				height: 50px;
+				width: 50px;
 			}
 			
 			&__bottom {
 				display: flex;
 				align-items: center;
-				
+				flex-direction: column;
+				text-align: center;
 				p {
+					max-width: 85%;
 					font-size: 16px;
 					font-weight: 500;
 				}
@@ -619,6 +611,9 @@ $display-sm: 600px;
 
 .text {
 	margin-top: 24px;
+	@media screen and (max-width: 600px){
+		font-size: 14px;
+	}
 	color: #ACACAC;
 }
 
@@ -688,7 +683,7 @@ strong {
 	.video {
 		border-radius: 7px;
 		width: 100%;
-		height: 600px;
+		height: 650px;
 		object-fit: cover; /* Обрезает видео по размеру контейнера */
 		top: 0;
 		left: 0;
@@ -701,14 +696,30 @@ strong {
 	
 	@media screen and (max-width: 700px) {
 		grid-template-columns: 1fr;
+		gap: 40px;
 		
 		.video {
 			justify-self: center;
+			height: 60vh;
+			
+			width: 100%;
+			border-radius: 0;
+		}
+		.video-container {
+			margin: 0 -16px;
+		}
+		
+		.video-placeholder {
 			height: 400px;
-			max-width: 400px;
 		}
 	}
 }
+@media screen and (max-width: 600px){
+	.gallery__slider {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
 	
+}
 	
 </style>

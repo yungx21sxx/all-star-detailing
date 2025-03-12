@@ -180,7 +180,7 @@ const openAuthModals = () => {
 		
 	}
 	
-	@media screen and (max-width: 1012px) {
+	@media screen and (max-width: 1038px) {
 		&__phone {
 			display: none;
 		}

@@ -43,31 +43,26 @@ const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serv
 
 <template>
 	<div class="service">
-		<HeaderBackground gradient="linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5))">
-			<template #content>
-				<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
-					<span>Смотреть цены</span>
-					<v-icon class="btn__icon" :icon="mdiArrowRight"></v-icon>
-				</div>
-				<h1 class="banner__title">Оклейка авто <br> цветной пленкой</h1>
-				<p class="banner__text">
-					Возможность придать индивидуальность вашему авто, а также защитить его от царапин и повреждений.
-				</p>
-				<div class="banner__info">
-					<div class="banner__price">от 30 000 ₽ </div>
-					<div class="banner__time">Выполним за 2 дня</div>
-				</div>
-				<v-btn variant="flat" color="#f1aa34" @click="openSubmitModal('Полировка кузова')">Записаться на услугу</v-btn>
-			</template>
-			<template #background>
-				<img
-					alt="all star detailing"
-					class="hero__background bg"
-					src="/vinyl-wrapping/banner.jpeg"
-					loading="lazy"
-				/>
-			</template>
-		</HeaderBackground>
+		<HeroSectionBackground
+			gradient="linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5))"
+			url="/vinyl-wrapping/banner.jpeg"
+		>
+		
+			<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
+				<span>Смотреть цены</span>
+				<v-icon class="btn__icon" :icon="mdiArrowRight"></v-icon>
+			</div>
+			<h1 class="banner__title">Оклейка авто <br> цветной пленкой</h1>
+			<p class="banner__text">
+				Возможность придать индивидуальность вашему авто, а также защитить его от царапин и повреждений.
+			</p>
+			<div class="banner__info">
+				<div class="banner__price">от 30 000 ₽ </div>
+				<div class="banner__time">Выполним за 2 дня</div>
+			</div>
+			<v-btn variant="flat" color="#f1aa34" @click="openSubmitModal('Полировка кузова')">Записаться на услугу</v-btn>
+	
+		</HeroSectionBackground>
 		
 		<div class="wrapper service__content">
 			

@@ -147,21 +147,26 @@ useHead({
 </script>
 
 <template>
-	<Banner/>
-	<AboutUs />
+	<Banner />
+	<AboutUs class="margin-block-end"/>
 	<VintersectAnimation>
 		<TopServices />
 	</VintersectAnimation>
-	<VintersectAnimation class="wrapper gallery block-end-margin block">
-		<h1 class="title">Фото процесса работы</h1>
-		<div class="under-line"></div>
-		<UISliderMultiply :photos="photos" fixed-ratio>
-			<template #action>
-				<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть портфолио</v-btn>
-			</template>
-		</UISliderMultiply>
+	<VintersectAnimation class="gallery block-end-margin block">
+		<div class="wrapper">
+			<h1 class="title">Фото процесса работы</h1>
+			<div class="under-line"></div>
+		</div>
+		<div class="wrapper gallery__slider">
+			<UISliderMultiply :photos="photos" fixed-ratio aspect-ratio="0.8/1">
+				<template #action>
+					<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть портфолио</v-btn>
+				</template>
+			</UISliderMultiply>
+		</div>
+	
 	</VintersectAnimation>
-	<BonusProgram id="bonus"/>
+	<BonusProgram id="bonus" class="margin-block-end"/>
 	<VintersectAnimation>
 		<Advantages />
 	</VintersectAnimation>
@@ -179,5 +184,11 @@ useHead({
 
 <style lang="scss">
 
-
+	@media screen and (max-width: 600px){
+		.gallery__slider {
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+		
+	}
 </style>

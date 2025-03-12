@@ -126,9 +126,8 @@
 	
 	strong {color: $accent}
     .bonus {
-        margin-top: 44px;
 	    background: #1e1e1e;
-	    padding: 30px 0;
+	    padding: 54px 0;
 	    
         &__subtitle {
             
@@ -143,8 +142,17 @@
 	            font-weight: 500;
                 margin-bottom: 32px;
 	            margin-top: 8px;
+	            
+	          
             }
         }
+	    @media screen and (max-width: 600px){
+		    padding: 40px 0;
+		    .bonus__subtitle_white {
+			    font-size: 18px;
+			  
+		    }
+	    }
 	    
 	    &__btn {
 		    margin-top: 16px;
