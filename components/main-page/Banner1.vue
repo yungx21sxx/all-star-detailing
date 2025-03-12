@@ -20,8 +20,8 @@ import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight
 			url: '/main-banner-desktop.webp',
 			maxWidth: 600,
 			overlay: {
-				from: 'rgba(0,0,0,.5)',
-				to: 'rgba(0,0,0,.3)'
+				from: 'rgba(0,0,0,.6)',
+				to: 'rgba(0,0,0,.4)'
 			}
 		}"
 		class="hero margin-block-end"

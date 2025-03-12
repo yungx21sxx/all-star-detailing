@@ -479,7 +479,7 @@ $display-sm: 600px;
 	
 	@media screen and (max-width: $display-sm) {
 		&__text {
-			font-size: 16px;
+			font-size: 18px;
 		}
 		&__price {
 			font-size: 24px;

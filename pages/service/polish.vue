@@ -20,7 +20,7 @@
 	const gallery = [
 		'/polish/slider/1.jpeg',
 		'/polish/slider/2.jpeg',
-		'/polish/slider/3.png',
+		'/polish/banner.jpeg',
 		'/polish/slider/4.png',
 	];
 	const scrollBottom = () => {
@@ -45,7 +45,11 @@
 
 <template>
 	<HeroSectionBackground
-		url="/polish/banner.jpeg"
+		url="/polish/slider/3.png"
+		:overlay="{
+			from: 'rgba(0,0,0,.6)',
+			to: 'rgba(0,0,0,.4)'
+		}"
 	>
 		<div class="banner__btn btn" v-ripple @click="jumpToPriceInfo">
 			<span>Смотреть цены</span>
