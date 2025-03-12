@@ -12,7 +12,8 @@
 		
 		<div class="wrapper">
 				<h2 class="bonus__title title">Бонусная программа</h2>
-				<p class="bonus__subtitle bonus__subtitle_white">Начислим <strong>1000 бонусов</strong> при регистрации и вернем 5% от суммы заказа</p>
+				<div class="under-line mb-6"></div>
+				<p class="bonus__subtitle bonus__subtitle_white">Начислим <strong>1000 бонусов</strong> при регистрации и вернем <strong>5% </strong> от суммы заказа</p>
 				<h3 class="bonus__subtitle  mb">Как это работает?</h3>
 				
 				<v-timeline
@@ -107,6 +108,10 @@
 		display: none;
 	}
 	
+	p {
+		color: rgba(255,255,255,.9);
+	}
+	
 	@media screen and (max-width: 860px) {
 		.timeline_desktop {
 			display: none;
@@ -119,19 +124,23 @@
 	}
 	
 	
-
+	strong {color: $accent}
     .bonus {
-        margin-top: 40px;
+        margin-top: 44px;
 	    background: #1e1e1e;
 	    padding: 30px 0;
 	    
         &__subtitle {
-       
+            
             &_orange {
-                color: #f1aa34;
-				margin-bottom: 16px;
+                //color: #f1aa34;
+				margin-bottom: 12px;
+	            font-size: 18px;
+	            font-weight: 600;
             }
             &_white {
+	            font-size: 20px;
+	            font-weight: 500;
                 margin-bottom: 32px;
 	            margin-top: 8px;
             }

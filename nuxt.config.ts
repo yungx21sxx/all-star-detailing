@@ -2,7 +2,7 @@
 const ONE_DAY = 60 * 60 * 24 * 1000;
 const ONE_WEEK = ONE_DAY * 7;
 
-import {services} from "./data/services.data";
+import {services, servicesCustom} from "./data/services.data";
 import {complexes} from "./data/complexes.data";
 
 export default defineNuxtConfig({
@@ -21,16 +21,16 @@ export default defineNuxtConfig({
 			brotli: true, gzip: true
 		},
 	},
-	hooks: {
-		async "prerender:routes"(ctx) {
-			for (const service of services) {
-				ctx.routes.add(`/service/${service.id}`);
-			}
-			for (const complex of complexes) {
-				ctx.routes.add(`/complex/${complex.id}`);
-			}
-		},
-	},
+	// hooks: {
+	// 	async "prerender:routes"(ctx) {
+	// 		for (const service of services) {
+	// 			ctx.routes.add(`/service/${service.id}`);
+	// 		}
+	// 		for (const complex of complexes) {
+	// 			ctx.routes.add(`/complex/${complex.id}`);
+	// 		}
+	// 	},
+	// },
 	vite: {
 		build: {
 			rollupOptions: {
@@ -41,6 +41,7 @@ export default defineNuxtConfig({
 							if (id.includes('v-calendar') || id.includes('@popperjs/core')) return 'calendar'
 							if (id.includes('vue-draggable-next')) return 'vue-draggable-next'
 							if (id.includes('swiper')) return 'swiper'
+							if (id.includes('@vue')) return 'vue'
 						}
 					}
 				}
@@ -62,20 +63,86 @@ export default defineNuxtConfig({
 		}
 	},
 	routeRules: {
-		'/': {prerender: true},
-		'/contacts': {prerender: true},
-		'/services': {prerender: true},
-		'/complex/**': {prerender: true},
-		'/service/**': {prerender: true},
-		'/admin/**': {sitemap: false},
-		'/privacy-policy': {prerender: true}
+		'/': {
+			sitemap: {
+				priority: 1,
+				changefreq: 'monthly',
+				lastmod: new Date().toISOString(),
+			},
+			prerender: true
+		},
+		'/contacts': {
+			sitemap: {
+				priority: 0.5,
+				changefreq: 'never',
+				lastmod: new Date().toISOString(),
+			},
+			prerender: true
+		},
+		'/services': {
+			sitemap: {
+				priority: 0.5,
+				changefreq: 'monthly',
+				lastmod: new Date().toISOString(),
+			},
+			prerender: true
+		},
+		'/admin/**': { sitemap: false, robots: false },
+		'/privacy-policy': {
+			sitemap: {
+				priority: 0.1,
+				changefreq: 'never',
+				lastmod: new Date().toISOString(),
+			},
+			prerender: true
+		},
+		...Object.assign(
+			{},
+			...servicesCustom.map(service => ({
+				[`/service/${service.id}`]: {
+					sitemap: {
+						priority: 0.8,
+						changefreq: 'monthly',
+						lastmod: new Date().toISOString(),
+					},
+					prerender: true
+				},
+			}))
+		),
+		// Генерируем динамические маршруты
+		...Object.assign(
+			{},
+			...services.map(service => ({
+				[`/service/${service.id}`]: {
+					sitemap: {
+						priority: 0.7,
+						changefreq: 'monthly',
+						lastmod: new Date().toISOString(),
+					},
+					prerender: true
+				},
+			}))
+		),
+		...Object.assign(
+			{},
+			...complexes.map(complex => ({
+				[`/complex/${complex.id}`]: {
+					sitemap: {
+						priority: 0.5,
+						changefreq: 'monthly',
+						lastmod: new Date().toISOString(),
+					},
+					prerender: true
+				},
+			}))
+		),
 	},
 	modules: ['nuxt-icons', '@nuxtjs/device', 'vuetify-nuxt-module', '@nuxt/devtools', '@vueuse/motion/nuxt', 'yandex-metrika-module-nuxt3', '@nuxt/image', '@nuxtjs/seo', '@nuxtjs/google-fonts'],
 	sitemap: {
 		xsl: false,
-
 	},
 	googleFonts: {
+		preload: true,
         families: {
 			"Montserrat": [300, 400, 500, 600, 700, 800, 900],
 		},
@@ -88,18 +155,30 @@ export default defineNuxtConfig({
 	// 	webvisor:true
 	// },
 	site: {
-		url: 'https://all-star-detailing.ru/',
+		url: 'https://all-star-detailing.ru',
+		name: 'All Star Detailing'
+	},
+	compatibilityVersion: 4,
+	unhead: {
+		legacy: true
 	},
 	vuetify: {
 		vuetifyOptions: {
+			defaults: {
+				VBtn: {
+					default: {
+						color: '#f1aa34',
+					},
+				}
+			},
 			theme: {
 				defaultTheme: 'dark',
 			},
 			icons: {
 				defaultSet: 'mdi-svg'
 			},
-			labComponents: true,
-			directives: true,
+			labComponents: false,
+			directives: ['Ripple', 'Intersect'],
 		},
 		moduleOptions: {
 			styles: {configFile: '/assets/settings.scss'}
@@ -138,13 +217,7 @@ export default defineNuxtConfig({
 				{name: "theme-color", content: "#121212"},
 				{charset: 'utf-16'},
 				{name: 'viewport', content: 'width=device-width, initial-scale=1'},
-				{
-					name: 'description',
-					content: 'В All Star Detailing, мы предлагаем полный спектр услуг по детейлингу автомобилей в Санкт-Петербурге. Наша студия оснащена новейшим оборудованием для профессиональной полировки кузова, нанесения керамических покрытий, оклейки защитной пленкой и тщательной чистки интерьера.'
-				},
-
 			],
-			title: 'Детейлинг центр All Star Detailing в СПб — весь спектр детейлинг услуг по лучшим ценам в Санкт-Петербурге'
 		},
 	}
 })

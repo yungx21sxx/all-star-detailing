@@ -9,6 +9,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.poly-table {
+  background: none !important;
+}
+
 *,
 html,
 body {
@@ -92,7 +96,7 @@ body {
     height: 35px !important;
   }
 
-  height: 50px !important;
+  height: 45px !important;
   width: auto !important;
 }
 
@@ -112,11 +116,41 @@ body {
   width: auto !important;
 }
 .title {
-  color: rgba($accent, .95);
-  font-size: 30px;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: rgba(white, .95);
   font-weight: 600;
 }
 
+.block-end-margin {
+  margin-bottom: 40px;
+}
+.block .under-line {
+  margin-bottom: 32px;
+}
+
+.under-line {
+  height: 4px;
+  width: 168px;
+  background: $accent;
+}
+
+.block .under-line {
+  margin-bottom: 32px;
+}
+
+@media screen and (max-width:  600px) {
+  .title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .block .under-line {
+    margin-bottom: 24px;
+  }
+  .block-end-margin {
+    margin-bottom: 32px;
+  }
+}
 
 .subtitle {
   font-size: 20px;
@@ -154,7 +188,7 @@ body {
     grid-template-columns: 1fr;
   }
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  gap: 20px;
 }
 
 .wrapper, .v-toolbar__content{
@@ -163,7 +197,12 @@ body {
   margin: 0 auto;
 }
 
-
+.vc-highlight-bg-solid {
+  border-radius: 7px !important;
+  background: rgba($accent, .9)  !important;
+  color: #1a1a1a !important;
+  user-select: none;
+}
 
 .tiptap {
   margin-top: 24px;
@@ -173,8 +212,10 @@ body {
 .server-html, .tiptap {
 
   h1 {
-    color: $accent;
-    margin-bottom: 16px;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: rgba(white, .95);
+    font-weight: 600;
   }
   p {
     margin-bottom: 8px;

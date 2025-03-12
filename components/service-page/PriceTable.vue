@@ -30,7 +30,8 @@
 		'price--mobile': isMobileOrTablet
 	}]">
 		<div class="price__header">
-			<h2 class="price__title">{{ title }}</h2>
+			<h2 class="title">{{ title }}</h2>
+			<div class="under-line"/>
 			<p class="price__subtitle">Цена зависит класса автомобиля и количества работы</p>
 		</div>
 		<div class="price__wrapper">
@@ -75,12 +76,7 @@
 					</tr>
 					</tbody>
 				</v-table>
-				
-			
 			</div>
-<!--			<div class="price__scroll-icon">-->
-<!--				<v-icon v-if="!isScrollStarted && isMobileOrTablet" color="#f1aa34" icon="mdi-chevron-right" variant="tonal" size="x-large" class="price__icon"></v-icon>-->
-<!--			</div>-->
 		</div>
 		<div class="price__scroll-info mt-4">
 			<span>Листайте вправо</span>
@@ -135,7 +131,8 @@
 		}
 		
 		&__subtitle {
-			text-align: center;
+			//text-align: center;
+			margin-top: 24px;
 			font-size: 20px;
 		}
 	}

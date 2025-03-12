@@ -46,7 +46,7 @@ export interface IComplex {
   seo?: ISEOInfo
 }
 
-interface Photo {
+export interface Photo {
   photoId: number
   urlMin: string
   position: number,

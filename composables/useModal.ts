@@ -5,7 +5,7 @@ export default () => {
     const modalLoginIsOpen = useState<boolean>(() => false)
     const modalLkIsOpen = useState<boolean>(() => false)
     const useCurrentService = () => useState<string | null>('current-service', () => null)
-    const useCurrentLoginStep = () => useState<'INFO' | 'LOGIN'>('current-login-step', () => 'LOGIN')
+    const useCurrentLoginStep = () => useState<'INFO' | 'LOGIN' | 'CONFIRM'>('current-login-step', () => 'LOGIN')
 
     const currentService = useCurrentService()
     const currentLoginStep = useCurrentLoginStep()
@@ -28,7 +28,6 @@ export default () => {
 
     const closeLoginModal = (): void => {
         modalLoginIsOpen.value = false
-        currentLoginStep.value = 'LOGIN';
     }
 
     const openLkModal = (): void => {

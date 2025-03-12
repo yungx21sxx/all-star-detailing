@@ -1,43 +1,27 @@
 <script setup lang="ts">
+	import {mdiClose} from "@mdi/js";
+	
 	const { modalLoginIsOpen, closeLoginModal, useCurrentLoginStep} = useModal();
-	
-	const currentLoginStep = useCurrentLoginStep();
-	const currentStep = ref<number>(1);
-	const nextStep = () => {
-		currentStep.value += 1;
-	}
-	
-	watch(modalLoginIsOpen, () => {
-		if (!modalLoginIsOpen.value) {
-			currentStep.value = 1;
-		}
-	})
-	//
-	// watch(currentLoginStep, () => {
-	// 	if (currentLoginStep.value === 'LOGIN') {
-	// 		currentStep.value = 2
-	// 	} else {
-	// 		currentStep.value = 1
-	// 	}
-	// })
-	//
-	const isMobile = true;
+	const {isMobile } = useDevice()
 </script>
 
 <template>
-	<ModalLayout
+	<v-dialog
 		v-model="modalLoginIsOpen"
 		class="modal"
+		:max-width="650"
+		:fullscreen="isMobile"
 	>
-		<template #title>
-			<h3 class="modal__title">Бонусная программа</h3>
-		</template>
-		<div class="modal__menu">
-			<AuthFormUser/>
-		</div>
-		
-		
-	</ModalLayout>
+		<v-card>
+			<v-toolbar>
+				<v-toolbar-title>Бонусная программа</v-toolbar-title>
+				<v-btn :icon="mdiClose" @click="closeLoginModal"/>
+			</v-toolbar>
+			<v-card-item>
+				<AuthFormUser/>
+			</v-card-item>
+		</v-card>
+	</v-dialog>
 
 </template>
 
@@ -46,10 +30,6 @@
 
 
 .bonus {
-
-	
-
-	
 	&__subtitle {
 		font-size: 20px;
 		&_orange {

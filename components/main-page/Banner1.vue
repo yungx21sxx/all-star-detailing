@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
-import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight} from "@mdi/js";
+import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight, mdiCogs} from "@mdi/js";
 	
-	const {openSubmitModal} = useModal();
+	const {openSubmitModal, openLoginModal} = useModal();
 	
 	const scrollBottom = () => {
 		window.scroll(0, window.innerHeight - 50)
@@ -10,44 +10,42 @@ import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight
 </script>
 
 <template>
-	<header
+	<HeroSectionBackground
+		url="/main-banner-desktop.webp"
+		:overlay="{
+			from: 'rgba(0,0,0,.5)',
+			to: 'rgba(0,0,0,.4)'
+		}"
+		:adaptive="{
+			url: '/main-banner-desktop.webp',
+			maxWidth: 600,
+			overlay: {
+				from: 'rgba(0,0,0,.5)',
+				to: 'rgba(0,0,0,.3)'
+			}
+		}"
 		class="hero"
 	>
-		<div class="hero__overlay">
-			<div class="hero__body">
-				<MenuMain class="hero__nav"/>
-				<div class="wrapper">
-					<div class="hero__content">
-						<div class="hero__btn btn" v-ripple @click="openSubmitModal(null)">
-							<span>Записаться онлайн</span>
-							<v-icon :icon="mdiArrowRight" class="btn__icon"></v-icon>
-						</div>
-						<h1 class="hero__subtitle">
-							Детейлинг центр
-						</h1>
-						<h2 class="hero__title">ALL STAR DETAILING</h2>
-						<p class="hero__description">
-							Профессинальный детейлинг по <br>
-							доступным ценам в Санкт-Петербурге
-						</p>
-						<div class="hero__actions">
-							<v-btn href="/services" variant="flat" color="#f1aa34">Смотреть услуги</v-btn>
-						</div>
-					</div>
-					<div class="hero__bottom">
-						<v-btn variant="text" icon="true" @click="scrollBottom" color="#fff" aria-label="Name">
-							<v-icon size="60px" :icon="mdiChevronDown"></v-icon>
-						</v-btn>
-					</div>
-				</div>
+		<v-chip :append-icon="mdiArrowRight" class="hero__btn" variant="outlined" color="#f1aa34" @click="openSubmitModal(null)">Записаться онлайн</v-chip>
+		<h1 class="hero__title">ALL STAR DETAILING</h1>
+		<div class="under-line"></div>
+		<div class="banner__bonus bonus">
+			<div class="bonus__title">
+				Начислим <strong>1000 бонусов</strong> и вернем <br> <strong>5%</strong> от стоимости услуги
 			</div>
+			<v-chip :append-icon="mdiArrowRight" color="#f1aa34" @click="openLoginModal('INFO')">Узнать подробности</v-chip>
 		</div>
-	</header>
+		<div class="hero__actions">
+			<v-btn :prepend-icon="mdiCogs" href="/services" variant="flat" color="#f1aa34">Смотреть услуги</v-btn>
+		</div>
+	</HeroSectionBackground>
 </template>
 
 <style lang="scss" scoped>
 
-    
+    strong {
+	    color: $accent;
+    }
     .hero {
 	    width: 100%;
 	    height: 100svh;
@@ -118,19 +116,20 @@ import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight
 	    
 	    
 	    &__title {
-		    font-weight: 600;
-		    font-size: clamp(32px, 13vw, 60px);
-		    line-height: clamp(55px, 15vw, 80px);
+		    font-weight: 500;
+		    font-size: clamp(32px, 13vw, 65px);
+		    line-height: normal;
 		    margin-bottom: .7rem;
 		    letter-spacing: -1px;
 	    }
 	    
 	    &__subtitle {
-		    font-weight: 500;
+		    font-weight: 400;
 		    font-size: clamp(17px, 6vw, 30px);
-		    color: $accent;
+		    //color: $accent;
 		    margin-bottom: -4px;
 	    }
+	    
 	    &__description {
 		    max-width: 480px;
 		    border-radius: 8px;
@@ -166,7 +165,7 @@ import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight
 	    }
 	    
 	    &__btn {
-		    margin-bottom: 16px;
+		    margin-bottom: 12px;
 	    }
 	    
 	    @media (max-width: 768px) {
@@ -191,6 +190,44 @@ import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight
 	    }
     }
     
+    .bonus {
+	    //padding-left: 14px;
+	    //border-left: 3px solid $accent;
+	    margin: 20px 0 30px 0;
+	    cursor: pointer;
+	    
+	    
+	    
+	    &__title {
+		    font-size: clamp(18px, 4vw, 20px);
+		    color: #fff;
+		    margin-bottom: 12px;
+	    }
+	    
+	    @media screen and (max-width: 490px) {
+		    margin-top: 20px;
+		    &__title {
+			    margin-bottom: 12px;
+		    }
+	    }
+	    
+	    &__btn {
+		    color: $accent;
+		    display: flex;
+		    align-items: center;
+	
+		    gap: 2px;
+		    background: none;
+		    border: none;
+		    cursor: pointer;
+		    font-size: 16px;
+		    
+		    span {
+			    font-weight: 500;
+			    text-transform: uppercase;
+		    }
+	    }
+    }
     
     .btn {
         border: 2px solid #f1aa34;

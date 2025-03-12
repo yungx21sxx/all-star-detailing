@@ -13,29 +13,31 @@
 <template>
 	<v-card
 		v-ripple
-		elevation="4"
+		elevation="0"
 		:href="`/service/${id}`"
+		itemscope
+		itemtype="https://schema.org/Service"
 	>
 		<v-img
 			:src="img"
 			height="220px"
 			class="align-end product__bg"
-			gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.8)"
+			:alt="title"
+			gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,1)"
 			cover
+			itemprop="image"
 		>
 			<div class="product__body">
-				<div class="product__title text-wrap">{{ title }}</div>
+				<div class="product__title text-wrap" itemprop="name">{{ title }}</div>
 				<div class="product__bottom">
-					<div class="product__price">{{ price.text }}</div>
-					<v-btn color="#f1aa34" class="product__btn" variant="text">
-						<template #append>
-							<v-icon :icon="mdiArrowRight" size="20px" class="product__icon"></v-icon>
-						</template>
-						<span class="btn__text">Подробнее</span>
-					</v-btn>
+					<div class="product__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+						<meta itemprop="price" :content="price.text">
+						<meta itemprop="priceCurrency" content="RUB">
+						{{ price.text }}
+					</div>
+					<v-chip variant="text" color="#F1AA34FF" :append-icon="mdiArrowRight">Подробнее</v-chip>
 				</div>
 			</div>
-		
 		</v-img>
 	</v-card>
 </template>
@@ -49,15 +51,12 @@
         }
 
         &__body {
-            background: hsla(0,0%,4%,.4) !important;
-            backdrop-filter: blur(1px);
-            padding: 8px 0 8px 16px;
+            padding: 10px 16px;
         }
         &__title {
             font-size: 18px;
-            color: #f1aa34;
-            font-weight: 600;
-            margin-right: 16px;
+	        margin-bottom: 6px;
+            font-weight: 500;
         }
 
         &__bottom {
@@ -68,7 +67,8 @@
 
         &__price {
             font-size: 16px;
-	        font-weight: 300;
+	        font-weight: 400;
+	        color: $accent;
 
         }
 

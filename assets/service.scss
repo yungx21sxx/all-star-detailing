@@ -19,8 +19,8 @@
 	}
 
 	&__review {
-		margin-top: 24px;
-		text-align: center;
+		margin-top: 44px;
+		//text-align: center;
 	}
 
 	&__subtitle {
@@ -29,7 +29,7 @@
 	}
 
 	&__slider {
-		height: 600px;
+		height: 500px;
 		margin-top: 24px;
 		@media screen and (max-width: 800px) {
 			height: 300px;
@@ -43,11 +43,7 @@
 
 	&__title {
 		font-size: 32px;
-		font-weight: 600;
-		color: rgba($accent, .9);
-		&_center {
-			text-align: center;
-		}
+		font-weight: 500;
 
 		&_white {
 			color: #fff;

@@ -3,9 +3,10 @@
 </script>
 
 <template>
-    <div class="wrapper complexes">
-        <h2 class="title complexes__title">Комлексы услуг</h2>
-        <p class="complexes__description subtitle">Выбирайте комплексы услуг в All Star Detailing и экономьте!</p>
+    <div class="wrapper complexes margin-block-end">
+        <h2 class="title">Комлексы услуг</h2>
+	    <div class="under-line"></div>
+	    <p class="complexes__description">Экономия до <strong>30%</strong> при заказе комплекса услуг</p>
         <div class="grid">
             <CComplex
                 v-for="complex of complexes"
@@ -18,14 +19,12 @@
 
 <style scoped lang="scss">
     .complexes {
-        margin-top: 32px;
-		
-	    &__title, &__description {
-		    text-align: center;
-		    margin-bottom: 4px;
+	    strong {
+		    color: $accent;
 	    }
         &__description {
             margin-bottom: 32px;
+	        margin-top: 20px;
 	        font-size: 20px;
         }
 	    

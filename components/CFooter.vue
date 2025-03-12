@@ -38,7 +38,7 @@
 						<NuxtIcon name="vk" class="footer__icon"/>
 					</NuxtLink>
 				</div>
-				<div class="footer__copyright">2025 © All Star Detailing</div>
+				<div class="footer__copyright">2022-2025 © All Star Detailing</div>
 			</div>
 			
 			<div class="footer__col footer__col_right">

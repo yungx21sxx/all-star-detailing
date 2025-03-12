@@ -12,16 +12,19 @@ const { isMobileOrTablet } = useDevice();
 const {openSubmitModal} = useModal();
 
 const gallery = [
-	'/vinyl-wrapping/slider/4.jpeg',
-	'/vinyl-wrapping/slider/1.jpeg',
-	'/vinyl-wrapping/slider/2.jpeg',
-	'/vinyl-wrapping/slider/3.jpeg',
-	'/vinyl-wrapping/slider/5.jpg',
+	'/vinyl-wrapping/slider/4.webp',
+	'/vinyl-wrapping/slider/1.webp',
+	'/vinyl-wrapping/slider/2.webp',
+	'/vinyl-wrapping/slider/3.webp',
+	'/vinyl-wrapping/slider/5.webp',
 ];
 
 useSeoMeta({
-	title: 'Оклейка авто виниловой пленкой в СПб: высокое качество, гарантия от 2х лет.',
-	description: 'Профессиональная оклейка виниловой пленкой СПб, с широким выбором цветов и оттенков, вы можете полностью трансформировать внешний вид вашего авто, при этом защищая его от царапин, грязи и УФ-лучей. Пленка легко снимается, позволяя вам в любой момент вернуться к оригинальному цвету автомобиля или попробовать новый образ. '
+	title: 'Оклейка авто виниловой пленкой в СПб: высокое качество, гарантия 3 года.',
+	description: 'Профессиональная оклейка автомобиля пленкой в Санкт-Петербурге! Гарантия 5 лет, материалы 3M и XPEL, срочные сроки. Защита кузова или стильный дизайн — подберем решение за 15 минут! Бесплатный расчет стоимости на сайте.',
+	ogTitle: 'Оклейка авто виниловой пленкой в СПб: высокое качество, гарантия 3 года.',
+	ogDescription: 'Профессиональная оклейка автомобиля пленкой в Санкт-Петербурге! Гарантия 5 лет, материалы 3M и XPEL, срочные сроки. Защита кузова или стильный дизайн — подберем решение за 15 минут! Бесплатный расчет стоимости на сайте.',
+	ogImage: 'https://all-star-detailing.ru/vinyl-wrapping/banner.jpeg'
 })
 
 const scrollBottom = () => {

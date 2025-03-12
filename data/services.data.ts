@@ -46,7 +46,7 @@ export const services: IService[] = [
             text: "от 1 000 ₽",
             value: 1000,
         },
-        photos: ["/protect.webp"],
+        photos: ["/services/protect.webp"],
     },
     {
         id: "wash",
@@ -74,8 +74,8 @@ export const services: IService[] = [
         position: 6,
         img: "/services/wash.webp",
         price: {
-            text: "5 000 - 8 000 ₽",
-            value: 5000,
+            text: "10 000 ₽",
+            value: 1000,
         },
         photos: [
             "/wash/6.jpeg",
@@ -103,14 +103,14 @@ export const services: IService[] = [
         time: "1-2 часа",
         type: "body",
         position: 10,
-        img: "/windows-polish/1.jpg",
+        img: "/windows-polish/1.webp",
         price: {
             text: "от 1 500 ₽",
             value: 1500,
         },
         photos: [
-            "/windows-polish/1.JPG",
-            "/windows-polish/2.jpeg",
+            "/windows-polish/1.webp",
+            "/windows-polish/2.webp",
         ],
     },
     {
@@ -134,15 +134,15 @@ export const services: IService[] = [
         time: "2 часа",
         type: "body",
         position: 9,
-        img: "/engine-wash/3.JPG",
+        img: "/engine-wash/3.webp",
         price: {
             text: "3 000 - 10 000 ₽",
             value: 3000,
         },
         photos: [
-            "/engine-wash/1.jpeg",
-            "/engine-wash/2.jpeg",
-            "/engine-wash/3.JPG",
+            "/engine-wash/1.webp",
+            "/engine-wash/2.webp",
+            "/engine-wash/3.webp",
         ],
     },
     {
@@ -203,7 +203,7 @@ export const services: IService[] = [
         time: "1 час",
         type: "body",
         position: 6,
-        img: "/services/light-armor.jpeg",
+        img: "/services/light-armor.webp",
         price: {
             text: "5 000 ₽",
             value: 5000,
@@ -233,16 +233,16 @@ export const services: IService[] = [
         time: "1 день",
         type: "salon",
         position: 7,
-        img: "/services/noise-isolation.jpg",
+        img: "/services/noise-isolation.webp",
         price: {
             text: "от 3 000 ₽",
             value: 3000,
         },
-        photos: ["/services/noise-isolation.jpg", "/services/noise-isalation.jpg"],
+        photos: ["/services/noise-isolation.webp", "/services/noise-isalation.webp"],
     },
     {
         id: "delivery",
-        title: "Доставка автомобиля ",
+        title: "Доставка автомобиля",
         description: ` 
 			<section>
 				<p>
@@ -256,12 +256,12 @@ export const services: IService[] = [
         time: "3 часа",
         type: "complexes",
         position: 11,
-        img: "/services/delivery.jpeg",
+        img: "/services/delivery.webp",
         price: {
             text: "от 5 000 ₽",
             value: 5000,
         },
-        photos: ["/services/delivery.jpeg"],
+        photos: ["/services/delivery.webp"],
     },
     {
         id: "toner",
@@ -279,12 +279,12 @@ export const services: IService[] = [
 			</section>
 		`,
         position: 8,
-        img: "/52464635-c5bd-451c-8dca-056b7720c7d1.webp",
+        img: "/services/toner.webp",
         price: {
             text: "от 1 000 ₽",
             value: 1000,
         },
-        photos: ["/uploads/75b1ea26-814a-4958-ae64-0def825b7cae.webp"],
+        photos: ["/services/toner.webp"],
         time: '1 день'
     },
 ];
@@ -293,17 +293,17 @@ export const servicesCustom = [
     {
         id: 'poly-wrapping',
         title: 'Оклейка защитной пленкой',
-        img: '/poly-wrapping/adv.webp',
+        img: '/services/poly-wrapping.webp',
         price: {
-            text: "от 55 000 ₽",
-            value: 55000,
+            text: "от 4 000 ₽",
+            value: 4000,
         },
         position: 1
     },
     {
         id: 'polish',
         title: 'Полировка кузова',
-        img: '/polish/slider/3.png',
+        img: '/services/polish.webp',
         price: {
             text: "от 15 000 ₽",
             value: 15000,
@@ -313,7 +313,7 @@ export const servicesCustom = [
     {
         id: 'vinyl-wrapping',
         title: 'Оклейка цветной пленкой',
-        img: '/services/vinyl-wrapping.jpeg',
+        img: '/services/vinyl-wrapping.webp',
         price: {
             text: "от 55 000 ₽",
             value: 55000,

@@ -3,14 +3,13 @@
 	import {mdiAccountCheckOutline, mdiCarWash, mdiCashPlus} from "@mdi/js";
 	
 	const { login, setUser } = useAuth();
-	const { closeLoginModal } = useModal();
-	
+	const { closeLoginModal, useCurrentLoginStep } = useModal();
 	const phone = ref<string>("");
 	const phoneRow = ref<string>("");
 	const phoneFromCache = ref<string>('');
 	const createOTPError = ref<string>('');
 	const confirmOTPError = ref<string>('');
-	const currentStep = ref<number>(1);
+	const currentStep = useCurrentLoginStep();
 	const otp = ref<string>("");
 	const isMobile = true;
 	const countdown = ref<number>(60);
@@ -127,7 +126,7 @@
 <template>
 	<div class="form">
 		<v-window v-model="currentStep">
-			<v-window-item :value="1">
+			<v-window-item value="LOGIN">
 				<p class="form__description">
 					Для того чтобы зарегестрироваться или войти в аккаунт, введите Ваш номер телефона, затем код который прийдет в СМС.
 				</p>
@@ -136,10 +135,10 @@
 			
 				<v-btn class="form__confirm-btn" @click="createOTP" color="#f1aa34">Получить СМС</v-btn>
 				<v-btn class="form__btn-next" @click="nextStep" variant="tonal" color="#f1aa34">Уже есть код?</v-btn>
-				<v-btn @click="currentStep = 3" variant="text"  class="form__btn-next">Узнать подробности</v-btn>
+				<v-btn @click="currentStep = 'INFO'" variant="text"  class="form__btn-next">Узнать подробности</v-btn>
 			</v-window-item>
 			
-			<v-window-item :value="2">
+			<v-window-item value="CONFIRM">
 				<div class="form__otp">
 					<p class="form__description form__phone-info">
 						Код отправлен на номер: +7 {{ phone !== '' ? phone : phoneFromCache }}. <br> Действителен в течении 5 минут.<br>
@@ -160,10 +159,10 @@
 				</div>
 				
 			</v-window-item>
-			<v-window-item :value="3">
+			<v-window-item value="INFO">
 				<div class="bonus">
 					
-					<p class="bonus__subtitle bonus__subtitle_white">Начислим <strong>1000 бонусов</strong> при регистрации и вернем 5% от суммы заказа</p>
+					<p class="bonus__subtitle bonus__subtitle_white">Начислим <strong>1000 бонусов</strong> при регистрации и вернем <strong>5%</strong> от суммы заказа</p>
 					<h3 class="bonus__subtitle bonus__subtitle_orange mb">Как это работает?</h3>
 					
 					<v-timeline
@@ -206,7 +205,7 @@
 							<p>Когда вернетесь к нам снова, сможете оплатить ими любые наши услуги.</p>
 						</v-timeline-item>
 					</v-timeline>
-					<v-btn @click="currentStep = 1" class="bonus__btn" variant="flat" color="#f1aa34">Зарегестрироваться</v-btn>
+					<v-btn @click="currentStep = 'LOGIN'" class="bonus__btn" variant="flat" color="#f1aa34">Зарегистрироваться</v-btn>
 				</div>
 			</v-window-item>
 		</v-window>
@@ -249,24 +248,43 @@
 			text-align: center;
 		}
 	}
+	
 	.bonus {
-		
-		&__timeline {
-			margin-bottom: 16px;
-		}
+		margin-bottom: 24px;
 		&__subtitle {
-			font-size: 20px;
+			
 			&_orange {
-				color: #f1aa34;
+				//color: #f1aa34;
+				margin-bottom: 12px;
+				font-size: 18px;
+				font-weight: 600;
 			}
 			&_white {
-				margin-bottom: 24px;
+				font-size: 20px;
+				font-weight: 500;
+				margin-bottom: 32px;
+				margin-top: 8px;
 			}
 		}
 		
-		
+		@media screen and (max-width: 700px){
+			&__subtitle {
+				
+				&_white {
+					font-size: 16px;
+					font-weight: 500;
+					margin-bottom: 32px;
+					margin-top: 8px;
+				}
+			}
+		}
+		&__btn {
+			margin-top: 16px;
+		}
 	}
-	
+	strong {
+		color: $accent;
+	}
 	.mb {
 		//margin-bottom: 16px;
 	}

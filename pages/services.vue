@@ -6,6 +6,27 @@
 	
 	const allServices = [...servicesCustom, ...services].sort((serviceA, serviceB) => serviceA.position - serviceB.position);
 	
+	useSeoMeta({
+		title: 'Услуги | All Star Detailing',
+		description: 'В All Star Detailing мы предлагаем широкий спектр услуг по уходу за автомобилями: полировка кузова, химчистка салона, нанесение керамических покрытий и оклейка защитной пленкой.',
+		ogTitle: 'Услуги | All Star Detailing',
+		ogDescription: 'All Star Detailing предлагает различные услуги по детейлингу автомобилей в Санкт-Петербурге, включая полировку, химчистку и защитные покрытия.',
+		ogImage: 'https://all-star-detailing.ru/main-banner-desktop.webp',
+		ogType: 'website',
+		ogImageAlt: 'All Star Detailing — Услуги',
+		ogSiteName: 'All Star Detailing',
+		ogLocale: 'ru_RU',
+	});
+	
+	useSchemaOrg([
+		defineBreadcrumb({
+			itemListElement: [
+				{ name: 'Главная', item: '/' },
+				{ name: 'Услуги', item: '/services' },
+			]
+		}),
+	])
+	
 	const breadcrumbs = [
 		{
 		 title: 'Главная',
@@ -23,7 +44,7 @@
 
 <template>
 		<MenuMain/>
-		<div class="wrapper services">
+		<div class="wrapper services mt-4">
 			<VBreadcrumbs
 				:items="breadcrumbs"
 			>
@@ -32,16 +53,18 @@
 				</template>
 			</VBreadcrumbs>
 			<h1 class="title services__title">Наши услуги</h1>
-			<h2 class="services__subtitle">Полный спектр услуг для Вашего автомобиля</h2>
-			<div class="grid">
+			<div class="under-line"></div>
+			<p class="services__subtitle mb-8">Полный спектр услуг для Вашего автомобиля</p>
+			<div class="grid block-end-margin">
 				<CService
 					v-for="service of allServices"
 					:service="service"
 					:key="service.id"
 				/>
 			</div>
-			<h1 class="title services__title services__title_complex">Комлексы услуг</h1>
-			<h2 class="services__subtitle">Закажите комплекс услуг с выгодой</h2>
+			<h1 class="title">Комлексы услуг</h1>
+			<div class="under-line"></div>
+			<h2 class="services__subtitle">Экономия до 30% при заказе комплекса услуг</h2>
 			
 			<div class="grid">
 				<CComplex
@@ -61,6 +84,7 @@
         &__subtitle {
             color: #FFF;
             font-size: 20px;
+	        margin-top: 16px;
             font-weight: 400;
             margin-bottom: 24px;
         }

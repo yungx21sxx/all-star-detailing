@@ -38,6 +38,7 @@
 		<MainContactsInfoBlock/>
 		<v-btn @click="openSubmitModal(null)" variant="flat" color="#f1aa34" class="banner__btn">Записаться онлайн</v-btn>
 	</div>
+	<CallSubmitForm/>
 </template>
 
 <script setup lang="ts">
@@ -45,6 +46,27 @@ import ContactsBlock from "~/components/ContactsBlock.vue";
 import { mdiChevronRight } from "@mdi/js";
 
 const { openSubmitModal } = useModal();
+
+useSeoMeta({
+	title: 'Контакты — All Star Detailing',
+	description: 'Свяжитесь с нами для получения подробной информации о наших услугах и записи на детейлинг. Мы находимся в Санкт-Петербурге, пр. Энгельса, 27АБ.',
+	ogTitle: 'Контакты — All Star Detailing',
+	ogDescription: 'Все контактные данные для связи с All Star Detailing. Узнайте, как добраться до нас и записаться на детейлинг.',
+	ogImage: 'https://all-star-detailing.ru/main-banner-desktop.webp',
+	ogType: 'website',
+	ogImageAlt: 'Контакты All Star Detailing',
+	ogSiteName: 'All Star Detailing',
+	ogLocale: 'ru_RU',
+});
+
+useSchemaOrg([
+	defineBreadcrumb({
+		itemListElement: [
+			{ name: 'Главная', item: '/' },
+			{ name: 'Контакты', item: '/contacts' },
+		]
+	}),
+])
 
 const breadcrumbs = [
 	{ title: 'Главная', disabled: false, href: '/' },

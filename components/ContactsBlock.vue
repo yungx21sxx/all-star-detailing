@@ -26,12 +26,13 @@ const menuLinks = [
 </script>
 
 <template>
-<div class="contacts">
+<div class="contacts margin-block-end block">
 	<div class="contacts__grid">
 		<div>
-			<h2 class="contacts__title title">
-				Контакты
+			<h2 class="title">
+				Наши контакты
 			</h2>
+			<div class="under-line"></div>
 			<MainContactsInfoBlock/>
 		</div>
 		<v-lazy class="contacts__map-container" transition="fade-transition">
@@ -80,7 +81,7 @@ const menuLinks = [
 	&__grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 48px;
+		gap: 24px;
 	}
 	
 	@media (max-width: 900px) {
@@ -89,7 +90,7 @@ const menuLinks = [
 			gap: 0;
 		}
 		&__map-container {
-			height: 600px;
+			height: 400px;
 		}
 	}
 	
@@ -106,10 +107,7 @@ const menuLinks = [
 	&__map {
 		width: 100%;
 		height: 100%;
-		@media (max-width: 900px) {
-			margin-top: 0 !important;
-		}
-		margin-top: 16px;
+		border-radius: 7px;
 	}
 	
 	&__text {

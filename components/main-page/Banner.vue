@@ -22,11 +22,11 @@ const scrollBottom = () => {
 					<div class="banner__content">
 						<h2 class="banner__subtitle banner__subtitle_white">Детейлинг центр</h2>
 						<h1 class="banner__title">ALL STAR DETAILING</h1>
-						<div class="banner__credit credit" @click="openSubmitMenu('for-call')">
-							<div class="credit__title">
+						<div class="banner__bonus bonus" @click="openSubmitMenu('for-call')">
+							<div class="bonus__title">
 								Начислим 1000 бонусов и вернем 5% от стоимости услуги
 							</div>
-							<button class="credit__btn">
+							<button class="bonus__btn">
 								<span>Узнать подробности</span>
 								<v-icon color="#FAAC37" :icon="mdiChevronRight"></v-icon>
 							</button>
@@ -171,7 +171,7 @@ const scrollBottom = () => {
 }
 
 /* Блок условий ипотеки */
-.credit {
+.bonus {
 	padding-left: 14px;
 	border-left: 3px solid $accent;
 	margin: 24px 0 16px;

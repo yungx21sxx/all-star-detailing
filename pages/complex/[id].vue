@@ -32,7 +32,6 @@
 	<div class="wrapper">
 		<VBreadcrumbs
 			:items="breadcrumbs"
-		
 		>
 			<template v-slot:divider>
 				<v-icon color="#f1aa34" :icon="mdiChevronRight"></v-icon>
@@ -61,19 +60,20 @@
 	.complex {
 		
 		&__info {
-			margin: 24px 0;
+			margin: 32px 0;
 		}
 		
 		&__time {
 			margin-bottom: 24px;
+			margin-top: 8px;
 		}
 		
 		&__price {
 			display: flex;
-			gap: 8px;
+			gap: 16px;
 			
 			& > * {
-				font-size: 30px;
+				font-size: 28px;
 			}
 			
 			&_prev {

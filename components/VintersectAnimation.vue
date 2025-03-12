@@ -9,7 +9,7 @@ const slideBottomAnimation = {
 			damping: 25,
 			mass: 0.5,
 			duration: 300,
-			delay: 80
+			delay: 100
 		},
 	},
 	initial: {

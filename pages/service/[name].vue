@@ -8,7 +8,6 @@ import PriceTable from "~/components/service-page/PriceTable.vue";
 import {mdiChevronRight} from "@mdi/js";
 
 const service = services.find(service => service.id === route.params.name);
-
 let priceTableTitle: string = '';
 
 switch (route.params.name) {
@@ -23,10 +22,94 @@ switch (route.params.name) {
 		break;
 }
 
-
 useHead({
-	title: `${service.title} в СПб | All Star Detailing`
-})
+	script: [
+		{
+			type: 'application/ld+json',
+			innerHTML: JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Service',
+				'serviceType': service.title,
+				'description': service.description,
+				'offers': {
+					'@type': 'Offer',
+					'priceCurrency': 'RUB',
+					'price': service.price.value,
+					'priceValidUntil': '2025-12-31',
+					'url': `https://all-star-detailing.ru/service/${service.id}`,
+					'priceSpecification': {
+						'@type': 'PriceSpecification',
+						'priceCurrency': 'RUB',
+						'price': service.price.value,
+						'eligibleRegion': {
+							'@type': 'Place',
+							'name': 'Санкт-Петербург'
+						}
+					}
+				},
+				'image': service.img,
+				'additionalType': 'https://schema.org/AutoDetailing',
+				'provider': {
+					'@type': 'Organization',
+					'name': 'All Star Detailing',
+					'url': 'https://all-star-detailing.ru',
+					'logo': 'https://all-star-detailing.ru/logo.webp',
+					'sameAs': 'https://www.instagram.com/allstardetailing'
+				},
+				'mainEntityOfPage': `https://all-star-detailing.ru/service/${service.id}`,
+				'duration': service.time,
+				'priceCurrency': 'RUB',
+				'price':service.price.value,
+			}),
+		},
+	],
+});
+useHead({
+	script: [
+		{
+			type: 'application/ld+json',
+			innerHTML: JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Service',
+				'name': service.title,
+				'description': service.description,
+				'serviceType': service.type || 'Автодетейлинг',
+				'provider': {
+					'@type': 'AutoDetailing',
+					'name': 'All Star Detailing',
+					'url': 'https://all-star-detailing.ru',
+				},
+				'areaServed': {
+					'@type': 'City',
+					'name': 'Санкт-Петербург',
+				},
+				'offers': {
+					'@type': 'Offer',
+					'price': service.price.value,
+					'priceCurrency': 'RUB',
+					'availability': 'https://schema.org/InStock',
+					'url': `https://all-star-detailing.ru/service/${service.id}`,
+				},
+				'image': service.img,
+				'estimatedTime': {
+					'@type': 'QuantitativeValue',
+					'value': service.time,
+				},
+			}),
+		},
+	],
+});
+useSeoMeta({
+	title: `${service.title} в СПб | All Star Detailing`,
+	description: `Время выполнения: ${service.time}. Ознакомьтесь с деталями услуги и фото выполненных работ.`,
+	ogTitle: `${service.title} — All Star Detailing`,
+	ogDescription: `Санкт-Петербург. ${service.title}. Цена: ${service.price.text}. Время выполнения: ${service.time}. Ознакомьтесь с деталями услуги и фото выполненных работ.`,
+	ogImage: service.img,
+	ogType: 'website',
+	ogImageAlt: `${service.title} | All Star Detailing`,
+	ogSiteName: 'All Star Detailing',
+	ogLocale: 'ru_RU',
+});
 
 const breadcrumbs = [
 	{
@@ -62,9 +145,11 @@ const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serv
 				<v-icon color="#f1aa34" :icon="mdiChevronRight"></v-icon>
 			</template>
 		</VBreadcrumbs>
-		<CSlider :photos="service.photos" class="service__slider"/>
+		<UISliderMultiply :fixed-ratio="true" :photos="service.photos" class="service__slider"/>
+
+	
 		<h1 class="service__title title">{{ service.title }}</h1>
-		
+		<div class="under-line mb-6"></div>
 		<div class="service__text server-html" v-html="service.description"/>
 		
 		
@@ -86,26 +171,15 @@ const priceTable: IPriceTable | undefined = PRICE_TABLE.find(table => table.serv
 
 <style scoped lang="scss">
 
-.table {
-	margin-top: 24px;
-	.table__icon img {
-		height: 20px;
-	}
-	
-	.table__service {
-		color: $accent;
-	}
-}
-
 .service {
 	
 	&__info {
-		margin: 24px 0;
+		margin-top: 24px;
+		margin-bottom: 44px;
 	}
 	&__price {
 		font-size: 30px;
-		line-height: 40px;
-		font-weight: bold;
+		font-weight: 500;
 		color: $accent;
 	}
 	&__time {

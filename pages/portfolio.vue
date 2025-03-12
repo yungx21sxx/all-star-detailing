@@ -1,7 +1,7 @@
 <template>
 <main>
 	<MenuMain/>
-	<div class="wrapper clients">
+	<div class="wrapper clients mt-4">
 		<VBreadcrumbs
 			:items="breadcrumbs"
 		
@@ -12,6 +12,7 @@
 		</VBreadcrumbs>
 		<header class="clients__header">
 			<h1 class="title">Портфолио работ</h1>
+			<div class="under-line mb-6"></div>
 			<h2 class="clients__subtitle">
 				Мы имеем огромный опыт в сфере детейлинга и только любящих нас клиентов. <br>
 				Чтобы узнать подробности о проделанной работе - кликнете по фото.
@@ -28,7 +29,7 @@
 					v-if="car.photos.length > 0"
 					class="align-end"
 					height="220"
-					gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.6)"
+					gradient="to bottom, rgba(0,0,0,0.2), rgba(0,0,0,.8)"
 					:src="car.photos[0].urlMin"
 					cover
 				>
@@ -55,6 +56,28 @@ import {mdiChevronRight} from "@mdi/js";
 
 const isAdmin = useAdmin();
 
+useSeoMeta({
+	title: 'Портфолио | All Star Detailing',
+	description: 'Посмотрите примеры выполненных работ в All Star Detailing. Мы работаем с различными автомобилями и применяем передовые технологии детейлинга.',
+	ogTitle: 'Портфолио | All Star Detailing',
+	ogDescription: 'Изучите наше портфолио, чтобы увидеть высококачественные работы по детейлингу автомобилей, выполненные нашими экспертами.',
+	ogImage: 'https://all-star-detailing.ru/main-banner-desktop.webp',
+	ogType: 'website',
+	ogImageAlt: 'Портфолио All Star Detailing',
+	ogSiteName: 'All Star Detailing',
+	ogLocale: 'ru_RU',
+});
+
+useSchemaOrg([
+	defineBreadcrumb({
+		itemListElement: [
+			{ name: 'Главная', item: '/' },
+			{ name: 'Портфолио', item: '/portfolio' },
+		]
+	}),
+])
+
+
 const dialog = ref<boolean>(false)
 const currentClient = ref<ICar>()
 const breadcrumbs = [
@@ -66,7 +89,6 @@ const breadcrumbs = [
 	{
 		title: 'Портфолио',
 		disabled: true,
-		href: '/services',
 	},
 ]
 
@@ -89,8 +111,8 @@ const openDialog = (car: ICar) => {
 	
 	&__car-name {
 		font-size: 18px;
-		color: #f1aa34;
-		margin-bottom: 8px;
+		font-weight: 500;
+		margin-bottom: 12px;
 		margin-right: 16px;
 		margin-left: 16px;
 	}

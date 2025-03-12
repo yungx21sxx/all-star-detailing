@@ -7,10 +7,10 @@ const topServices = [...servicesCustom, ...services].sort((a, b) => a.position -
 </script>
 
 <template>
-    <div class="top-services">
+    <div class="top-services margin-block-end block">
 	    <div class="wrapper">
-		    <h2 class="title">Наши услуги</h2>
-		    <p class="top-services__subtitle">Полный спектр услуг для Вашего автомобиля</p>
+		    <h2 class="title">Полный спектр услуг для Вашего автомобиля</h2>
+		    <div class="under-line"></div>
 		    <div class="grid">
 			    <CService
 				    v-for="service of topServices"
@@ -22,24 +22,12 @@ const topServices = [...servicesCustom, ...services].sort((a, b) => a.position -
 			    <v-btn href="/services" variant="flat" color="#f1aa34" width="250px" class="services__btn">Смотреть все</v-btn>
 		    </div>
 	    </div>
-
     </div>
-
-
 </template>
 
 <style scoped lang="scss">
     .top-services {
-	    margin-top: 40px;
-	    &__subtitle {
-		    font-size: 18px;
-		    text-align: center;
-		    margin-bottom: 30px;
-	    }
-    }
-    .title {
-	    text-align: center;
-	 
+	    margin-bottom: 44px;
     }
     .services__btn {
         margin-left: auto;

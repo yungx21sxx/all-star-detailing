@@ -4,10 +4,10 @@
 </script>
 
 <template>
-    <div class="advantage">
+    <div class="advantage margin-block-end block">
         <div class="wrapper">
-            <h2 class="advantage__title title">Наши преймущества</h2>
-
+            <h2 class="title">ПОЧЕМУ ВЫБИРАЮТ ИМЕННО НАС</h2>
+			<div class="under-line"></div>
             <div class="advantage__list">
                 <div class="advantage__item">
                     <nuxt-icon class="advantage__icon" name="shield"/>
@@ -50,24 +50,22 @@
 
 <style lang="scss" scoped>
     .advantage {
-        margin-top: 40px;
         &__title {
 	        text-align: center;
-            margin-bottom: 24px;
 	        color: $accent;
         }
 
         &__icon {
             display: flex;
             justify-content: center;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             svg {
                 display: block;
             }
         }
 
         &__item {
-            padding: 16px 8px !important;
+            padding: 20px 10px !important;
             display: flex;
             flex-direction: column;
             border-radius: 4px;
