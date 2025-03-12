@@ -158,7 +158,6 @@ export default defineNuxtConfig({
 		url: 'https://all-star-detailing.ru',
 		name: 'All Star Detailing'
 	},
-	compatibilityVersion: 4,
 	unhead: {
 		legacy: true
 	},
