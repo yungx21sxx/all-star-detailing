@@ -9,7 +9,7 @@
 	
 	useSeoMeta({
 		title: `Комплекс услуг: ${complex.title} | All Star Detailing`,
-		description: `Цена ${complex.price.current}. В цену входит: ${complex.included.join(' • ')}`
+		description: `Стоимость: ${complex.price.current}. В цену входит: ${complex.included.join(' • ')}`
 	})
 	
 	

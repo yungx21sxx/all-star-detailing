@@ -13,15 +13,15 @@ import {mdiArrowRight, mdiChevronDown, mdiChevronDownBoxOutline, mdiChevronRight
 	<HeroSectionBackground
 		url="/main-banner-desktop.webp"
 		:overlay="{
-			from: 'rgba(0,0,0,.5)',
-			to: 'rgba(0,0,0,.4)'
+			from: 'rgba(0,3,7,0.5)',
+			to: 'rgba(0,3,7,0.4)'
 		}"
 		:adaptive="{
 			url: '/main-banner-desktop.webp',
 			maxWidth: 600,
 			overlay: {
-				from: 'rgba(0,0,0,.6)',
-				to: 'rgba(0,0,0,.4)'
+				from: 'rgba(0,4,12,.6)',
+				to: 'rgba(0,4,12,.4)'
 			}
 		}"
 		class="hero margin-block-end"

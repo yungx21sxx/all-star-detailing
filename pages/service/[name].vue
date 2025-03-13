@@ -101,9 +101,9 @@ useHead({
 });
 useSeoMeta({
 	title: `${service.title} в СПб | All Star Detailing`,
-	description: `Время выполнения: ${service.time}. Ознакомьтесь с деталями услуги и фото выполненных работ.`,
+	description:  `Самые доступные цены на ${service.title} в Санкт-Петербурге!  в СПб. Стоимость: ${service.price.text}, выполним за ${service.time}. Ознакомьтесь с деталями услуги и фото выполненных работ.`,
 	ogTitle: `${service.title} — All Star Detailing`,
-	ogDescription: `Санкт-Петербург. ${service.title}. Цена: ${service.price.text}. Время выполнения: ${service.time}. Ознакомьтесь с деталями услуги и фото выполненных работ.`,
+	ogDescription: `Самые доступные цены на ${service.title} в Санкт-Петербурге!  в СПб. Стоимость: ${service.price.text}, выполним за ${service.time}. Ознакомьтесь с деталями услуги и фото выполненных работ.`,
 	ogImage: service.img,
 	ogType: 'website',
 	ogImageAlt: `${service.title} | All Star Detailing`,

@@ -142,7 +142,7 @@
 			border-radius: 0;
 		}
 		.video-container {
-			margin: 0 -20px;
+			margin: 0 -16px;
 		}
 		
 		.video-placeholder {

@@ -48,10 +48,10 @@ import { mdiChevronRight } from "@mdi/js";
 const { openSubmitModal } = useModal();
 
 useSeoMeta({
-	title: 'Контакты — All Star Detailing',
+	title: 'Контакты | All Star Detailing',
 	description: 'Свяжитесь с нами для получения подробной информации о наших услугах и записи на детейлинг. Мы находимся в Санкт-Петербурге, пр. Энгельса, 27АБ.',
-	ogTitle: 'Контакты — All Star Detailing',
-	ogDescription: 'Все контактные данные для связи с All Star Detailing. Узнайте, как добраться до нас и записаться на детейлинг.',
+	ogTitle: 'Контакты | All Star Detailing',
+	ogDescription: 'Свяжитесь с нами для получения подробной информации о наших услугах и записи на детейлинг. Мы находимся в Санкт-Петербурге, пр. Энгельса, 27АБ.',
 	ogImage: 'https://all-star-detailing.ru/main-banner-desktop.webp',
 	ogType: 'website',
 	ogImageAlt: 'Контакты All Star Detailing',

@@ -21,16 +21,6 @@ export default defineNuxtConfig({
 			brotli: true, gzip: true
 		},
 	},
-	// hooks: {
-	// 	async "prerender:routes"(ctx) {
-	// 		for (const service of services) {
-	// 			ctx.routes.add(`/service/${service.id}`);
-	// 		}
-	// 		for (const complex of complexes) {
-	// 			ctx.routes.add(`/complex/${complex.id}`);
-	// 		}
-	// 	},
-	// },
 	vite: {
 		build: {
 			rollupOptions: {
@@ -147,19 +137,18 @@ export default defineNuxtConfig({
 			"Montserrat": [300, 400, 500, 600, 700, 800, 900],
 		},
 	},
-	// yandexMetrika: {
-	// 	id: '96041052',
-	// 	clickmap:true,
-	// 	trackLinks:true,
-	// 	accurateTrackBounce:true,
-	// 	webvisor:true
-	// },
+	yandexMetrika: {
+		id: '93029202',
+		clickmap:true,
+		trackLinks:true,
+		accurateTrackBounce:true,
+		webvisor:true,
+		async: true,
+		defer: true,
+	},
 	site: {
 		url: 'https://all-star-detailing.ru',
 		name: 'All Star Detailing'
-	},
-	unhead: {
-		legacy: true
 	},
 	vuetify: {
 		vuetifyOptions: {

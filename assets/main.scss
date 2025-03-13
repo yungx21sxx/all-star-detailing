@@ -6,6 +6,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.v-application {
+  background: oklch(0.209 0 89.876) !important;
+}
+
 .poly-table {
   background: none !important;
 }
@@ -193,7 +197,13 @@ body {
   gap: 16px;
 }
 
-.wrapper, .v-toolbar__content{
+.v-toolbar__content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrapper, {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;

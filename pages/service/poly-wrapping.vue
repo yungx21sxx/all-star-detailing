@@ -110,15 +110,15 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 	<HeroSectionBackground
 		url="/poly-wrapping/banner.webp"
 		:overlay="{
-			from: 'rgba(0,0,0,.6)',
-			to: 'rgba(0,0,0,.3)'
+			from: 'rgba(0,3,7,.6)',
+			to: 'rgba(0,3,7,.3)'
 		}"
 		:adaptive="{
 			url: '/poly-wrapping/banner.webp',
 			maxWidth: 600,
 			overlay: {
-				from: 'rgba(0,0,0,.6)',
-				to: 'rgba(0,0,0,.4)'
+				from: 'rgba(0,3,7,.6)',
+				to: 'rgba(0,3,7,.4)'
 			}
 		}"
 		class="banner block-end-margin"
