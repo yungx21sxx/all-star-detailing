@@ -27,12 +27,13 @@
 			>
 				<v-img
 					v-if="car.photos.length > 0"
-					class="align-end"
+					class="portfolio__item"
 					height="220"
 					gradient="to bottom, rgba(0,0,0,0.2), rgba(0,0,0,.8)"
 					:src="car.photos[0].urlMin"
 					cover
 				>
+					<v-chip @click="openDialog(car)" color="#f1aa34" :append-icon="mdiChevronRight" class="portfolio__chip">Подробнее</v-chip>
 					<h3 class="clients__car-name">{{ car.name }}</h3>
 				</v-img>
 			</v-card>
@@ -106,6 +107,18 @@ const openDialog = (car: ICar) => {
 </script>
 
 <style scoped lang="scss">
+
+.portfolio__chip {
+	position: absolute;
+	top: 12px;
+	right: 16px;
+}
+
+.portfolio__item {
+	display: flex;
+	align-items: flex-end;
+	position: relative;
+}
 
 .clients {
 	
