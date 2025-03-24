@@ -33,7 +33,7 @@
 					:src="car.photos[0].urlMin"
 					cover
 				>
-					<v-chip @click="openDialog(car)" color="#f1aa34" :append-icon="mdiChevronRight" class="portfolio__chip">Подробнее</v-chip>
+					<v-chip variant="flat" @click="openDialog(car)" color="#f1aa34" :append-icon="mdiChevronRight" class="portfolio__chip">Подробнее</v-chip>
 					<h3 class="clients__car-name">{{ car.name }}</h3>
 				</v-img>
 			</v-card>
