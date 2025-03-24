@@ -1,7 +1,7 @@
 <template>
     <NuxtLoadingIndicator color="#f1aa34"/>
     <NuxtLayout>
-	    <NuxtPage :transition="{name: 'page', mode: 'out-in'}" />
+	    <NuxtPage />
 	 
 	    <ModalSubmit/>
 	    <ModalLogin/>
