@@ -13,7 +13,7 @@
 				cover
 				class="advantages__card"
 				src="/poly-wrapping/adv/1.webp"
-				gradient="to bottom, rgba(0,0,0, 0.15), rgba(0,0,0, 0.8)"
+				gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.9)"
 			>
 				<div class="advantage__bottom">
 					<img src="/poly-wrapping/icons/work.svg" class="advantage__icon"/>
@@ -25,7 +25,7 @@
 				cover
 				class="advantages__card"
 				src="/poly-wrapping/adv/2.webp"
-				gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+				gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.9)"
 			>
 				<div class="advantage__bottom">
 					<img src="/poly-wrapping/icons/garanty.svg" class="advantage__icon"/>
@@ -37,7 +37,7 @@
 				cover
 				class="advantages__card"
 				src="/poly-wrapping/adv/3.webp"
-				gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+				gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.9)"
 			>
 				<div class="advantage__bottom">
 					<img src="/poly-wrapping/icons/wrap.svg" class="advantage__icon"/>
@@ -49,7 +49,7 @@
 				cover
 				class="advantages__card"
 				src="/poly-wrapping/adv/4.webp"
-				gradient="to bottom, rgba(0,0,0,0.15), rgba(0,0,0, 0.8)"
+				gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.9)"
 			>
 				<div class="advantage__bottom">
 					<img src="/poly-wrapping/icons/check.svg" class="advantage__icon"/>

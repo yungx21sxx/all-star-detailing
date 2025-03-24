@@ -69,16 +69,16 @@ export const services: IService[] = [
 				</p>
 			</section>
 		`,
-        time: "3-4 часа",
+        time: "10 часов",
         type: "body",
         position: 6,
         img: "/services/wash.webp",
         price: {
-            text: "10 000 ₽",
-            value: 1000,
+            text: "от 10 000 ₽",
+            value: 10000,
         },
         photos: [
-            "/wash/6.jpeg",
+            "/wash/1.jpeg",
             "/wash/3.webp",
             "/wash/1.webp",
             "/wash/2.webp",
@@ -340,15 +340,15 @@ export const PRICE_TABLE: IPriceTable[] = [
             },
         ]
     },
-    {
-        serviceID: 'wash',
-        services: [
-            {
-                name: 'Детейлинг мойка',
-                prices: ['4000', '5000', '6000', '7000']
-            }
-        ]
-    },
+    // {
+    //     serviceID: 'wash',
+    //     services: [
+    //         {
+    //             name: 'Детейлинг мойка',
+    //             prices: ['4000', '5000', '6000', '7000']
+    //         }
+    //     ]
+    // },
     {
         serviceID: 'polish',
         services: [

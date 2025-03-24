@@ -7,14 +7,17 @@ const {isMobileOrTablet} = useDevice();
 
 const {openSubmitModal, openLoginModal} = useModal();
 	
-	const gallery = [
-		'/poly-wrapping/slider/1.webp',
-		'/poly-wrapping/slider/6.webp',
-		'/poly-wrapping/slider/5.jpeg',
-		'/poly-wrapping/slider/10.jpeg',
-		'/poly-wrapping/slider/13.webp',
-		'/poly-wrapping/slider/19.webp',
-	];
+const gallery = [
+	'/poly-wrapping/slider/1.webp',
+	'/poly-wrapping/slider/6.webp',
+	'/poly-wrapping/slider/5.jpeg',
+	'/poly-wrapping/slider/10.jpeg',
+	'/poly-wrapping/slider/14.webp',
+	'/poly-wrapping/slider/40.webp',
+	'/poly-wrapping/slider/13.webp',
+	'/poly-wrapping/slider/24.webp',
+	'/poly-wrapping/slider/19.webp',
+];
 
 const frameLoaded = ref(false);
 	
@@ -110,15 +113,15 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 	<HeroSectionBackground
 		url="/poly-wrapping/banner.webp"
 		:overlay="{
-			from: 'rgba(0,3,7,.6)',
-			to: 'rgba(0,3,7,.3)'
+			from: 'rgba(0,3,7,.7)',
+			to: 'rgba(0,3,7,.5)'
 		}"
 		:adaptive="{
 			url: '/poly-wrapping/banner.webp',
 			maxWidth: 600,
 			overlay: {
-				from: 'rgba(0,3,7,.6)',
-				to: 'rgba(0,3,7,.4)'
+				from: 'rgba(0,3,7,.5)',
+				to: 'rgba(0,3,7,.6)'
 			}
 		}"
 		class="banner block-end-margin"
@@ -268,6 +271,19 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 			</div>
 		
 		</VintersectAnimation>
+		<VintersectAnimation class="gallery block-end-margin block">
+			<div class="wrapper">
+				<h1 class="title">Фото процесса работы</h1>
+				<div class="under-line"></div>
+			</div>
+			<div class="wrapper gallery__slider">
+				<UISliderMultiply :photos="gallery"  mobile-height="380px" desktop-height="500px">
+					<template #action>
+						<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть портфолио</v-btn>
+					</template>
+				</UISliderMultiply>
+			</div>
+		</VintersectAnimation>
 		<VintersectAnimation class="wrapper about block-end-margin block">
 			<div class="desc">
 				<h2 class="title">Професиональная оклейка пленкой по доступным ценам</h2>
@@ -331,6 +347,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 				</div>
 			</div>
 		</VintersectAnimation>
+	
 		<VintersectAnimation class="wrapper advantages block-end-margin block">
 			<h2 class="title">ПОЧЕМУ ВЫБИРАЮТ ИМЕННО НАС</h2>
 			<div class="under-line"></div>
@@ -340,7 +357,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					cover
 					class="advantages__card"
 					src="/poly-wrapping/adv/1.webp"
-					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.8)"
+					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.9)"
 				>
 					<div class="advantage__bottom">
 						<img src="/poly-wrapping/icons/work.svg" class="advantage__icon"/>
@@ -352,7 +369,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					cover
 					class="advantages__card"
 					src="/poly-wrapping/adv/2.webp"
-					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.8)"
+					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.9)"
 				>
 					<div class="advantage__bottom">
 						<img src="/poly-wrapping/icons/garanty.svg" class="advantage__icon"/>
@@ -364,7 +381,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					cover
 					class="advantages__card"
 					src="/poly-wrapping/adv/3.webp"
-					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.8)"
+					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.9)"
 				>
 					<div class="advantage__bottom">
 						<img src="/poly-wrapping/icons/wrap.svg" class="advantage__icon"/>
@@ -376,7 +393,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					cover
 					class="advantages__card"
 					src="/poly-wrapping/adv/4.webp"
-					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.8)"
+					gradient="to bottom, rgba(0,0,0,0.25), rgba(0,0,0, 0.9)"
 				>
 					<div class="advantage__bottom">
 						<img src="/poly-wrapping/icons/check.svg" class="advantage__icon"/>
@@ -385,19 +402,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 				</VImg>
 			</div>
 		</VintersectAnimation>
-		<VintersectAnimation class="gallery block-end-margin block">
-			<div class="wrapper">
-				<h1 class="title">Фото процесса работы</h1>
-				<div class="under-line"></div>
-			</div>
-			<div class="wrapper gallery__slider">
-				<UISliderMultiply :photos="gallery" fixed-ratio aspect-ratio="0.8/1" mobile-height="380px" desktop-height="500px">
-					<template #action>
-						<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть портфолио</v-btn>
-					</template>
-				</UISliderMultiply>
-			</div>
-		</VintersectAnimation>
+	
 		
 		
 		<VintersectAnimation>

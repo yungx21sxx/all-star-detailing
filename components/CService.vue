@@ -22,7 +22,7 @@
 			:src="img"
 			class="align-end product__bg"
 			:alt="title"
-			gradient="to bottom, rgba(0,4,12,0), rgba(0,0,0,.9)"
+			gradient="to bottom, rgba(0,4,12,0), rgba(0,0,0,1)"
 			cover
 			itemprop="image"
 		>

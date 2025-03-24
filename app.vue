@@ -1,7 +1,8 @@
 <template>
     <NuxtLoadingIndicator color="#f1aa34"/>
     <NuxtLayout>
-        <NuxtPage />
+	    <NuxtPage :transition="{name: 'page', mode: 'out-in'}" />
+	 
 	    <ModalSubmit/>
 	    <ModalLogin/>
 	    <ModalLKPage/>
