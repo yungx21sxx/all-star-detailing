@@ -154,15 +154,15 @@ useHead({
 	</VintersectAnimation>
 	<VintersectAnimation class="gallery block-end-margin block">
 		<div class="wrapper">
-			<h1 class="title">Фото процесса работы</h1>
+			<h1 class="title">Наше портфолио</h1>
 			<div class="under-line"></div>
 		</div>
 		<div class="wrapper gallery__slider">
-			<UISliderMultiply :photos="photos" fixed-ratio aspect-ratio="0.8/1">
+			<PortfolioSlider>
 				<template #action>
-					<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть портфолио</v-btn>
+					<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть все</v-btn>
 				</template>
-			</UISliderMultiply>
+			</PortfolioSlider>
 		</div>
 	
 	</VintersectAnimation>

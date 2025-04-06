@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import type {IPriceTable} from "~/types/client";
 import {PRICE_TABLE} from "~/data/services.data";
-import {mdiArrowRight, mdiCheckCircleOutline} from "@mdi/js";
+import {
+	mdiAccountCheckOutline,
+	mdiArrowRight, mdiBookOpenVariant, mdiBrightness7, mdiCalendarCheckOutline,
+	mdiCarWash,
+	mdiCashPlus, mdiCheck,
+	mdiCheckCircleOutline,
+	mdiContentCut, mdiFormatAlignLeft, mdiGauge, mdiGoogle, mdiPalette, mdiPrinter, mdiShape, mdiShield, mdiTune
+} from "@mdi/js";
 
 const {isMobileOrTablet} = useDevice();
 
@@ -107,6 +114,31 @@ const carPartsArray = computed(() => Array.from(carParts.entries()));
 const firstHalf = computed(() => carPartsArray.value.slice(0, Math.ceil(carPartsArray.value.length / 2)));
 const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsArray.value.length / 2)));
 
+const benefits = [
+	"Яркий стиль и индивидуальность на дороге",
+	"Идеальное прилегание к кузову без складок",
+	"Защита ЛКП от сколов и царапин",
+	"Легкое удаление без следов и повреждений",
+];
+
+const protectionBenefits = [
+	"Невидимый барьер от сколов и царапин",
+	"Гидрофобный эффект — грязь и вода не задерживаются",
+	"Защита от выгорания и химических реагентов",
+	"Матовая пленка — стильный и дорогой внешний вид",
+];
+
+const colors = [
+	"#D35400", // Темно-оранжевый (сочетается с акцентным цветом)
+	"#8E44AD", // Глубокий фиолетовый (контрастный и стильный)
+	"#2980B9", // Темно-голубой (не слишком яркий, но хорошо выделяется)
+	"#27AE60", // Глубокий зеленый (приятный и ненавязчивый)
+	"#C0392B", // Темно-красный (сочетается с оранжевым, но не сливается)
+	"#F39C12", // Золотисто-оранжевый (более мягкий акцентный)
+	"#16A085", // Темно-бирюзовый (добавляет разнообразия)
+	"#E74C3C", // Ярко-красный (контрастный и привлекающий внимание)
+];
+
 </script>
 
 <template>
@@ -144,11 +176,19 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 		<VintersectAnimation class="wrapper price block-end-margin block" id="price">
 			<h1 class="title">Цены на оклейку пленкой</h1>
 			<div class="under-line mb-6"></div>
-			<p class="subtitle mb-6">Начислим <strong>1000 бонусов</strong> при регистрации и вернем <strong>5%</strong>
-				от суммы заказа</p>
-			<v-btn @click="openLoginModal('INFO')" class="mb-8" variant="outlined" color="#f1aa34"
-			       :append-icon="mdiArrowRight">Подробнее
-			</v-btn>
+			<p class="subtitle mb-4">Оклейка защитной <strong>прозрачной</strong> или <strong>матовой</strong> пленкой высочайшего качества</p>
+			<v-chip-group class="mb-6">
+				<v-chip :prepend-icon="mdiGoogle">3M</v-chip>
+				<v-chip :prepend-icon="mdiPrinter">Avery Dennison</v-chip>
+				<v-chip :prepend-icon="mdiShield">XPEL</v-chip>
+				<v-chip :prepend-icon="mdiShape">Orafol (Oracal)</v-chip>
+				<v-chip :prepend-icon="mdiBrightness7">Hexis</v-chip>
+				<v-chip :prepend-icon="mdiPalette">Vvivid</v-chip>
+				<v-chip :prepend-icon="mdiBookOpenVariant">KPMF</v-chip>
+				<v-chip :prepend-icon="mdiGauge">Lux Film</v-chip>
+				<v-chip :prepend-icon="mdiTune">Arlon</v-chip>
+				<v-chip :prepend-icon="mdiFormatAlignLeft">Stek</v-chip>
+			</v-chip-group>
 			<div class="price__grid">
 				<div class="card card1" itemscope itemtype="https://schema.org/Product">
 					<h3 class="card__title" itemprop="name">Передняя часть</h3>
@@ -192,7 +232,7 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 							</li>
 							<li class="list-item">
 								<v-icon :icon="mdiCheckCircleOutline" color="#f1aa34"/>
-								<span>передние крылья полностью с подворотами в зону колесной арки и по периметру</span>
+								<span>передние и задние крылья</span>
 							</li>
 							<li class="list-item">
 								<v-icon :icon="mdiCheckCircleOutline" color="#f1aa34"/>
@@ -209,10 +249,6 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 							<li class="list-item">
 								<v-icon :icon="mdiCheckCircleOutline" color="#f1aa34"/>
 								<span>задний бампер</span>
-							</li>
-							<li class="list-item">
-								<v-icon :icon="mdiCheckCircleOutline" color="#f1aa34"/>
-								<span>задние крылья полностью со стойками</span>
 							</li>
 						</ul>
 					</div>
@@ -231,12 +267,10 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					</div>
 				</div>
 			</div>
-			<p class="text mb-6">// Цена зависит класса автомобиля и производителя пленки. Запишитесь на услугу для
-				получения
-				бесплатной консультации</p>
-			<v-btn @click="openSubmitModal('Оклейка защитной пленкой')" class="mb-8" variant="outlined" color="#f1aa34"
-			       :append-icon="mdiArrowRight">Записаться на
-				услугу
+			<p class="subtitle mb-6 mt-8">Начислим <strong>1000 бонусов</strong> при регистрации и вернем <br> <strong>5%</strong>
+				от суммы оказанных услуг</p>
+			<v-btn @click="openLoginModal('INFO')" class="mb-8" variant="outlined" color="#f1aa34"
+			       :append-icon="mdiArrowRight">Подробнее
 			</v-btn>
 			<div class="tables-grid">
 				<v-table class="poly-table">
@@ -269,7 +303,13 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 					</tbody>
 				</v-table>
 			</div>
-		
+			<p class="text mb-6">// Цена зависит класса автомобиля и производителя пленки. Запишитесь на услугу для
+				получения
+				бесплатной консультации</p>
+			<v-btn @click="openSubmitModal('Оклейка защитной пленкой')" class="mb-8" variant="outlined" color="#f1aa34"
+			       :append-icon="mdiArrowRight">Записаться на
+				услугу
+			</v-btn>
 		</VintersectAnimation>
 		<VintersectAnimation class="gallery block-end-margin block">
 			<div class="wrapper">
@@ -278,12 +318,123 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 			</div>
 			<div class="wrapper gallery__slider">
 				<UISliderMultiply :photos="gallery"  mobile-height="380px" desktop-height="500px">
-					<template #action>
-						<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть портфолио</v-btn>
-					</template>
 				</UISliderMultiply>
 			</div>
 		</VintersectAnimation>
+	
+
+		<VintersectAnimation class="gallery block-end-margin block">
+			<div class="wrapper">
+				<h1 class="title">Наше портфолио</h1>
+				<div class="under-line"></div>
+			</div>
+			<div class="wrapper gallery__slider">
+				<PortfolioSlider>
+					<template #action>
+						<v-btn color="#f1aa34" to="/portfolio" :append-icon="mdiArrowRight">Смотреть все</v-btn>
+					</template>
+				</PortfolioSlider>
+			</div>
+		</VintersectAnimation>
+		<VintersectAnimation class="wrapper price block-end-margin block" id="protection-benefits">
+			<h1 class="title">Преимущества защитной пленки</h1>
+			<div class="under-line mb-6"></div>
+			
+			<div class="protection-features">
+				<li
+					class="protection-feature"
+					v-for="(benefit, index) in protectionBenefits"
+					:key="index"
+					:style="{ backgroundColor: colors[index % colors.length] }"
+				>
+					<v-icon :icon="mdiCheckCircleOutline" color="white" />
+					<span>{{ benefit }}</span>
+				</li>
+			</div>
+		</VintersectAnimation>
+		<VintersectAnimation class="bonus block-end-margin block">
+			
+			<div class="wrapper">
+				<h2 class="bonus__title title">Этапы оклейки</h2>
+				<div class="under-line mb-6"></div>
+				<v-timeline
+					class="timeline_desktop"
+					side="end"
+					align="start"
+					direction="horizontal"
+				>
+					<v-timeline-item
+						class="timeline-item"
+						size="large"
+						fill-dot
+						dot-color="#f1aa34"
+						:icon="mdiCarWash"
+					>
+						
+						<h3 class="bonus__subtitle_orange">Подготовка автомобиля</h3>
+						<p>Тщательная мойка, обезжиривание и полировка поверхности. Демонтаж элементов, мешающих оклейке, для идеального прилегания пленки.</p>
+					</v-timeline-item>
+					<v-timeline-item
+						fill-dot
+						size="large"
+						dot-color="#f1aa34"
+						:icon="mdiContentCut"
+					>
+						<h3 class="bonus__subtitle_orange">Нанесение пленки</h3>
+						<p>Аккуратная оклейка каждой детали с использованием профессионального оборудования. Удаление пузырей и складок для идеального результата.</p>
+					</v-timeline-item>
+					<v-timeline-item
+						fill-dot
+						size="large"
+						dot-color="#f1aa34"
+						:icon="mdiCheck"
+					>
+						<h3 class="bonus__subtitle_orange">Финальная обработка</h3>
+						<p>Фиксация пленки с помощью тепловой обработки. Проверка качества, сборка демонтированных элементов и выдача автомобиля клиенту.</p>
+					</v-timeline-item>
+				
+				</v-timeline>
+				<v-timeline
+					class="timeline_mobile"
+					side="end"
+					align="start"
+					direction="vertical"
+				>
+					<v-timeline-item
+						class="timeline-item"
+						size="large"
+						fill-dot
+						dot-color="#f1aa34"
+						:icon="mdiCarWash"
+					>
+						
+						<h3 class="bonus__subtitle_orange">Подготовка автомобиля</h3>
+						<p>Тщательная мойка, обезжиривание и полировка поверхности. Демонтаж элементов, мешающих оклейке, для идеального прилегания пленки.</p>
+					</v-timeline-item>
+					<v-timeline-item
+						fill-dot
+						size="large"
+						dot-color="#f1aa34"
+						:icon="mdiContentCut"
+					>
+						<h3 class="bonus__subtitle_orange">Нанесение пленки</h3>
+						<p>Аккуратная оклейка каждой детали с использованием профессионального оборудования. Удаление пузырей и складок для идеального результата.</p>
+					</v-timeline-item>
+					<v-timeline-item
+						fill-dot
+						size="large"
+						dot-color="#f1aa34"
+						:icon="mdiCheck"
+					>
+						<h3 class="bonus__subtitle_orange">Финальная обработка</h3>
+						<p>Фиксация пленки с помощью тепловой обработки. Проверка качества, сборка демонтированных элементов и выдача автомобиля клиенту.</p>
+					</v-timeline-item>
+				
+				</v-timeline>
+			
+			</div>
+		</VintersectAnimation>
+		
 		<VintersectAnimation class="wrapper about block-end-margin block">
 			<div class="desc">
 				<h2 class="title">Професиональная оклейка пленкой по доступным ценам</h2>
@@ -411,12 +562,214 @@ const secondHalf = computed(() => carPartsArray.value.slice(Math.ceil(carPartsAr
 		<VintersectAnimation class="wrapper">
 			<ContactsBlock/>
 		</VintersectAnimation>
+		<VintersectAnimation class="wrapper vinyl block">
+			<div class="vinil-wrapping margin-block-end">
+				<v-img style="border-radius: 7px" class="service__img" src="/vinyl-wrapping/slider/4.webp" cover alt="ОКЛЕЙКА АВТО ПОЛИУРЕТАНОВОЙ ПЛЕНКОЙ"/>
+				<section>
+					<h2 class="title service__title_white">
+						Оклейка цветной пленкой
+					</h2>
+					<div class="under-line mb-6"></div>
+					<div class="benefits">
+						<li
+							class="benefit-item"
+							v-for="(benefit, index) in benefits"
+							:key="index"
+							:style="{ backgroundColor: colors[index % colors.length] }"
+						>
+							<v-icon :icon="mdiCheckCircleOutline" color="white" />
+							<span>{{ benefit }}</span>
+						</li>
+					
+					</div>
+					<div class="benefit-item consultation">
+						<v-icon class="consultation__icon" size="26px" :icon="mdiCalendarCheckOutline" color="white" />
+						<div>
+							<p>Запишитесь на услуги для бесплатной консультации и подбора вариантов оклейки</p>
+							<v-btn  class="mt-6" variant="outlined" color="#f1aa34" @click="openSubmitModal('Полировка кузова')">Записаться на услугу</v-btn>
+						</div>
+						
+					</div>
+					
+				</section>
+			
+			</div>
+			
+		</VintersectAnimation>
 	</main>
 	
 </template>
 
 <style scoped lang="scss">
 $display-sm: 600px;
+
+
+.vinil-wrapping {
+	display: grid;
+	grid-template-columns: 1fr;
+	align-items: center;
+	gap: 32px;
+	@media (min-width: 800px) {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.protection-features {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 16px;
+}
+
+.protection-feature {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	font-size: 16px;
+	font-weight: 500;
+	color: white;
+}
+
+.protection-feature:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.benefits {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 16px;
+}
+
+.benefit-item.purple {
+	background: #6a0dad; /* Фиолетовый */
+}
+
+.benefit-item.dark-orange {
+	background: #d35400; /* Тёмно-оранжевый */
+}
+
+.benefit-item:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* CTA-блок */
+
+
+.benefit-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px;
+	background: #1E1E1E;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.consultation {
+	background: #1e1e1e;
+	font-weight: bold;
+	padding: 16px;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 16px;
+	margin-top: 24px;
+	
+	&:hover {
+		transform: translateY(0px) !important;
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0) !important;
+	}
+	
+	&__icon {
+		margin-top: 8px;
+	}
+}
+
+.benefit-item:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.service__columns {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+}
+
+
+.timeline_desktop {
+	display: grid;
+}
+
+.timeline_mobile {
+	display: none;
+}
+
+p {
+	color: rgba(255,255,255,.9);
+}
+
+@media screen and (max-width: 860px) {
+	.timeline_desktop {
+		display: none;
+	}
+	
+	.timeline_mobile {
+		display: grid;
+		margin-left: -20px;
+	}
+}
+
+
+strong {color: $accent}
+.bonus {
+	background: #1e1e1e;
+	padding: 54px 0;
+	
+	&__subtitle {
+		
+		&_orange {
+			//color: #f1aa34;
+			margin-bottom: 12px;
+			font-size: 18px;
+			font-weight: 600;
+		}
+		&_white {
+			font-size: 20px;
+			font-weight: 500;
+			margin-bottom: 32px;
+			margin-top: 8px;
+			
+			
+		}
+	}
+	@media screen and (max-width: 600px){
+		padding: 40px 0;
+		.bonus__subtitle_white {
+			font-size: 18px;
+			
+		}
+	}
+	
+	&__btn {
+		margin-top: 16px;
+	}
+}
+
+.mb {
+	margin-bottom: 16px;
+}
+
+.v-timeline--vertical.v-timeline {
+	height: auto !important;
+}
 
 .video-placeholder {
 	height: 650px;
@@ -583,19 +936,7 @@ $display-sm: 600px;
 	&__description {
 		margin-top: 16px;
 	}
-	
-	.card__list {
-		list-style: none;
-		
-		.list-item {
-			display: flex;
-			align-items: center;
-			gap: 8px;
-			margin-bottom: 12px;
-			
-		}
-		
-	}
+
 	
 	@media screen and (max-width: 600px) {
 		&__title {
@@ -611,6 +952,18 @@ $display-sm: 600px;
 		&__description {
 			font-size: 14px;
 		}
+	}
+}
+
+
+.card__list, .list-vinyl {
+	list-style: none;
+	
+	.list-item {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 12px;
 	}
 }
 
