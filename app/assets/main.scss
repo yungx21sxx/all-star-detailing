@@ -1,0 +1,247 @@
+@use 'var' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.v-application {
+  background: oklch(0.209 0 89.876) !important;
+}
+
+.poly-table {
+  background: none !important;
+}
+
+*,
+html,
+body {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+* {
+  font-family: 'Montserrat', serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.nuxt-icon {
+  svg {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.mt-2 {
+  margin-top: 8px !important;
+}
+
+.mt-4 {
+  margin-top: 16px !important;
+}
+
+.mt-6 {
+  margin-top: 24px !important;
+}
+
+.mt-8 {
+  margin-top: 32px !important;
+}
+
+.mb-2 {
+  margin-bottom: 8px !important;
+}
+
+.mb-4 {
+  margin-bottom: 16px !important;
+}
+
+.mr-2 {
+  margin-right: 8px !important;
+}
+
+.mb-6 {
+  margin-bottom: 24px !important;
+}
+
+.mb-8 {
+  margin-bottom: 32px !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.advantage__icon {
+  color: $accent !important;
+}
+
+.call-buttons__icon {
+  color: $accent;
+  svg {
+    display: block;
+    height: 20px !important;
+    width: auto !important;
+  }
+}
+
+.advantage__icon svg {
+  @media screen and (max-width: 760px) {
+    height: 35px !important;
+  }
+
+  height: 45px !important;
+  width: auto !important;
+}
+
+.nav__icon {
+  svg {
+    height: 25px !important;
+    width: auto !important;
+    margin-right: 12px;
+    color: $accent;
+  }
+}
+
+.banner__arrow svg {
+  height: 20px !important;
+  width: auto !important;
+}
+.title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: rgba(white, 0.95);
+  font-weight: 600;
+}
+
+.margin-block-end {
+  margin-bottom: 54px !important;
+}
+
+.block-end-margin {
+  margin-bottom: 54px !important;
+}
+.block .under-line {
+  margin-bottom: 32px;
+}
+
+.under-line {
+  height: 4px;
+  width: 168px;
+  background: $accent;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .block .under-line {
+    margin-bottom: 32px;
+  }
+  .block-end-margin {
+    margin-bottom: 40px !important;
+  }
+  .margin-block-end {
+    margin-bottom: 40px !important;
+  }
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  @media screen and (max-width: 760px) {
+    font-size: 16px !important;
+  }
+}
+
+.card {
+  padding: 16px;
+  background: $bg-card;
+  border-radius: 4px;
+  max-width: 350px;
+}
+
+.full-screen-card {
+  padding: $margin-block-end 0;
+  background: $bg-card;
+}
+
+.v-breadcrumbs {
+  padding: 16px 0 !important;
+}
+
+.v-breadcrumbs-item--link {
+  @media screen and (max-width: 700px) {
+    font-size: 14px;
+  }
+}
+
+.grid {
+  display: grid;
+  @media screen and (max-width: 350px) {
+    grid-template-columns: 1fr;
+  }
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.v-toolbar__content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  @media screen and (max-width: 1210px) {
+    padding: 0 16px;
+  }
+}
+
+.vc-highlight-bg-solid {
+  border-radius: 7px !important;
+  background: rgba($accent, 0.9) !important;
+  color: #1a1a1a !important;
+  user-select: none;
+}
+
+.tiptap {
+  margin-top: 24px;
+  padding: 8px;
+}
+
+.server-html,
+.tiptap {
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: rgba(white, 0.95);
+    font-weight: 600;
+  }
+  p {
+    margin-bottom: 8px;
+  }
+
+  strong {
+    color: $accent;
+    margin-right: 4px;
+  }
+  ul {
+    margin: 0 0 16px 16px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+}
+
+.v-timeline-item__body {
+  align-self: flex-start !important;
+}

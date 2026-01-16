@@ -1,12 +1,12 @@
 export default defineEventHandler(async (event) => {
-    const config = useRuntimeConfig();
+  const config = useRuntimeConfig();
 
-    deleteCookie(event, config.cookieName, {
-        httpOnly: true,
-        path: "/",
-        sameSite: "strict",
-        secure: process.env.NODE_ENV === "production",
-    });
+  deleteCookie(event, config.cookieName, {
+    httpOnly: true,
+    path: '/',
+    sameSite: 'strict',
+    secure: process.env.NODE_ENV === 'production',
+  });
 
-    return null;
+  return null;
 });
